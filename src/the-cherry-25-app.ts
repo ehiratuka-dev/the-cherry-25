@@ -16,7 +16,7 @@ export class TheCherry25App extends LitElement {
 
 	render() {
 		return html`
-			<div class="container stretch-w">
+			<div class="container">
 				${ this.router.outlet() }
 			</div>`
 	}
@@ -24,14 +24,14 @@ export class TheCherry25App extends LitElement {
 	static styles = css`
 		.container {
 			max-width: 1080px;
-
-			background-color: white;
 			min-height: 100vh;
 
 			display: flex;
 			flex-direction: column;
 			align-items: center;
 			justify-content: flex-start;
+
+			background-color: var(--container-color);
 		}
 			
 		.container * {

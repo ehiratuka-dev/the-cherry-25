@@ -9,7 +9,7 @@ export class ModelHeaderComponent extends LitElement {
     render() {
         return html`
             <div class="image-container">
-                <img src="../profiles/@${ this.id }/@${ this.id } notion.png" />
+                <img src="../profiles/@${ this.id }/@${ this.id } notion-banner.png" />
             </div>
 
             <a href="../models">Voltar</a>
@@ -25,7 +25,27 @@ export class ModelHeaderComponent extends LitElement {
             left: var(--espacamento);
             top: var(--espacamento);
             text-decoration: none;
-            color: white;
+            color: var(--primary-text-color);
+
+            font-size: 1rem;
+        }
+            
+        @media (min-width: 540px) {
+            a {
+                font-size: 1.2rem;
+            }
+        }
+            
+        @media (min-width: 810px) {
+            a {
+                font-size: 1.4rem;
+            }
+        }
+            
+        @media (min-width: 1080px) {
+            a {
+                font-size: 1.6rem;
+            }
         }
 
         icon-component {
@@ -40,7 +60,7 @@ export class ModelHeaderComponent extends LitElement {
             position: absolute;
             right: var(--espacamento);
 
-            color: white;
+            color: var(--primary-text-color);
             margin: 0;
             padding: 0;
         }

@@ -36,6 +36,27 @@ a:hover, a:focus {
 
 /**********************************
  * 
+ * Definição de Variáveis
+ *
+ **********************************/
+:root {
+    --espacamento: 12px;
+    --raio-de-borda: 12px;
+
+    /******************************
+     *
+     * Cores
+     *
+     ******************************/
+     --page-color: #212529;
+     --container-color: #343A40;
+     --primary-text-color: #DEE2E6;
+
+     --primary-color: #0D6EFD;
+}
+
+/**********************************
+ * 
  * Definição de Paineis
  *
  **********************************/
@@ -45,21 +66,9 @@ a:hover, a:focus {
     align-items: flex-start;
     justify-content: center;
 
-    background-color: #F1F1F1;
+    background-color: var(--page-color);
 }
 
 the-cherry-25-app {
     width: 1080px;
-}
-
-/**********************************
- * 
- * Definição de Variáveis
- *
- **********************************/
-:root {
-    --espacamento: 24px;
-
-    --primary-text-color: white;
-    --border-color: #F1F1F1;
 }

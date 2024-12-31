@@ -30,24 +30,24 @@ export class IconComponent extends LitElement {
             
         @media (min-width: 540px) {
             p {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
             }
         }
             
         @media (min-width: 810px) {
             p {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
         }
             
         @media (min-width: 1080px) {
             p {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
         }
 
         img {
-            border: 5px solid var(--border-color);
+            border: 5px solid var(--primary-text-color);
             border-radius: 100%;
 
             min-width: 120px;

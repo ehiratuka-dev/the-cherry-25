@@ -41,10 +41,10 @@ export class ModelPage extends LitElement {
     }
     static styles = css`
         .container {
-            background-color: black;
+            background-color: var(--container-color);
             min-height: 100vh;
             position: relative;
-            color: white;
+            color: var(--primary-text-color);
         }
             
         .feed {

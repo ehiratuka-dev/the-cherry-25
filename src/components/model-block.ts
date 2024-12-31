@@ -13,7 +13,7 @@ export class ModelBlock extends LitElement {
 	render() {
 		return html`
 			<div class="bloco" @click=${this._onClick}>
-				<img src="profiles/@${ this.tag }/@${ this.tag } notion.png" />
+				<img src="profiles/@${ this.tag }/@${ this.tag } notion-banner.png" />
 				<p>@${ this.tag }</p>
 			</div>`
 	}
@@ -29,27 +29,28 @@ export class ModelBlock extends LitElement {
 			transition: box-shadow 0.3s ease;
 			box-shadow: none;
 
-			border: 1px solid rgba(0,0,0,0.25);
-			border-radius: 12px;
+			border-radius: var(--raio-de-borda);
 
 			cursor: pointer;
-		}
-
-		.bloco:hover {
-			box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.25);
 		}
 
 		.bloco img {
 			height: 150px;
 			object-fit: cover;
-			border-top-left-radius: 12px;
-			border-top-right-radius: 12px;
+			border-top-left-radius: var(--raio-de-borda);
+			border-top-right-radius: var(--raio-de-borda);
 		}
 
 		.bloco p {
 			margin: 0;
-			padding: 0 12px;
+			padding: 0 var(--espacamento);
 			line-height: 40px;
+
+			background-color: var(--primary-color);
+			color: var(--primary-text-color);
+
+			border-bottom-left-radius: var(--raio-de-borda);
+			border-bottom-right-radius: var(--raio-de-borda);
 		}`
 }
 

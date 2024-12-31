@@ -38,12 +38,12 @@ export class ModelsPage extends LitElement {
     }
     static styles = css`
         .container {
-            padding: 0 12px;
+            padding: 0 var(--espacamento);
         }
 
         .secao {
-            padding: 48px 0 12px 0;
-            gap: 12px;
+            padding: 48px 0 var(--espacamento) 0;
+            gap: var(--espacamento);
             width: 100%;
             height: auto;
         
@@ -52,9 +52,11 @@ export class ModelsPage extends LitElement {
         }
 
         .secao p {
-            font-size: 24px;
             margin: 0px;
             padding: 0px;
+
+			color: var(--primary-text-color);
+            font-size: 2rem;
         }
         
         .lista-blocos {
@@ -63,7 +65,7 @@ export class ModelsPage extends LitElement {
         
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: var(--espacamento);
         }`
 }
 
