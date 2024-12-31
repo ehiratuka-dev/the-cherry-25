@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/*********************************
+ * 
+ * Modificadores de Padronização
+ *
+ *********************************/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: "Roboto", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+  
+a:hover, a:focus {
+    text-decoration: none;
+    color: inherit;
+}
+
+/**********************************
+ * 
+ * Definição de Paineis
+ *
+ **********************************/
+ body {
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    background-color: #F1F1F1;
+}
+
+the-cherry-25-app {
+    width: 1080px;
+}
+
+/**********************************
+ * 
+ * Definição de Variáveis
+ *
+ **********************************/
+:root {
+    --espacamento: 24px;
+
+    --primary-text-color: white;
+    --border-color: #F1F1F1;
+}
