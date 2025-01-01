@@ -23,9 +23,9 @@ export class ProfileManager {
 			},
 		});
 		const dataTxt = await response.text();
-		const dataYaml: Profile = yaml.load(dataTxt);
+		const dataYaml = yaml.load(dataTxt);
 
-		dataYaml.pessoas.forEach((pessoa: Profile) => {
+		(dataYaml as { pessoas: Profile[]}).pessoas.forEach((pessoa: Profile) => {
 			this.profiles.push(pessoa);
 		});
 	}
