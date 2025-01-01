@@ -56,7 +56,7 @@ export class ModelsPage extends LitElement {
             padding: 0px;
 
 			color: var(--primary-text-color);
-            font-size: 2rem;
+            font-size: var(--tamanho-do-titulo);
         }
         
         .lista-blocos {

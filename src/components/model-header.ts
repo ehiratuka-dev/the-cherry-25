@@ -27,25 +27,7 @@ export class ModelHeaderComponent extends LitElement {
             text-decoration: none;
             color: var(--primary-text-color);
 
-            font-size: 1rem;
-        }
-            
-        @media (min-width: 540px) {
-            a {
-                font-size: 1.2rem;
-            }
-        }
-            
-        @media (min-width: 810px) {
-            a {
-                font-size: 1.4rem;
-            }
-        }
-            
-        @media (min-width: 1080px) {
-            a {
-                font-size: 1.6rem;
-            }
+            font-size: var(--tamanho-do-subtitulo);
         }
 
         icon-component {
@@ -75,7 +57,6 @@ export class ModelHeaderComponent extends LitElement {
             height: 350px;
             margin: 0 0 0 0;
             object-fit: cover;
-            object-
         }
 
         .image-container::after {

@@ -25,25 +25,7 @@ export class IconComponent extends LitElement {
             margin: 0 0 0 var(--espacamento);
             padding: 0;
             color: var(--primary-text-color);
-            font-size: 1rem;
-        }
-            
-        @media (min-width: 540px) {
-            p {
-                font-size: 1.4rem;
-            }
-        }
-            
-        @media (min-width: 810px) {
-            p {
-                font-size: 1.8rem;
-            }
-        }
-            
-        @media (min-width: 1080px) {
-            p {
-                font-size: 2rem;
-            }
+            font-size: var(--tamanho-do-titulo);
         }
 
         img {
