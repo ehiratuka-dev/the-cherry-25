@@ -1,5 +1,6 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
+import { montarIcon } from '../utils/mount-url';
 
 @customElement('icon-component')
 export class IconComponent extends LitElement {
@@ -9,7 +10,7 @@ export class IconComponent extends LitElement {
     render() {
         return html`
             <div class="icon-container">
-                <img src="../profiles/@${ this.id }/@${ this.id } notion-icon.jpg" />
+                ${ montarIcon(this.id) }
                 <p>@${ this.id }</p>
             </div>`
     }

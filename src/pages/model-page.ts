@@ -5,6 +5,7 @@ import '../components/icon-component';
 import { Post, Profile, ProfileManager } from '../utils/profile-manager';
 import { repeat } from 'lit/directives/repeat.js';
 import '../components/model-header'
+import { montarFeed } from '../utils/mount-url';
 
 @customElement('model-page')
 export class ModelPage extends LitElement {
@@ -34,7 +35,7 @@ export class ModelPage extends LitElement {
                 
                 <div class="feed">
                     ${repeat(this.profile ? this.profile.feed : [], (post: Post) => post.data, (post) => html`
-                        <img src="../profiles/@${ this.profile?.id }/@${ this.profile?.id } feed-${ post.sequencial ? post.data + '-' + post.sequencial : post.data }.jpg"/>
+                        ${ montarFeed(this.id, post) }
                     `)}
                 </div>
             </div>`

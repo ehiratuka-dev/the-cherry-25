@@ -1,5 +1,6 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
+import { montarBanner } from '../utils/mount-url';
 
 @customElement('model-header-component')
 export class ModelHeaderComponent extends LitElement {
@@ -9,7 +10,7 @@ export class ModelHeaderComponent extends LitElement {
     render() {
         return html`
             <div class="image-container">
-                <img src="../profiles/@${ this.id }/@${ this.id } notion-banner.png" />
+                ${ montarBanner(this.id) }
             </div>
 
             <a href="../models">Voltar</a>

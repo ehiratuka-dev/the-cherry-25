@@ -1,5 +1,6 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
+import { montarBanner } from '../utils/mount-url';
 
 @customElement('model-block')
 export class ModelBlock extends LitElement {
@@ -13,7 +14,7 @@ export class ModelBlock extends LitElement {
 	render() {
 		return html`
 			<div class="bloco" @click=${this._onClick}>
-				<img src="profiles/@${ this.tag }/@${ this.tag } notion-banner.png" />
+				${ montarBanner(this.tag) }
 				<p>@${ this.tag }</p>
 			</div>`
 	}
