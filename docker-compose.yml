@@ -5,9 +5,9 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - ./dist:/usr/share/nginx/html
+      - ./dist:/share/webapp
       - ./server.conf:/etc/nginx/conf.d/default.conf
-      - the-cherry-25-volume:/usr/share/nginx/data
+      - the-cherry-25-volume:/share/data
 
 volumes:
   the-cherry-25-volume:
