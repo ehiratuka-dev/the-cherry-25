@@ -23,7 +23,7 @@ export class TheCherry25App extends LitElement {
 
 	static styles = css`
 		.container {
-			max-width: 1080px;
+			max-width: var(--largura-do-app);
 			min-height: 100vh;
 			margin: 0 auto;
 

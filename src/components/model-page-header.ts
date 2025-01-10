@@ -49,8 +49,8 @@ export class ModelPageHeaderComponent extends LitElement {
         .back-link {
             display: block;
             position: absolute;
-            top: 12px;
-            left: 12px;
+            top: var(--espacamento);
+            left: var(--espacamento);
         }
 
         .back-link a {
@@ -64,7 +64,7 @@ export class ModelPageHeaderComponent extends LitElement {
             display: flex;
             position: relative;
             margin-top: min(calc(-20% / 2), calc(-120px / 2));
-            padding: 0 12px;
+            padding: 0 var(--espacamento);
         }
 
         .header-info img {

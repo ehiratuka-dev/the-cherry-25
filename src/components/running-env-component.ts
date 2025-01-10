@@ -21,8 +21,8 @@ export class RunningEnvComponent extends LitElement {
 
             text-align: center;
             width: 100%;
-            max-width: calc(1080px - 24px);
-            padding: 12px 12px;
+            max-width: calc(var(--largura-do-app) - var(--espacamento) - var(--espacamento));
+            padding: var(--espacamento);
 
             display: none;
             position: fixed;

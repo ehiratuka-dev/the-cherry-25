@@ -4,7 +4,6 @@ import { customElement, property, state } from 'lit/decorators.js'
 import { Profile, ProfileManager } from '../utils/profile-manager';
 
 import '../components/model-page-header'
-import '../components/model-page-recs25-feed'
 import '../components/model-page-generic-feed'
 
 @customElement('model-page')

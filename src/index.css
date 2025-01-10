@@ -42,6 +42,7 @@ a:hover, a:focus {
 :root {
     --espacamento: 12px;
     --raio-de-borda: 12px;
+    --largura-do-app: 1080px;
 
     --tamanho-do-titulo: 1.4rem;
     --tamanho-do-subtitulo: 1.2rem;
@@ -53,7 +54,7 @@ a:hover, a:focus {
         --tamanho-do-titulo: 1.8rem;
         --tamanho-do-subtitulo: 1.4rem;
     }
-    @media (min-width: 1080px) {
+    @media (min-width: var(----largura-do-app)) {
         --tamanho-do-titulo: 2rem;
         --tamanho-do-subtitulo: 1.5rem;
     }
@@ -80,5 +81,5 @@ a:hover, a:focus {
 }
 
 the-cherry-25-app {
-    width: 1080px;
+    width: var(--largura-do-app);
 }
