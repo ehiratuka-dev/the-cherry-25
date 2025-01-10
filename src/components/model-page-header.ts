@@ -2,8 +2,10 @@ import { LitElement, css, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 import { montarBanner } from '../utils/mount-url';
 
-@customElement('model-header-component')
-export class ModelHeaderComponent extends LitElement {
+import './icon-component';
+
+@customElement('model-page-header')
+export class ModelPageHeaderComponent extends LitElement {
     @property()
     id: string = '';
 
@@ -70,10 +72,4 @@ export class ModelHeaderComponent extends LitElement {
             background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
             pointer-events: none;
         }`
-}
-
-declare global {
-    interface HTMLElementTagNameMap {
-        'model-header-component': ModelHeaderComponent
-    }
 }

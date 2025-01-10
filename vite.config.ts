@@ -1,6 +1,13 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
-    plugins: [
-    ]
+    server: {
+      watch: {
+        usePolling: true,
+        interval: 100,
+      },
+      host: true,
+      port: 3000,
+      strictPort: true,
+    },
 });

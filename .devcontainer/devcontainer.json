@@ -1,7 +1,7 @@
 {
     "name": "The Cherry 25",
     "image": "mcr.microsoft.com/devcontainers/typescript-node:22",
-    "appPort": [4173, 5173],
+    "appPort": [3000],
     "customizations": {
         "vscode": {
             "settings": {

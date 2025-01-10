@@ -38,9 +38,3 @@ export class TheCherry25App extends LitElement {
 			width: 100%;
 		}`
 }
-
-declare global {
-	interface HTMLElementTagNameMap {
-		'the-cherry-25-app': TheCherry25App
-	}
-}

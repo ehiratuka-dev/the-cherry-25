@@ -54,9 +54,3 @@ export class ModelBlock extends LitElement {
 			border-bottom-right-radius: var(--raio-de-borda);
 		}`
 }
-
-declare global {
-	interface HTMLElementTagNameMap {
-		'model-block': ModelBlock
-	}
-}

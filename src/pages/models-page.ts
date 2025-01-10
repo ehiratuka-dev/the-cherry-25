@@ -29,7 +29,7 @@ export class ModelsPage extends LitElement {
                 <div class="secao">
                     <p class="font-subtitle">Profiles</p>
                     <div class="lista-blocos">
-                        ${repeat(this.profiles, (profile: Profile) => profile.id, (profile) => html`
+                        ${repeat(this.profiles.filter(profile => profile.hidden === false), (profile: Profile) => profile.id, (profile) => html`
                             <model-block tag="${ profile.id }"></model-block> <!-- ${ profile.id } -->
                         `)}
                     </div>
@@ -67,10 +67,4 @@ export class ModelsPage extends LitElement {
             flex-wrap: wrap;
             gap: var(--espacamento);
         }`
-}
-
-declare global {
-    interface HTMLElementTagNameMap {
-        'models-page': ModelsPage
-    }
 }

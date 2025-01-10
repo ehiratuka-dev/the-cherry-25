@@ -7,7 +7,7 @@ export class RunningEnvComponent extends LitElement {
     id: string = '';
 
     render() {
-        return html`<div class="${ import.meta.env.MODE }">Running in ${ import.meta.env.MODE }</div>`
+        return html`<div class="${ import.meta.env.MODE }">Running on ${ import.meta.env.MODE }</div>`
     }
 
     static styles = css`
@@ -29,10 +29,4 @@ export class RunningEnvComponent extends LitElement {
         div.development {
             display: block;
         }`
-}
-
-declare global {
-    interface HTMLElementTagNameMap {
-        'running-env-component': RunningEnvComponent
-    }
 }

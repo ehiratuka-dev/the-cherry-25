@@ -1,11 +1,11 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, property, state } from 'lit/decorators.js'
 
-import '../components/icon-component';
-import { Post, Profile, ProfileManager } from '../utils/profile-manager';
-import { repeat } from 'lit/directives/repeat.js';
-import '../components/model-header'
-import { montarFeed } from '../utils/mount-url';
+import { Profile, ProfileManager } from '../utils/profile-manager';
+
+import '../components/model-page-header'
+import '../components/model-page-recs25-feed'
+import '../components/model-page-generic-feed'
 
 @customElement('model-page')
 export class ModelPage extends LitElement {
@@ -14,10 +14,6 @@ export class ModelPage extends LitElement {
 
     @state()
     profile: Profile | undefined = undefined;
-    
-    constructor() {
-        super();
-    }
 
     connectedCallback() {
         super.connectedCallback();
@@ -31,13 +27,9 @@ export class ModelPage extends LitElement {
     render() {
         return html`
             <div class="container">
-                <model-header-component id=${ this.id }></model-header-component>
-                
-                <div class="feed">
-                    ${repeat(this.profile ? this.profile.feed : [], (post: Post) => post.data, (post) => html`
-                        ${ montarFeed(this.id, post) }
-                    `)}
-                </div>
+                <model-page-header id=${ this.id }></model-page-header>
+                <model-page-generic-feed .assets=${ this.profile?.socialMedia }></model-page-generic-feed>
+                <model-page-generic-feed .assets=${ this.profile?.recs25 }></model-page-generic-feed>
             </div>`
     }
     static styles = css`
@@ -46,20 +38,5 @@ export class ModelPage extends LitElement {
             min-height: 100vh;
             position: relative;
             color: var(--primary-text-color);
-        }
-            
-        .feed {
-            margin-top: calc(250px + max(130px, 20%) - 350px);
-            padding: var(--espacamento)
-        }
-            
-        img {
-            width: 150px;
         }`
-}
-
-declare global {
-    interface HTMLElementTagNameMap {
-        'model-page': ModelPage
-    }
 }

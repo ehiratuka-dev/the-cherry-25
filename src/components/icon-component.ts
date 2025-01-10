@@ -38,9 +38,3 @@ export class IconComponent extends LitElement {
             height: auto;
         }`
 }
-
-declare global {
-    interface HTMLElementTagNameMap {
-        'icon-component': IconComponent
-    }
-}
