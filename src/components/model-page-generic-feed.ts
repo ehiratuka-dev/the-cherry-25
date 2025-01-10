@@ -24,7 +24,7 @@ export class ModelPageGenericFeed<T extends AssetType> extends LitElement {
 
     static styles = css`
         .feed {
-            padding: var(--espacamento)
+            padding: var(--espacamento);
         }
             
         img {

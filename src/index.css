@@ -76,11 +76,6 @@ a:hover, a:focus {
  *
  **********************************/
  body {
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
     background-color: var(--page-color);
 }
 

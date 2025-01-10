@@ -25,6 +25,7 @@ export class TheCherry25App extends LitElement {
 		.container {
 			max-width: 1080px;
 			min-height: 100vh;
+			margin: 0 auto;
 
 			display: flex;
 			flex-direction: column;

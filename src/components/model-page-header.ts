@@ -1,6 +1,5 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
-import { montarBanner } from '../utils/mount-url';
 
 import './icon-component';
 
@@ -12,50 +11,24 @@ export class ModelPageHeaderComponent extends LitElement {
     render() {
         return html`
             <div class="image-container">
-                ${ montarBanner(this.id) }
+                <img src="../data/Social%20Media/@${ this.id }/@${ this.id } notion-banner.png" />
+
+                <div class="back-link">
+                    <a href="../models">Voltar</a>
+                </div>
             </div>
 
-            <a href="../models">Voltar</a>
-
-            <icon-component id=${ this.id }>
-            </icon-component>`
+            <div class="header-info">
+                <img src="../data/Social%20Media/@${ this.id }/@${ this.id } notion-icon.jpg" />
+            </div>`
     }
 
     static styles = css`
-
-        a {
-            position: absolute;
-            left: var(--espacamento);
-            top: var(--espacamento);
-            text-decoration: none;
-            color: var(--primary-text-color);
-
-            font-size: var(--tamanho-do-subtitulo);
-        }
-
-        icon-component {
-            position: absolute;
-            top: 250px;
-            left: var(--espacamento);
-
-            width: calc(100% - var(--espacamento) - var(--espacamento));
-        }
-
-        p {
-            position: absolute;
-            right: var(--espacamento);
-
-            color: var(--primary-text-color);
-            margin: 0;
-            padding: 0;
-        }
-
         .image-container {
             position: relative;
         }
 
         .image-container img {
-            display: block;
             width: 100%;
             height: 350px;
             margin: 0 0 0 0;
@@ -71,5 +44,34 @@ export class ModelPageHeaderComponent extends LitElement {
             height: 100%;
             background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
             pointer-events: none;
+        }
+
+        .back-link {
+            display: block;
+            position: absolute;
+            top: 12px;
+            left: 12px;
+        }
+
+        .back-link a {
+            text-decoration: none;
+            color: var(--primary-text-color);
+
+            font-size: var(--tamanho-do-subtitulo);
+        }
+
+        .header-info {
+            display: flex;
+            position: relative;
+            margin-top: min(calc(-20% / 2), calc(-120px / 2));
+            padding: 0 12px;
+        }
+
+        .header-info img {
+            border-radius: 100%;
+            border: 2px solid var(--primary-text-color);
+
+            min-width: 120px;
+            width: 20%;
         }`
 }

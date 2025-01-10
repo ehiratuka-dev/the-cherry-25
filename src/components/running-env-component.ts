@@ -11,6 +11,10 @@ export class RunningEnvComponent extends LitElement {
     }
 
     static styles = css`
+        :host {
+            display: flex;
+            justify-content: center;
+        }
         div {
             background-color: rgba(255, 0 , 0, 0.2);
             color: white;
