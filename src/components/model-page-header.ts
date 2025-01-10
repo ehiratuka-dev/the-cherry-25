@@ -11,7 +11,8 @@ export class ModelPageHeaderComponent extends LitElement {
     render() {
         return html`
             <div class="image-container">
-                <img src="../data/Social%20Media/@${ this.id }/@${ this.id } notion-banner.png" />
+                <img src="../data/Social%20Media/@${ this.id }/@${ this.id } notion-banner.png" 
+                onerror="this.onerror=null; this.src='../data/Social Media/@default/@default notion.png';"/>
 
                 <div class="back-link">
                     <a href="../models">Voltar</a>
@@ -19,7 +20,8 @@ export class ModelPageHeaderComponent extends LitElement {
             </div>
 
             <div class="header-info">
-                <img src="../data/Social%20Media/@${ this.id }/@${ this.id } notion-icon.jpg" />
+                <img src="../data/Social%20Media/@${ this.id }/@${ this.id } notion-icon.jpg"
+                onerror="this.onerror=null; this.src='../data/Social Media/@default/@default notion-icon.jpg';" />
             </div>`
     }
 
