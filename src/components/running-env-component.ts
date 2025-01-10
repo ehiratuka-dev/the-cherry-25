@@ -21,7 +21,7 @@ export class RunningEnvComponent extends LitElement {
             padding: 12px 12px;
 
             display: none;
-            position: absolute;
+            position: fixed;
             bottom: 0;
             z-index: 100;
         }
