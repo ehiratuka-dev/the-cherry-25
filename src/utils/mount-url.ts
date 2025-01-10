@@ -7,13 +7,13 @@ export function montarURL() {
 }
 
 export function montarBanner(tag: string) {
-    return html`<img src="../profiles/@${ tag }/@${ tag } notion-banner.png" />`
+    return html`<img src="../data/Social%20Media/@${ tag }/@${ tag } notion-banner.png" />`
 }
 
 export function montarIcon(tag: string) {
-    return html`<img src="../profiles/@${ tag }/@${ tag } notion-icon.jpg" />`
+    return html`<img src="../data/Social%20Media/@${ tag }/@${ tag } notion-icon.jpg" />`
 }
 
 export function montarFeed(tag: string, post: Post) {
-    return html`<img src="../profiles/@${ tag }/@${ tag } feed-${ post.sequencial ? post.data + '-' + post.sequencial : post.data }.jpg"/>`
+    return html`<img src="../data/Social%20Media/@${ tag }/@${ tag } feed-${ post.sequencial ? post.data + '-' + post.sequencial : post.data }.jpg"/>`
 }

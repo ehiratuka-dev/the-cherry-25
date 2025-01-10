@@ -16,7 +16,7 @@ export class ProfileManager {
 	private profiles: Profile[] = [];
 
 	private async loadData() {
-		const response = await fetch('../profiles/data.yaml', {
+		const response = await fetch('../data.yaml', {
 			method: 'GET',
 			headers: {
 				Accept: 'application/json',

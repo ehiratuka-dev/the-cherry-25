@@ -24,4 +24,5 @@ release
 *.sln
 *.sw?
 
-public/profiles/*
+public/*
+!public/assets
