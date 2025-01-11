@@ -28,11 +28,13 @@ export class ModelBlock extends LitElement {
 			flex-direction: column;
 
 			transition: box-shadow 0.3s ease;
-			box-shadow: none;
-
+            box-shadow: var(--box-shadow);
 			border-radius: var(--borda-arredondada);
-
 			cursor: pointer;
+		}
+
+		.bloco:hover {
+            box-shadow: none;
 		}
 
 		.bloco img {

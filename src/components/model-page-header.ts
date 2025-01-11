@@ -1,8 +1,6 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 
-import './icon-component';
-
 @customElement('model-page-header')
 export class ModelPageHeaderComponent extends LitElement {
     @property()
@@ -44,7 +42,7 @@ export class ModelPageHeaderComponent extends LitElement {
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+            background: linear-gradient(to bottom, rgba(var(--page-color-rgb), 0%) 0%, rgba(var(--container-color-rgb), 1) 100%) 100%;
             pointer-events: none;
         }
 
@@ -53,6 +51,11 @@ export class ModelPageHeaderComponent extends LitElement {
             position: absolute;
             top: var(--espacamento);
             left: var(--espacamento);
+
+            background-color: var(--container-color);
+            padding: var(--espacamento);
+            border-radius: var(--borda-arredondada);
+            box-shadow: var(--box-shadow);
         }
 
         .back-link a {
@@ -67,13 +70,22 @@ export class ModelPageHeaderComponent extends LitElement {
             position: relative;
             margin-top: min(calc(-20% / 2), calc(-120px / 2));
             padding: 0 var(--espacamento);
+            margin-bottom: var(--espacamento);
         }
 
         .header-info img {
-            border-radius: 100%;
             border: 2px solid var(--primary-text-color);
 
             min-width: 120px;
             width: 20%;
+
+            transition: box-shadow 0.3s ease;
+            box-shadow: var(--box-shadow);
+            border-radius: 100%;
+			cursor: pointer;
+        }
+
+        .header-info img:hover {
+            box-shadow: none;
         }`
 }

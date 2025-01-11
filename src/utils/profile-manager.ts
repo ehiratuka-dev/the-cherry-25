@@ -1,6 +1,6 @@
 
 import yaml from 'js-yaml';
-import { RECs25 } from '../types/recs25/recs25-type';
+import { RECs25 } from '../types/recs25-type';
 import { SocialMedia } from '../types/social-media-type';
 
 

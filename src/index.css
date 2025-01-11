@@ -65,8 +65,15 @@ a:hover, a:focus {
      *
      ******************************/
      --page-color: #212529;
+     --page-color-rgb: 33,37,41;
      --container-color: #343A40;
+     --container-color-rgb: 52, 58, 64;
      --primary-text-color: #DEE2E6;
+     
+     
+     --shadow-color: 0, 0, 0;
+     --shadow-opacity: 0.2;
+     --box-shadow: 4px 4px 2px rgba(var(--shadow-color), var(--shadow-opacity));
 
      --primary-color: #0D6EFD;
 }

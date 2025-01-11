@@ -18,8 +18,8 @@ export class ModelPageGenericFeed<T extends AssetType> extends LitElement {
 
     render() {
         return this.assets && this.assets.length > 0 ? html`
+            <p class="font-subtitle">${ this.title }</p>
             <div class="feed">
-                <p class="font-subtitle">${ this.title }</p>
                 ${ repeat(this.assets, (asset: T) => asset.profile, (asset: T) =>  html` 
                     <img src="${ asset.montarFeedSrc }" />
                 `) }
@@ -29,15 +29,32 @@ export class ModelPageGenericFeed<T extends AssetType> extends LitElement {
 
     static styles = css`
         .feed {
-            padding: var(--espacamento);
+            padding: 0 var(--espacamento);
+            margin: 0 0 var(--espacamento);
+            display: grid;
+            gap: var(--espacamento);
+            grid-template-columns: repeat(auto-fit, minmax(166px, 1fr));
         }
 
-        .feed p {
-            font-size: var(--tamanho-do-subtitulo);
-        }
-            
-        img {
+        .feed img {
+            width: 100%;
+            max-width: 166px;
+            aspect-ratio: 9 / 16;
+            object-fit: cover;
+
+			transition: box-shadow 0.3s ease;
+            box-shadow: var(--box-shadow);
             border-radius: var(--borda-arredondada);
-            width: 150px;
+			cursor: pointer;
+        }
+
+        .feed img:hover {
+            box-shadow: none;
+        }
+
+        p {
+            font-size: var(--tamanho-do-subtitulo);
+            padding: 0 var(--espacamento);
+            margin: 0 0 var(--espacamento);
         }`
 }
