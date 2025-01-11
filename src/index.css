@@ -41,7 +41,7 @@ a:hover, a:focus {
  **********************************/
 :root {
     --espacamento: 12px;
-    --raio-de-borda: 12px;
+    --borda-arredondada: 12px;
     --largura-do-app: 1080px;
 
     --tamanho-do-titulo: 1.4rem;

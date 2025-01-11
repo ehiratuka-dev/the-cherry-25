@@ -30,7 +30,7 @@ export class ModelBlock extends LitElement {
 			transition: box-shadow 0.3s ease;
 			box-shadow: none;
 
-			border-radius: var(--raio-de-borda);
+			border-radius: var(--borda-arredondada);
 
 			cursor: pointer;
 		}
@@ -38,8 +38,8 @@ export class ModelBlock extends LitElement {
 		.bloco img {
 			height: 150px;
 			object-fit: cover;
-			border-top-left-radius: var(--raio-de-borda);
-			border-top-right-radius: var(--raio-de-borda);
+			border-top-left-radius: var(--borda-arredondada);
+			border-top-right-radius: var(--borda-arredondada);
 		}
 
 		.bloco p {
@@ -50,7 +50,7 @@ export class ModelBlock extends LitElement {
 			background-color: var(--primary-color);
 			color: var(--primary-text-color);
 
-			border-bottom-left-radius: var(--raio-de-borda);
-			border-bottom-right-radius: var(--raio-de-borda);
+			border-bottom-left-radius: var(--borda-arredondada);
+			border-bottom-right-radius: var(--borda-arredondada);
 		}`
 }
