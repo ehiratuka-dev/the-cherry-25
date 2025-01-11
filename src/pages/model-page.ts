@@ -27,8 +27,8 @@ export class ModelPage extends LitElement {
         return html`
             <div class="container">
                 <model-page-header id=${ this.id }></model-page-header>
-                <model-page-generic-feed .assets=${ this.profile?.socialMedia }></model-page-generic-feed>
-                <model-page-generic-feed .assets=${ this.profile?.recs25 }></model-page-generic-feed>
+                <model-page-generic-feed .assets=${ this.profile?.socialMedia } title="Social Media"></model-page-generic-feed>
+                <model-page-generic-feed .assets=${ this.profile?.recs25 } title="RECs25"></model-page-generic-feed>
             </div>`
     }
     static styles = css`

@@ -50,13 +50,15 @@ export class ProfileManager {
 					}
 				);
 	
-			pessoa.recs25 = this.recs25.filter(
-				(rc: RECs25) => rc.profile === pessoa.id).map(
-					(rc: RECs25) => {
-						rc.montarFeedSrc = `../data/RECs25/Hot/RECs25-${ rc.id?.toString().padStart(2, '0') } Clipe-${ rc.clipe.toString().padStart(2, '0') } Hot-01.png`;
-						return rc;
-					}
-				);
+			pessoa.recs25 = this.recs25
+				.filter((rc: RECs25) => rc.profile === pessoa.id)
+				.flatMap((rc: RECs25) => {
+					return Array.from({ length: 3 }, (_, index) => {
+					  const newRc = { ...rc };
+					  newRc.montarFeedSrc = `../data/RECs25/Hot/RECs25-${ rc.id?.toString().padStart(2, '0') } Clipe-${ (rc.clipe).toString().padStart(2, '0') } Hot-0${index + 1}.png`;
+					  return newRc;
+					});
+				  });
 		});
 	}
 
