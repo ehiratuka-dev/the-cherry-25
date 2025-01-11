@@ -1,6 +1,7 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { AssetType } from '../types/asset-type';
+import 'fa-icons';
 
 @customElement('model-page-modal')
 export class ModelPageModal extends LitElement {
@@ -24,11 +25,19 @@ export class ModelPageModal extends LitElement {
 	}
 
 	nextImage() {
-		console.log('nextImage');
+		if(this.gallery.length - 1 > this.index) {
+			this.index++;
+		} else {
+			this.index = 0;
+		}
 	}
 
 	previousImage() {
-		console.log('previousImage');
+		if(this.index > 0) {
+			this.index--;
+		} else {
+			this.index = this.gallery.length - 1;
+		}
 	}
 
 	render() {
@@ -39,14 +48,20 @@ export class ModelPageModal extends LitElement {
 					<div class="modal">
 						<button
 							class="close-button"
-							@click="${ this.closeModal }">&times;</button>
+							@click="${ this.closeModal }">
+								<fa-icon path-prefix="../node_modules" color="var(--primary-text-color)" class="fas fa-times" size="16"></fa-icon>	
+						</button>
 						<button
 							class="previous-button"
-							@click="${ this.nextImage }">&times;</button>
-						<img src="${ this.gallery[this.index].montarFeedSrc }" />
+							@click="${ this.previousImage }">
+								<fa-icon path-prefix="../node_modules" color="var(--primary-text-color)" class="fas fa-chevron-left" size="16"></fa-icon>
+						</button>
+						<img src="${ this.gallery[this.index]?.montarFeedSrc }" />
 						<button
 							class="next-button"
-							@click="${ this.previousImage }">&times;</button>
+							@click="${ this.nextImage }">
+								<fa-icon path-prefix="../node_modules" color="var(--primary-text-color)" class="fas fa-chevron-right" size="16"></fa-icon>
+						</button>
 					</div>
 			</div>`;
 	}

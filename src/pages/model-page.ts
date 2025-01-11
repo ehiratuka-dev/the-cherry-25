@@ -48,8 +48,8 @@ export class ModelPage extends LitElement {
         return html`
             <div class = "container" 
 				@modal-opened = "${ this.openModal }">
-                <model-page-header id = "${ this.id }"></model-page-header>
-                
+                <model-page-header .profile = "${ this.profile }"></model-page-header>
+
                 <model-page-generic-feed 
                     .assets = "${ this.profile?.socialMedia }"
                     title = "Social Media">

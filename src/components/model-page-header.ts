@@ -1,29 +1,86 @@
-import { LitElement, css, html } from 'lit'
+import { LitElement, css, html, nothing } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
+import { Profile } from '../utils/profile-manager';
 
 @customElement('model-page-header')
 export class ModelPageHeaderComponent extends LitElement {
     @property()
-    id: string = '';
+    profile: Profile | undefined = undefined;
+
+    backLinkClik() {
+        window.history.back();
+    }
 
     render() {
-        return html`
+        return this.profile ? html`
             <div class="image-container">
-                <img src="../data/Social%20Media/@${ this.id }/@${ this.id } notion-banner.png" 
+                <img src="../data/Social%20Media/@${ this.profile.id }/@${ this.profile.id } notion-banner.png" 
                 onerror="this.onerror=null; this.src='../data/Social Media/@default/@default notion.png';"/>
 
-                <div class="back-link">
-                    <a href="../models">Voltar</a>
+                <div class="back-link" @click="${ this.backLinkClik }">
+                    Voltar
                 </div>
             </div>
 
             <div class="header-info">
-                <img src="../data/Social%20Media/@${ this.id }/@${ this.id } notion-icon.jpg"
+                <img src="../data/Social%20Media/@${ this.profile.id }/@${ this.profile.id } notion-icon.jpg"
                 onerror="this.onerror=null; this.src='../data/Social Media/@default/@default notion-icon.jpg';" />
-            </div>`
+                
+                <div class="tags">
+                    
+                    ${ this.profile.nome ? html`
+                        <div class="tag">
+                            <fa-icon path-prefix="../node_modules" color="var(--primary-color)" class="fas fa-user" size="var(--tamanho-do-subtitulo)"></fa-icon>
+                            <p>${ this.profile.nome }</p>
+                        </div>` : nothing }
+
+                    ${ this.profile.cidade  ? html`
+                        <div class="tag">
+                            <fa-icon path-prefix="../node_modules" color="var(--primary-color)" class="fas fa-city" size="var(--tamanho-do-subtitulo)"></fa-icon>
+                            <p>${ this.profile.cidade }</p>
+                        </div>` : nothing }
+
+                    ${ this.profile.instagram ? html`
+                        <div class="tag">
+                            <fa-icon path-prefix="../node_modules" color="var(--primary-color)" class="fab fa-instagram" size="var(--tamanho-do-subtitulo)"></fa-icon>
+                            <p>${ this.profile.instagram }</p>
+                        </div>` : nothing }
+                </div>
+                
+            </div>` : nothing;
     }
 
     static styles = css`
+        
+        .header-info .tags {
+            width: calc(1080px - 20%);
+            padding: 0 0 0 var(--espacamento);
+            align-self: flex-end;
+
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 6px;
+            align-content: stretch;
+            align-items: center;
+        }
+
+        .header-info .tags .tag {
+            background-color: var(--container-color);
+            border-radius: var(--borda-arredondada);
+            box-shadow: var(--box-shadow);
+            padding: 6px var(--espacamento);
+
+            display: flex;
+            align-items: center;
+        }
+
+        .tag p {
+            margin: 0 0 0 var(--espacamento);
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
         .image-container {
             position: relative;
         }
@@ -49,6 +106,7 @@ export class ModelPageHeaderComponent extends LitElement {
         .back-link {
             display: block;
             position: absolute;
+            cursor: pointer;
             top: var(--espacamento);
             left: var(--espacamento);
 
@@ -56,13 +114,7 @@ export class ModelPageHeaderComponent extends LitElement {
             padding: var(--espacamento);
             border-radius: var(--borda-arredondada);
             box-shadow: var(--box-shadow);
-        }
-
-        .back-link a {
-            text-decoration: none;
             color: var(--primary-text-color);
-
-            font-size: var(--tamanho-do-subtitulo);
         }
 
         .header-info {

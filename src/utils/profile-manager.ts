@@ -12,6 +12,7 @@ export interface Profile {
     cidade: string;
     instagram: string;
 	tags: string[];
+	nudometro: number;
 
 	hidden: boolean;
 	socialMedia: SocialMedia[]
@@ -41,10 +42,18 @@ export class ProfileManager {
 
 		this.profiles.forEach((pessoa: Profile) => {
 			pessoa.hidden = pessoa.hidden || false;
+
+			const nudometroIndexes: Array<number> = this.recs25
+				.filter((rc: RECs25) => rc.profile === pessoa.id)
+				.map((rc: RECs25) => { 
+					console.log(`${ rc.profile }: ${ rc.id }|${ rc.clipe } - ${ rc.nudometro }`);
+					return rc.nudometro ?? 0
+			});
+			pessoa.nudometro = nudometroIndexes.length > 0 ? Math.max(...nudometroIndexes) : 0;
 			
-			pessoa.socialMedia = this.socialMedia.filter(
-				(sm: SocialMedia) => sm.profile === pessoa.id).map(
-					(sm: SocialMedia) => {
+			pessoa.socialMedia = this.socialMedia
+				.filter((sm: SocialMedia) => sm.profile === pessoa.id)
+				.map((sm: SocialMedia) => {
 						sm.montarFeedSrc = `../data/Social Media/@${ sm.profile }/@${ sm.profile } feed-${ sm.sequencial ? sm.data + '-' + sm.sequencial : sm.data }.jpg`;
 						return sm;
 					}
@@ -54,11 +63,11 @@ export class ProfileManager {
 				.filter((rc: RECs25) => rc.profile === pessoa.id)
 				.flatMap((rc: RECs25) => {
 					return Array.from({ length: 3 }, (_, index) => {
-					  const newRc = { ...rc };
-					  newRc.montarFeedSrc = `../data/RECs25/Hot/RECs25-${ rc.id?.toString().padStart(2, '0') } Clipe-${ (rc.clipe).toString().padStart(2, '0') } Hot-0${index + 1}.png`;
-					  return newRc;
+						const newRc = { ...rc };
+						newRc.montarFeedSrc = `../data/RECs25/Hot/RECs25-${ rc.id?.toString().padStart(2, '0') } Clipe-${ (rc.clipe).toString().padStart(2, '0') } Hot-0${index + 1}.png`;
+						return newRc;
 					});
-				  });
+				});
 		});
 	}
 
