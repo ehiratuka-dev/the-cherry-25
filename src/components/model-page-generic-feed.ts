@@ -1,5 +1,5 @@
 import { LitElement, css, html } from 'lit'
-import { customElement, property } from 'lit/decorators.js'
+import { customElement, property, state } from 'lit/decorators.js'
 import { repeat } from 'lit/directives/repeat.js';
 
 import { AssetType } from '../types/asset-type';
@@ -11,19 +11,51 @@ export class ModelPageGenericFeed<T extends AssetType> extends LitElement {
 
     @property()
     assets:  Array<T> = [];
+    
+    @state()
+    showModal: boolean = false;
 
-    connectedCallback(): void {
-        super.connectedCallback();
+    @state()
+    name: string = '';
+
+    openModal(e: CustomEvent) {
+        this.name = e.detail;
+        this.showModal = true;
+    }
+
+    closeModal() {
+        this.showModal = false;
+    }
+
+    onBlockClick(e: Event): void {
+        e.stopPropagation();
+        this.dispatchEvent(new CustomEvent('modal-opened', { 
+            detail: {
+                index: (e.target as HTMLButtonElement).dataset.index,
+                gallery: this.assets
+            },
+            bubbles: true,
+            composed: true
+        }));
     }
 
     render() {
         return this.assets && this.assets.length > 0 ? html`
             <p class="font-subtitle">${ this.title }</p>
-            <div class="feed">
-                ${ repeat(this.assets, (asset: T) => asset.profile, (asset: T) =>  html` 
-                    <img src="${ asset.montarFeedSrc }" />
-                `) }
-            </div>`
+            
+            <div
+                class="feed"
+				@modal-opened = "${ this.openModal }">
+                    ${ repeat(this.assets, (asset: T) => asset.profile, (asset: T, index: number) =>  html` 
+                        <img src="${ asset.montarFeedSrc }" @click="${this.onBlockClick}" data-index=${ index }/>
+                    `) }
+            </div>
+            
+            <model-page-modal
+                .open = "${ this.showModal }"
+                .name = "${ this.name }"
+                @modal-closed = "${ this.closeModal}">
+            </model-page-modal>`
         : html``;
     }
 
