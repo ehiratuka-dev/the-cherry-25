@@ -1,5 +1,5 @@
 services:
-  webaoo:
+  the_cherry_25:
     image: mcr.microsoft.com/devcontainers/typescript-node:latest
     container_name: the_cherry_25-development
     ports:
