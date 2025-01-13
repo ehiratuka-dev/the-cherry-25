@@ -45,3 +45,25 @@ O webapp ```The Cherry 25``` trata-se de um site estático que obtêm os dados d
    ```
 
 Após a execução dos passos acima, o sistema estará disponível no endereço: [http://localhost:5173/](http://localhost:5173/)
+
+## Compilação em Produção
+
+### Passos
+
+1. **Clonar o repositório**:
+
+   Execute o comando abaixo para clonar o projeto:
+
+   ```bash
+   git clone https://github.com/ehiratuka-dev/the-cherry-25
+   cd the-cherry-25
+   ```
+
+3. **Rodar o webapp localmente**:
+
+   Para iniciar o servidor de desenvolvimento e visualizar o aplicativo, execute o comando:
+
+   ```bash
+   docker-compose up --build -d
+   ```
+
