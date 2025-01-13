@@ -12,5 +12,6 @@
                 "dbaeumer.vscode-eslint"
             ]
         }
-    }
+    },
+    "postStartCommand": "npm install"
 }
