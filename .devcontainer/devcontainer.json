@@ -1,5 +1,5 @@
 {
-    "name": "The Cherry 25",
+    "name": "the-cherry-25",
     "image": "mcr.microsoft.com/devcontainers/typescript-node:latest",
     "appPort": [3000],
     "customizations": {
