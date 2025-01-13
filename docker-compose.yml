@@ -15,8 +15,6 @@ services:
 volumes:
   the-cherry-25-volume:
     name: the_cherry_25-volume
-    external: true
 
   the-cherry-25-webapp:
     name: the_cherry_25-webapp
-    external: true
