@@ -13,8 +13,8 @@ services:
         target: /share/data
 
 volumes:
-  the-cherry-25-volume:
+  the_cherry_25-volume:
     name: the_cherry_25-volume
 
-  the-cherry-25-webapp:
+  the_cherry_25-webapp:
     name: the_cherry_25-webapp
