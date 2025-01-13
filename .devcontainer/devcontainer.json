@@ -1,7 +1,7 @@
 {
     "name": "The Cherry 25",
     "dockerComposeFile": "../docker-compose.yml",
-    "service": "development",
+    "service": "the_cherry_25",
     "workspaceFolder": "/workspaces/the-cherry-25",
     "customizations": {
         "vscode": {
