@@ -13,13 +13,14 @@ services:
     image: nginx:latest
     container_name: nginx-service
     ports:
-      - "8080:80"
+      - "80:80"
     volumes:
       - ./server.conf:/etc/nginx/conf.d/default.conf
       - ./dist:/share/webapp
       - the-cherry-25-volume:/share/data
     depends_on:
       - node
+    restart: unless-stopped
 
 volumes:
   the-cherry-25-volume:

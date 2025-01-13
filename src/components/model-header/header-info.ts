@@ -1,6 +1,10 @@
 import { LitElement, css, html, nothing } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 import { Profile } from '../../utils/profile-manager';
+import '@jamescoyle/svg-icon'
+import { mdiAccount } from '@mdi/js'
+import { mdiCity } from '@mdi/js'
+import { mdiInstagram } from '@mdi/js'
 
 @customElement('model-header-info')
 export class ModelHeaderInfo extends LitElement {
@@ -16,19 +20,19 @@ export class ModelHeaderInfo extends LitElement {
 				<div class="tags">
 					${ this.profile.nome ? html`
 						<div class="tag">
-							<fa-icon path-prefix="../node_modules" color="var(--primary-color)" class="fas fa-user" size="var(--tamanho-do-subtitulo)"></fa-icon>
+							<svg-icon type="mdi" path="${ mdiAccount }" style="color: var(--primary-color)"></svg-icon>
 							<p>${ this.profile.nome }</p>
 						</div>` : nothing }
 
 					${ this.profile.cidade ? html`
 						<div class="tag">
-							<fa-icon path-prefix="../node_modules" color="var(--primary-color)" class="fas fa-city" size="var(--tamanho-do-subtitulo)"></fa-icon>
+							<svg-icon type="mdi" path="${ mdiCity }" style="color: var(--primary-color)"></svg-icon>
 							<p>${ this.profile.cidade }</p>
 						</div>` : nothing }
 
 					${ this.profile.instagram ? html`
 						<div class="tag">
-							<fa-icon path-prefix="../node_modules" color="var(--primary-color)" class="fab fa-instagram" size="var(--tamanho-do-subtitulo)"></fa-icon>
+							<svg-icon type="mdi" path="${ mdiInstagram }" style="color: var(--primary-color)"></svg-icon>
 							<p>${ this.profile.instagram }</p>
 						</div>` : nothing }
 				</div>
