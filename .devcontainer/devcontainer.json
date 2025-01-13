@@ -1,7 +1,8 @@
 {
     "name": "The Cherry 25",
-    "image": "mcr.microsoft.com/devcontainers/typescript-node:latest",
-    "appPort": [3000],
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "development",
+    "workspaceFolder": "/workspaces/the-cherry-25",
     "customizations": {
         "vscode": {
             "settings": {
@@ -11,9 +12,5 @@
                 "dbaeumer.vscode-eslint"
             ]
         }
-    },
-    "postCreateCommand": "npm install",
-    "mounts": [
-        "source=the-cherry-25-volume,target=/workspaces/the-cherry-25/public/data,type=volume"
-    ]
+    }
 }
