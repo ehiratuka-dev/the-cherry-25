@@ -1,21 +1,33 @@
 services:
   production:
     image: nginx:latest
-    container_name: the-cherry-25-web-server
+    container_name: the-cherry-25-webserver
     ports:
       - "8080:80"
     volumes:
-      - ./server.conf:/etc/nginx/conf.d/default.conf
-      - the-cherry-25-webapp:/share/webapp
-      - the-cherry-25-volume:/share/data
+      - type: bind
+        source: ./server.conf
+        target: /etc/nginx/conf.d/default.conf
+        read_only: true
+      - type: volume
+        source: the-cherry-25-webapp
+        target: /share/webapp
+      - type: volume
+        source: the-cherry-25-volume
+        target: /share/data
   
   development:
     image: mcr.microsoft.com/devcontainers/typescript-node:latest
-    container_name: the-cherry-25-devlopment
+    container_name: the-cherry-25-development
     ports:
       - "3000:3000"
     volumes:
-      - the-cherry-25-volume:/workspaces/the-cherry-25/public/data
+      - type: volume
+        source: the-cherry-25-webapp
+        target: /share/webapp
+      - type: volume
+        source: the-cherry-25-volume
+        target: /share/data
 
 volumes:
   the-cherry-25-volume:
