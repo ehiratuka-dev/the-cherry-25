@@ -1,35 +1,22 @@
 services:
-  production:
-    image: nginx:latest
-    container_name: the-cherry-25-webserver
-    ports:
-      - "8080:80"
-    volumes:
-      - type: volume
-        source: the-cherry-25-webapp
-        target: /share/webapp
-      - type: volume
-        source: the-cherry-25-volume
-        target: /share/data
-  
-  development:
+  webaoo:
     image: mcr.microsoft.com/devcontainers/typescript-node:latest
-    container_name: the-cherry-25-development
+    container_name: the_cherry_25-development
     ports:
       - "3000:3000"
     volumes:
       - type: volume
-        source: the-cherry-25-webapp
+        source: the_cherry_25-webapp
         target: /share/webapp
       - type: volume
-        source: the-cherry-25-volume
+        source: the_cherry_25-volume
         target: /share/data
 
 volumes:
   the-cherry-25-volume:
-    name: the-cherry-25-volume
+    name: the_cherry_25-volume
     external: true
 
   the-cherry-25-webapp:
-    name: the-cherry-25-webapp
+    name: the_cherry_25-webapp
     external: true
