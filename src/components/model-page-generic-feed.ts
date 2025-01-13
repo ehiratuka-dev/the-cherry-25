@@ -44,10 +44,12 @@ export class ModelPageGenericFeed<T extends AssetType> extends LitElement {
             <p class="font-subtitle">${ this.title }</p>
             
             <div
-                class="feed"
+                class="feed-container"
 				@modal-opened = "${ this.openModal }">
                     ${ repeat(this.assets, (asset: T) => asset.profile, (asset: T, index: number) =>  html` 
-                        <img src="${ asset.montarFeedSrc }" @click="${this.onBlockClick}" data-index=${ index }/>
+                        <div class="feed-item">
+                            <img src="${ asset.montarFeedSrc }" @click="${this.onBlockClick}" data-index=${ index }/>
+                        </div>
                     `) }
             </div>
             
@@ -60,7 +62,7 @@ export class ModelPageGenericFeed<T extends AssetType> extends LitElement {
     }
 
     static styles = css`
-        .feed {
+        .feed-container {
             padding: 0 var(--espacamento);
             margin: 0 0 var(--espacamento);
             display: grid;
@@ -68,20 +70,27 @@ export class ModelPageGenericFeed<T extends AssetType> extends LitElement {
             grid-template-columns: repeat(auto-fit, minmax(166px, 1fr));
         }
 
-        .feed img {
+        .feed-container .feed-item {
             width: 100%;
+            height: 100%;
             max-width: 166px;
             aspect-ratio: 9 / 16;
-            object-fit: cover;
-
-			transition: box-shadow 0.3s ease;
-            box-shadow: var(--box-shadow);
-            border-radius: var(--borda-arredondada);
-			cursor: pointer;
         }
 
-        .feed img:hover {
-            box-shadow: none;
+        .feed-item img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 9 / 16;
+            object-fit: cover;
+            cursor: pointer;
+            border-radius: var(--borda-arredondada);
+
+            transition: var(--box-shadow-transition);
+            box-shadow: var(--box-shadow);
+        }
+
+        .feed-item img:hover {
+            box-shadow: var(--box-shadow-hover);
         }
 
         p {
