@@ -1,8 +1,7 @@
 {
     "name": "The Cherry 25",
-    "dockerComposeFile": "../docker-compose.yml",
-    "service": "the_cherry_25",
-    "workspaceFolder": "/workspaces/the-cherry-25",
+    "image": "mcr.microsoft.com/devcontainers/typescript-node:latest",
+    "appPort": [3000],
     "customizations": {
         "vscode": {
             "settings": {
@@ -13,5 +12,9 @@
             ]
         }
     },
-    "postStartCommand": "npm install"
+    "postCreateCommand": "npm install",
+    "mounts": [
+        "source=the-cherry-25-volume,target=/workspaces/the-cherry-25/public/data,type=volume",
+        "source=the-cherry-25-webapp,target=/workspaces/the-cherry-25/dist,type=volume"
+    ]
 }
