@@ -4,8 +4,8 @@ import { repeat } from 'lit/directives/repeat.js';
 
 import { AssetType } from '../../types/asset-type';
 
-@customElement('model-page-generic-feed')
-export class ModelPageGenericFeed<T extends AssetType> extends LitElement {
+@customElement('asset-feed-section')
+export class AssetFeedSectuib<T extends AssetType> extends LitElement {
 	@property()
 	title: string = '';
 

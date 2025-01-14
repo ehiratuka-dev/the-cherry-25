@@ -5,7 +5,7 @@ import { repeat } from 'lit/directives/repeat.js';
 import { ProfileClass } from '../utils/ProfileClass';
 import { Profile } from '../types/profile-type';
 
-import '../components/models-page/model-block';
+import '../components/sections/profile-section';
 
 @customElement('models-page')
 export class ModelsPage extends LitElement {
@@ -27,7 +27,7 @@ export class ModelsPage extends LitElement {
 					<p class="font-subtitle">Profiles</p>
 					<div class="lista-blocos">
 						${repeat(this.profiles.filter(profile => profile.hidden === false), (profile: Profile) => profile.id, (profile) => html`
-							<model-block .profile="${ profile }"></model-block>
+							<profile-section .profile="${ profile }"></profile-section>
 						`)}
 					</div>
 				</div>

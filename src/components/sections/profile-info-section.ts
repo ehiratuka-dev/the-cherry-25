@@ -6,10 +6,10 @@ import { mdiAccount } from '@mdi/js'
 import { mdiCity } from '@mdi/js'
 import { mdiInstagram } from '@mdi/js'
 
-import { Profile } from '../../../types/profile-type'
+import { Profile } from '../../types/profile-type'
 
-@customElement('model-header-info')
-export class ModelHeaderInfo extends LitElement {
+@customElement('profile-info-section')
+export class ProfileInfoSection extends LitElement {
 	@property()
 	profile: Profile | undefined = undefined;
 

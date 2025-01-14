@@ -3,8 +3,8 @@ import { customElement, property } from 'lit/decorators.js'
 
 import { Profile } from '../../types/profile-type';
 
-@customElement('model-block')
-export class ModelBlock extends LitElement {
+@customElement('profile-section')
+export class ProfileSection extends LitElement {
 	@property()
 	profile: Profile | undefined = undefined;
 

@@ -5,8 +5,9 @@ import { AssetType } from '../types/asset-type';
 import { ProfileClass } from '../utils/ProfileClass';
 import { Profile } from '../types/profile-type';
 
-import '../components/model-page/model-page-header'
-import '../components/model-page/model-page-generic-feed'
+import '../components/headers/profile-header'
+import '../components/sections/profile-info-section'
+import '../components/sections/asset-feed-section'
 import '../components/modals/gallery-modal'
 
 @customElement('model-page')
@@ -46,23 +47,24 @@ export class ModelPage extends LitElement {
 	render() {
 		return html`
 			<div class = "container" @modal-opened = "${this.openModal}">
-				<model-page-header
-					.profile = "${this.profile}"></model-page-header>
+				<profile-header .profile="${this.profile}"></profile-header>
+				
+				<profile-info-section .profile="${this.profile}"></profile-info-section>
 
-				<model-page-generic-feed
+				<asset-feed-section
 					.assets = "${this.profile?.socialMedia}"
-					title = "Social Media"></model-page-generic-feed>
+					title = "Social Media"></asset-feed-section>
 
-				<model-page-generic-feed
+				<asset-feed-section
 					.assets = "${this.profile?.recs25}"
-					title = "RECs25"></model-page-generic-feed>
+					title = "RECs25"></asset-feed-section>
 			</div>
 
 			<gallery-modal 
 				.open = "${this.showModal}"
 				.index = "${this.index}"
 				.gallery = "${this.gallery}"
-				@modal-closed = "${this.closeModal}"></model-page-modal>`
+				@modal-closed = "${this.closeModal}"></gallery-modal >`
 	}
 	static styles = css``
 }
