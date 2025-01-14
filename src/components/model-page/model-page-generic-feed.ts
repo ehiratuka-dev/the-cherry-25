@@ -6,96 +6,96 @@ import { AssetType } from '../../types/asset-type';
 
 @customElement('model-page-generic-feed')
 export class ModelPageGenericFeed<T extends AssetType> extends LitElement {
-    @property()
-    title: string = '';
+	@property()
+	title: string = '';
 
-    @property()
-    assets:  Array<T> = [];
-    
-    @state()
-    showModal: boolean = false;
+	@property()
+	assets: Array<T> = [];
 
-    @state()
-    name: string = '';
+	@state()
+	showModal: boolean = false;
 
-    openModal(e: CustomEvent) {
-        this.name = e.detail;
-        this.showModal = true;
-    }
+	@state()
+	name: string = '';
 
-    closeModal() {
-        this.showModal = false;
-    }
+	openModal(e: CustomEvent) {
+		this.name = e.detail;
+		this.showModal = true;
+	}
 
-    onBlockClick(e: Event): void {
-        e.stopPropagation();
-        this.dispatchEvent(new CustomEvent('modal-opened', { 
-            detail: {
-                index: (e.target as HTMLButtonElement).dataset.index,
-                gallery: this.assets
-            },
-            bubbles: true,
-            composed: true
-        }));
-    }
+	closeModal() {
+		this.showModal = false;
+	}
 
-    render() {
-        return this.assets && this.assets.length > 0 ? html`
-            <p class="font-subtitle">${ this.title }</p>
-            
-            <div
-                class="feed-container"
-				@modal-opened = "${ this.openModal }">
-                    ${ repeat(this.assets, (asset: T) => asset.profile, (asset: T, index: number) =>  html` 
-                        <div class="feed-item">
-                            <img src="${ asset.assetSrc }" @click="${this.onBlockClick}" data-index=${ index }/>
-                        </div>
-                    `) }
-            </div>
-            
-            <model-page-modal
-                .open = "${ this.showModal }"
-                .name = "${ this.name }"
-                @modal-closed = "${ this.closeModal}">
-            </model-page-modal>`
-        : html``;
-    }
+	onBlockClick(e: Event): void {
+		e.stopPropagation();
+		this.dispatchEvent(new CustomEvent('modal-opened', {
+			detail: {
+				index: (e.target as HTMLButtonElement).dataset.index,
+				gallery: this.assets
+			},
+			bubbles: true,
+			composed: true
+		}));
+	}
 
-    static styles = css`
-        .feed-container {
-            padding: 0 var(--espacamento);
-            margin: 0 0 var(--espacamento);
-            display: grid;
-            gap: var(--espacamento);
-            grid-template-columns: repeat(auto-fit, minmax(166px, 1fr));
-        }
+	render() {
+		return this.assets && this.assets.length > 0 ? html`
+			<p class="font-subtitle">${this.title}</p>
+			
+			<div
+				class="feed-container"
+				@modal-opened = "${this.openModal}">
+					${repeat(this.assets, (asset: T) => asset.profile, (asset: T, index: number) => html` 
+						<div class="feed-item">
+							<img src="${asset.assetSrc}" @click="${this.onBlockClick}" data-index=${index}/>
+						</div>
+					`)}
+			</div>
+			
+			<model-page-modal
+				.open = "${this.showModal}"
+				.name = "${this.name}"
+				@modal-closed = "${this.closeModal}">
+			</model-page-modal>`
+			: html``;
+	}
 
-        .feed-container .feed-item {
-            width: 100%;
-            height: 100%;
-            max-width: 166px;
-            aspect-ratio: 9 / 16;
-        }
+	static styles = css`
+		.feed-container {
+			padding: 0 var(--espacamento);
+			margin: 0 0 var(--espacamento);
+			display: grid;
+			gap: var(--espacamento);
+			grid-template-columns: repeat(auto-fit, minmax(166px, 1fr));
+		}
 
-        .feed-item img {
-            width: 100%;
-            height: auto;
-            aspect-ratio: 9 / 16;
-            object-fit: cover;
-            cursor: pointer;
-            border-radius: var(--borda-arredondada);
+		.feed-container .feed-item {
+			width: 100%;
+			height: 100%;
+			max-width: 166px;
+			aspect-ratio: 9 / 16;
+		}
 
-            transition: var(--box-shadow-transition);
-            box-shadow: var(--box-shadow);
-        }
+		.feed-item img {
+			width: 100%;
+			height: auto;
+			aspect-ratio: 9 / 16;
+			object-fit: cover;
+			cursor: pointer;
+			border-radius: var(--borda-arredondada);
 
-        .feed-item img:hover {
-            box-shadow: var(--box-shadow-hover);
-        }
+			transition: var(--box-shadow-transition);
+			box-shadow: var(--box-shadow);
+		}
 
-        p {
-            font-size: var(--tamanho-do-subtitulo);
-            padding: 0 var(--espacamento);
-            margin: 0 0 var(--espacamento);
-        }`
+		.feed-item img:hover {
+			box-shadow: var(--box-shadow-hover);
+		}
+
+		p {
+			font-size: var(--tamanho-do-subtitulo);
+			padding: 0 var(--espacamento);
+			margin: 0 0 var(--espacamento);
+		}`
 }

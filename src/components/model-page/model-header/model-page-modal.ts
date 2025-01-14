@@ -12,10 +12,10 @@ import { AssetType } from '../../../types/asset-type';
 export class ModelPageModal extends LitElement {
 	@property()
 	open: boolean;
-	
+
 	@property()
 	index: number;
-	
+
 	@property()
 	gallery: Array<AssetType> = [];
 
@@ -30,7 +30,7 @@ export class ModelPageModal extends LitElement {
 	}
 
 	nextImage() {
-		if(this.gallery.length - 1 > this.index) {
+		if (this.gallery.length - 1 > this.index) {
 			this.index++;
 		} else {
 			this.index = 0;
@@ -38,7 +38,7 @@ export class ModelPageModal extends LitElement {
 	}
 
 	previousImage() {
-		if(this.index > 0) {
+		if (this.index > 0) {
 			this.index--;
 		} else {
 			this.index = this.gallery.length - 1;
@@ -49,23 +49,23 @@ export class ModelPageModal extends LitElement {
 		return html`
 			<div 
 				class="overlay"
-				?open="${ this.open }">
+				?open="${this.open}">
 					<div class="modal">
 						<button
 							class="close-button"
-							@click="${ this.closeModal }">
-								<svg-icon type="mdi" path="${ mdiClose }" style="color: var(--primary-color)"></svg-icon>
+							@click="${this.closeModal}">
+								<svg-icon type="mdi" path="${mdiClose}" style="color: var(--primary-color)"></svg-icon>
 						</button>
 						<button
 							class="previous-button"
-							@click="${ this.previousImage }">
-								<svg-icon type="mdi" path="${ mdiChevronDoubleLeft }" style="color: var(--primary-color)"></svg-icon>
+							@click="${this.previousImage}">
+								<svg-icon type="mdi" path="${mdiChevronDoubleLeft}" style="color: var(--primary-color)"></svg-icon>
 						</button>
-						<img src="${ this.gallery[this.index]?.assetSrc }" />
+						<img src="${this.gallery[this.index]?.assetSrc}" />
 						<button
 							class="next-button"
-							@click="${ this.nextImage }">
-								<svg-icon type="mdi" path="${ mdiChevronDoubleRight }" style="color: var(--primary-color)"></svg-icon>
+							@click="${this.nextImage}">
+								<svg-icon type="mdi" path="${mdiChevronDoubleRight}" style="color: var(--primary-color)"></svg-icon>
 						</button>
 					</div>
 			</div>`;
@@ -123,10 +123,10 @@ export class ModelPageModal extends LitElement {
 			position: absolute;
 			cursor: pointer;
 
-            background-color: var(--container-color);
-            padding: var(--espacamento);
-            border-radius: var(--borda-arredondada);
-            box-shadow: var(--box-shadow);
+			background-color: var(--container-color);
+			padding: var(--espacamento);
+			border-radius: var(--borda-arredondada);
+			box-shadow: var(--box-shadow);
 		}
 
 		.close-button {

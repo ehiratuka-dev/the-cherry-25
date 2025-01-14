@@ -16,26 +16,26 @@ export class ModelHeaderInfo extends LitElement {
 	render() {
 		return this.profile ? html`
 			<div class="header-info">
-				<img src="${ this.profile.iconSrc }" />
+				<img src="${this.profile.iconSrc}" />
 				
 				<div class="tags">
-					${ this.profile.nome ? html`
+					${this.profile.nome ? html`
 						<div class="tag">
-							<svg-icon type="mdi" path="${ mdiAccount }" style="color: var(--primary-color)"></svg-icon>
-							<p>${ this.profile.nome }</p>
-						</div>` : nothing }
+							<svg-icon type="mdi" path="${mdiAccount}" style="color: var(--primary-color)"></svg-icon>
+							<p>${this.profile.nome}</p>
+						</div>` : nothing}
 
-					${ this.profile.cidade ? html`
+					${this.profile.cidade ? html`
 						<div class="tag">
-							<svg-icon type="mdi" path="${ mdiCity }" style="color: var(--primary-color)"></svg-icon>
-							<p>${ this.profile.cidade }</p>
-						</div>` : nothing }
+							<svg-icon type="mdi" path="${mdiCity}" style="color: var(--primary-color)"></svg-icon>
+							<p>${this.profile.cidade}</p>
+						</div>` : nothing}
 
-					${ this.profile.instagram ? html`
+					${this.profile.instagram ? html`
 						<div class="tag">
-							<svg-icon type="mdi" path="${ mdiInstagram }" style="color: var(--primary-color)"></svg-icon>
-							<p>${ this.profile.instagram }</p>
-						</div>` : nothing }
+							<svg-icon type="mdi" path="${mdiInstagram}" style="color: var(--primary-color)"></svg-icon>
+							<p>${this.profile.instagram}</p>
+						</div>` : nothing}
 				</div>
 				
 			</div>` : nothing;

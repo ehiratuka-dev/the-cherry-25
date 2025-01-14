@@ -1,29 +1,29 @@
 name: the_cherry_25
 services:
-  node:
-    image: mcr.microsoft.com/devcontainers/typescript-node:latest
-    container_name: node-build
-    volumes:
-      - ./:/usr/src/app
-      - ./dist:/usr/src/app/dist
-    working_dir: /usr/src/app
-    command: npm install | npm install -g tsc | npm run build
+    node:
+        image: mcr.microsoft.com/devcontainers/typescript-node:latest
+        container_name: node-build
+        volumes:
+            - ./:/usr/src/app
+            - ./dist:/usr/src/app/dist
+        working_dir: /usr/src/app
+        command: npm install | npm install -g tsc | npm run build
 
-  nginx:
-    image: nginx:latest
-    container_name: nginx-service
-    ports:
-      - "80:80"
-    hostname: the-cherry-25.internal
-    volumes:
-      - ./server.conf:/etc/nginx/conf.d/default.conf
-      - ./dist:/share/webapp
-      - the-cherry-25-volume:/share/data
-    depends_on:
-      - node
-    restart: unless-stopped
+    nginx:
+        image: nginx:latest
+        container_name: nginx-service
+        ports:
+            - "80:80"
+        hostname: the-cherry-25.internal
+        volumes:
+            - ./server.conf:/etc/nginx/conf.d/default.conf
+            - ./dist:/share/webapp
+            - the-cherry-25-volume:/share/data
+        depends_on:
+            - node
+        restart: unless-stopped
 
 volumes:
-  the-cherry-25-volume:
-    name: the-cherry-25-volume
-    external: true
+    the-cherry-25-volume:
+        name: the-cherry-25-volume
+        external: true

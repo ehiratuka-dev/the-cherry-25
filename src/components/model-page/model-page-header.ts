@@ -8,14 +8,14 @@ import './model-header/header-background';
 
 @customElement('model-page-header')
 export class ModelPageHeaderComponent extends LitElement {
-    @property()
-    profile: Profile | undefined = undefined;
+	@property()
+	profile: Profile | undefined = undefined;
 
-    render() {
-        return this.profile ? html`
-            <model-header-background .profile="${ this.profile }"></model-header-background>
-            <model-header-info .profile="${ this.profile }"></model-header-info>` : nothing;
-    }
+	render() {
+		return this.profile ? html`
+			<model-header-background .profile="${this.profile}"></model-header-background>
+			<model-header-info .profile="${this.profile}"></model-header-info>` : nothing;
+	}
 
-    static styles = css``
+	static styles = css``
 }

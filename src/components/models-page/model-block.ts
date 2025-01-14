@@ -9,14 +9,14 @@ export class ModelBlock extends LitElement {
 	profile: Profile | undefined = undefined;
 
 	private _onClick() {
-		window.location.href = `/#model/${ this.profile?.id }`
+		window.location.href = `/#model/${this.profile?.id}`
 	}
 
 	render() {
 		return html`
 			<div class="bloco" @click=${this._onClick}>
-                <img src="${ this.profile?.bannerSrc }"/>
-				<p>@${ this.profile?.id }</p>
+				<img src="${this.profile?.bannerSrc}"/>
+				<p>@${this.profile?.id}</p>
 			</div>`
 	}
 
@@ -29,13 +29,13 @@ export class ModelBlock extends LitElement {
 			flex-direction: column;
 
 			transition: box-shadow 0.3s ease;
-            box-shadow: var(--box-shadow);
+			box-shadow: var(--box-shadow);
 			border-radius: var(--borda-arredondada);
 			cursor: pointer;
 		}
 
 		.bloco:hover {
-            box-shadow: none;
+			box-shadow: none;
 		}
 
 		.bloco img {
