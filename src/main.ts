@@ -5,9 +5,20 @@ import './pages/models-page'
 import { ProfileClass } from "./utils/ProfileClass";
 
 
-const app: HTMLElement | null = document.querySelector("#app");
-await ProfileClass.loadData();
 
-if( app != undefined) {
-    setupRouter(app);
-}
+
+(async () => {
+    try {
+        await ProfileClass.loadData();
+
+        const app: HTMLElement | null = document.querySelector("#app");
+        if( app != undefined) {
+            setupRouter(app);
+        }
+    } catch (e: unknown) {
+        console.log(e);
+    }
+    // `text` is not available here
+})();
+
+
