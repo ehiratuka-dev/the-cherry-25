@@ -106,7 +106,7 @@ export class ModelPageModal extends LitElement {
 			box-shadow: var(--box-shadow);
 
 			position: relative;
-			max-width: 500px;
+			max-width: var(--da-bunda1);
 			width: 100%;
 		}
 
@@ -130,17 +130,17 @@ export class ModelPageModal extends LitElement {
 		}
 
 		.close-button {
-			top:12px;
-			right: 12px;
+			top: var(--espacamento);
+			right: var(--espacamento);
 		}
 
 		.next-button {
-			right: 12px;
+			right: var(--espacamento);
 			top: 50%;
 		}
 			
 		.previous-button {
-			left: 12px;
+			left: var(--espacamento);
 			top: 50%;
 		}`;
 }

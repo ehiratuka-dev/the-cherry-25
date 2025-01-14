@@ -54,6 +54,16 @@ a:focus {
 	--borda-arredondada: 12px;
 	--largura-do-app: 1080px;
 
+	--header-height: 350px;
+	--header-response-width: 20%;
+	--header-min-response-width: 120px;
+
+	--da-bunda0: 200px;
+	--da-bunda1: 500px;
+
+	--block-qtds: 4;
+	--block-size: calc(calc(var(--largura-do-app) - calc(calc(var(--block-qtds) + 1) * var(--espacamento))) / var(--block-qtds));
+
 	/******************************
 	 *
 	 * Cores

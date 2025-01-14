@@ -22,9 +22,6 @@ export class ModelBlock extends LitElement {
 
 	static styles = css`
 		.bloco {
-			width: 253px;
-			height: 190px;
-
 			display: flex;
 			flex-direction: column;
 
@@ -39,7 +36,9 @@ export class ModelBlock extends LitElement {
 		}
 
 		.bloco img {
-			height: 150px;
+			width: var(--block-size);
+			aspect-ratio: 9 / 5;
+
 			object-fit: cover;
 			border-top-left-radius: var(--borda-arredondada);
 			border-top-right-radius: var(--borda-arredondada);
@@ -47,8 +46,7 @@ export class ModelBlock extends LitElement {
 
 		.bloco p {
 			margin: 0;
-			padding: 0 var(--espacamento);
-			line-height: 40px;
+			padding: var(--espacamento) var(--espacamento);
 
 			background-color: var(--primary-color);
 			color: var(--primary-text-color);

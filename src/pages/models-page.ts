@@ -47,8 +47,8 @@ export class ModelsPage extends LitElement {
 		}
 
 		.secao p {
-			margin: 0px;
-			padding: 0px;
+			margin: 0;
+			padding: 0;
 
 			color: var(--primary-text-color);
 			font-size: var(--tamanho-do-titulo);

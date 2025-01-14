@@ -66,13 +66,13 @@ export class ModelPageGenericFeed<T extends AssetType> extends LitElement {
 			margin: 0 0 var(--espacamento);
 			display: grid;
 			gap: var(--espacamento);
-			grid-template-columns: repeat(auto-fit, minmax(166px, 1fr));
+			grid-template-columns: repeat(auto-fit, minmax(var(--block-size), 1fr));
 		}
 
 		.feed-container .feed-item {
 			width: 100%;
 			height: 100%;
-			max-width: 166px;
+			max-width: var(--block-size);
 			aspect-ratio: 9 / 16;
 		}
 

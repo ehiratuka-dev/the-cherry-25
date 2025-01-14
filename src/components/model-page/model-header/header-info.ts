@@ -46,26 +46,25 @@ export class ModelHeaderInfo extends LitElement {
 		.header-info {
 			display: flex;
 			position: relative;
-			margin-top: min(calc(-20% / 2), calc(-120px / 2));
+			margin-top: min(calc(calc(0 - var(--header-response-width)) / 2), calc(calc(0 - var(--header-min-response-width)) / 2));
 			margin-bottom: var(--espacamento);
 		}
 
 		.header-info img {
-			border: 2px solid var(--primary-text-color);
+			min-width: var(--header-min-response-width);
+			width: var(--header-response-width);
 
-			min-width: 120px;
-			width: 20%;
 			border-radius: 100%;
 		}
 		
 		.header-info .tags {
-			width: calc(1080px - 20%);
+			width: calc(var(--largura-do-app) - var(--header-response-width));
 			padding: 0 0 0 var(--espacamento);
 			align-self: flex-end;
 
 			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-			gap: 6px;
+			grid-template-columns: repeat(auto-fit, minmax(var(--da-bunda0), 1fr));
+			gap: calc(var(--espacamento) / 2);
 			align-content: stretch;
 			align-items: center;
 		}
@@ -73,7 +72,7 @@ export class ModelHeaderInfo extends LitElement {
 		.tags .tag {
 			background-color: var(--container-color);
 			border-radius: var(--borda-arredondada);
-			padding: 6px var(--espacamento);
+			padding: calc(var(--espacamento) / 2) var(--espacamento);
 
 			display: flex;
 			align-items: center;
