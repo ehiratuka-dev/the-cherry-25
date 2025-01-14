@@ -61,7 +61,7 @@ a:focus {
 	--da-bunda0: 200px;
 	--da-bunda1: 500px;
 
-	--block-qtds: 4;
+	--block-qtds: 6;
 	--block-size: calc(calc(var(--largura-do-app) - calc(calc(var(--block-qtds) + 1) * var(--espacamento))) / var(--block-qtds));
 
 	/******************************
