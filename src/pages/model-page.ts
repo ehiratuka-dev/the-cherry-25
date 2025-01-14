@@ -38,6 +38,8 @@ export class ModelPage extends LitElement {
 	}
 
 	closeModal() {
+		this.index = 0;
+		this.gallery = [];
 		this.showModal = false;
 	}
 

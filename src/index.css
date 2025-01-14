@@ -42,24 +42,8 @@ a:focus {
  *
  **********************************/
 :root {
-	--tamanho-do-titulo: 1.4rem;
-	--tamanho-do-subtitulo: 1.2rem;
-
-	@media (min-width: 570px) {
-		--tamanho-do-titulo: 1.6rem;
-		--tamanho-do-subtitulo: 1.3rem;
-	}
-
-	@media (min-width: 810px) {
-		--tamanho-do-titulo: 1.8rem;
-		--tamanho-do-subtitulo: 1.4rem;
-	}
-
-	@media (min-width: var(--largura-do-app)) {
-		--tamanho-do-titulo: 2rem;
-		--tamanho-do-subtitulo: 1.5rem;
-	}
-
+	--tamanho-do-titulo: 2rem;
+	--tamanho-do-subtitulo: 1.5rem;
 
 	/******************************
 	 *

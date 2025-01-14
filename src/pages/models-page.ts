@@ -35,12 +35,9 @@ export class ModelsPage extends LitElement {
 	}
 
 	static styles = css`
-		.container {
-			padding: 0 var(--espacamento);
-		}
 
 		.secao {
-			padding: 48px 0 var(--espacamento) 0;
+			padding: calc(4 * var(--espacamento)) 0 var(--espacamento) 0;
 			gap: var(--espacamento);
 			width: 100%;
 			height: auto;

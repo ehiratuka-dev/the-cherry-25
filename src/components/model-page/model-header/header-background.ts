@@ -100,7 +100,7 @@ export class ModelHeaderInfo extends LitElement {
 				2% 35%,
 				39% 35%
 			);
-			font-size: 24px;
+			font-size: var(--tamanho-do-subtitulo);
 			font-weight: bold;
 			color: white;
 			text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
