@@ -4,7 +4,7 @@ import { customElement, property } from 'lit/decorators.js'
 import { Profile } from '../../../types/profile-type';
 
 import '../../header-component/numbered-star-header'
-import '../../header-component/back-link-header'
+import '../../buttons/back-link-button'
 
 @customElement('model-header-background')
 export class ModelHeaderInfo extends LitElement {
@@ -16,7 +16,7 @@ export class ModelHeaderInfo extends LitElement {
 			<div class="image-container">
 				<img src="${this.profile.bannerSrc}"/>
 
-				<back-link-header></back-link-header>
+				<back-link-button></back-link-button>
 
 				<numbered-star-header stars="${this.profile.nudometro}"></numbered-star-header>
 			</div>` : nothing;

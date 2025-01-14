@@ -4,10 +4,13 @@ import { customElement, property } from 'lit/decorators.js'
 import '@jamescoyle/svg-icon'
 import { mdiArrowLeftBold } from '@mdi/js'
 
-@customElement('back-link-header')
-export class BackLinkHeader extends LitElement {
+@customElement('back-link-button')
+export class BackLinkButton extends LitElement {
 	@property()
-	stars: number = 0;
+	top: string = '';
+	
+	@property()
+	left: string = '';
 
 	backLinkClik() {
 		window.location.href = `/#models`
@@ -21,15 +24,24 @@ export class BackLinkHeader extends LitElement {
 			</div>`;
 	}
 
+	updated(changedProperties: Map<string, string>) {
+	  if (changedProperties.has('top')) {
+		this.style.setProperty('--top', this.top);
+	  }
+	  if (changedProperties.has('left')) {
+		this.style.setProperty('--left', this.left);
+	  }
+	}
+
 	static styles = css`
 		.back-link {
 			display: flex;
 			align-items: center;
+			top: var(--top, var(--espacamento));
+			left: var(--left, var(--espacamento));
 
 			position: absolute;
 			cursor: pointer;
-			top: var(--espacamento);
-			left: var(--espacamento);
 
 			background-color: var(--container-color);
 			padding: var(--espacamento);

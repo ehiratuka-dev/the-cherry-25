@@ -5,6 +5,7 @@ import Navigo from 'navigo';
 
 import './pages/model-page'
 import './pages/models-page'
+import './pages/not-found-page'
 
 @customElement('the-cherry-25-app')
 export class TheCherry25App extends LitElement {
@@ -20,6 +21,7 @@ export class TheCherry25App extends LitElement {
 			.on('/', () => this.routerOutlet = html`<models-page></models-page>`)
 			.on('/models', () => this.routerOutlet = html`<models-page></models-page>`)
 			.on("/model/:id", (match) => this.routerOutlet = html`<model-page id=${match?.data?.id}></model-page>`)
+			.notFound(() => this.routerOutlet = html`<not-found-page></not-found-page>`)
 			.resolve();
 
 	}
