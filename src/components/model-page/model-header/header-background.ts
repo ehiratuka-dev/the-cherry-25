@@ -41,7 +41,7 @@ export class ModelHeaderInfo extends LitElement {
 			left: 0;
 			width: 100%;
 			height: 100%;
-			background: linear-gradient(to bottom, rgba(var(--page-color-rgb), 0%) 0%, rgba(var(--container-color-rgb), 1) 100%) 100%;
+			background: linear-gradient(to bottom, rgba(33, 37, 41, 0%) 0%, rgba(52, 58, 64, 1) 100%) 100%;
 			pointer-events: none;
 		}
 

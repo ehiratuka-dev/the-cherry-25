@@ -60,13 +60,7 @@ a:focus {
 	 *
 	 ******************************/
 	--page-color: #212529;
-	--page-color-rgb: 33,
-	37,
-	41;
 	--container-color: #343A40;
-	--container-color-rgb: 52,
-	58,
-	64;
 	--primary-text-color: #DEE2E6;
 
 
@@ -85,6 +79,7 @@ a:focus {
  **********************************/
 body {
 	background-color: var(--page-color);
+	color: var(--primary-text-color);
 }
 
 the-cherry-25-app {
