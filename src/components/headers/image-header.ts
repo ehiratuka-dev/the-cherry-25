@@ -2,7 +2,7 @@ import { LitElement, css, html, nothing } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 
 @customElement('image-header')
-export class GenericHeader extends LitElement {
+export class ImageHeader extends LitElement {
 	@property()
 	imageSource: string = '';
 

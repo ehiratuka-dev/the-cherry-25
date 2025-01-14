@@ -17,7 +17,7 @@ export class ProfileHeader extends LitElement {
 			<image-header .imageSource="${this.profile?.bannerSrc}">
 				<back-link-button></back-link-button>
 
-				<numbered-star-header stars="${this.profile.nudometro}"></numbered-star-header>
+				<numbered-star-svg stars="${this.profile.nudometro}"></numbered-star-svg>
 			</image-header>` : nothing;
 	}
 }

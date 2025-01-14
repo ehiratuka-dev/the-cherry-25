@@ -7,7 +7,7 @@ import { Profile } from '../types/profile-type';
 
 import '../components/model-page/model-page-header'
 import '../components/model-page/model-page-generic-feed'
-import '../components/model-page/model-header/model-page-modal'
+import '../components/modals/gallery-modal'
 
 @customElement('model-page')
 export class ModelPage extends LitElement {
@@ -58,7 +58,7 @@ export class ModelPage extends LitElement {
 					title = "RECs25"></model-page-generic-feed>
 			</div>
 
-			<model-page-modal 
+			<gallery-modal 
 				.open = "${this.showModal}"
 				.index = "${this.index}"
 				.gallery = "${this.gallery}"

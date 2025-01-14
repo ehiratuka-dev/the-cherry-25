@@ -6,10 +6,10 @@ import { mdiClose } from '@mdi/js'
 import { mdiChevronDoubleRight } from '@mdi/js'
 import { mdiChevronDoubleLeft } from '@mdi/js'
 
-import { AssetType } from '../../../types/asset-type';
+import { AssetType } from '../../types/asset-type';
 
-@customElement('model-page-modal')
-export class ModelPageModal extends LitElement {
+@customElement('gallery-modal')
+export class GalleryModal extends LitElement {
 	@property()
 	open: boolean;
 

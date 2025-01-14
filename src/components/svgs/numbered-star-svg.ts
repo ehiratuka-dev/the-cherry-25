@@ -2,7 +2,7 @@ import { LitElement, css, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 
 
-@customElement('numbered-star-header')
+@customElement('numbered-star-svg')
 export class NumberedStartHeader extends LitElement {
 	@property()
 	stars: number = 0;
