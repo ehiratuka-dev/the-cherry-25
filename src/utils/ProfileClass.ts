@@ -54,6 +54,11 @@ export class ProfileClass {
 	}
 
 	public static async loadData() {
+		if(this.profiles != undefined) {
+			return;
+		}
+
+		console.log("loadData");
 		this.profiles = await this.loadDataByCategory<Profile[]>('profiles');
 		const recs25 = await this.loadDataByCategory<RECs25[]>('recs25');
 		const socialMedia = await this.loadDataByCategory<SocialMedia[]>('social-media');
@@ -67,11 +72,19 @@ export class ProfileClass {
 		});
 	}
 
-	public static getProfiles() : Profile[] {
+	public static async getProfiles() : Promise<Profile[]> {
+		console.log("getProfiles");
+		console.log(this.profiles);
+		await this.loadData();
+		console.log(this.profiles);
 		return this.profiles;
 	}
 
-	public static getProfileById(id: string): Profile | undefined {
+	public static async getProfileById(id: string): Promise<Profile | undefined> {
+		console.log("getProfileById");
+		console.log(this.profiles);
+		await this.loadData();
+		console.log(this.profiles);
 		return this.profiles.find(profile => profile.id === id);
 	}
 }

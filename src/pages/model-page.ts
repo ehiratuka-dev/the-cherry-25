@@ -26,9 +26,10 @@ export class ModelPage extends LitElement {
     @state()
     gallery: Array<AssetType> = [];
 
-    connectedCallback() {
+    async connectedCallback() {
         super.connectedCallback();
-        this.profile = ProfileClass.getProfileById(this.id);
+        console.log("connectedCallback");
+        this.profile = await ProfileClass.getProfileById(this.id);
     }
 
     openModal(e: CustomEvent) {
@@ -42,6 +43,8 @@ export class ModelPage extends LitElement {
     }
 
     render() {
+        console.log("render");
+        console.log(this.profile);
         return html`
             <div class = "container" 
 				@modal-opened = "${ this.openModal }">

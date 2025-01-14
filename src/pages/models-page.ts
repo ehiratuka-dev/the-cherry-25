@@ -9,20 +9,22 @@ import { ProfileClass } from '../utils/ProfileClass';
 @customElement('models-page')
 export class ModelsPage extends LitElement {
     @state()
-    protected profiles: Profile[] = [];
+    protected profiles: Profile[] | undefined;
 
     constructor() {
         super();
     }
 
-    connectedCallback() {
+    async connectedCallback() {
         super.connectedCallback();
-        this.profiles = ProfileClass.getProfiles();
+        console.log("connectedCallback");
+        this.profiles = await ProfileClass.getProfiles();
     }
 
     render() {
-        return html`
-            <div class="container">
+        console.log("render");
+        console.log(this.profiles);
+        return this.profiles ? html`<div class="container">
                 <div class="secao">
                     <p class="font-subtitle">Profiles</p>
                     <div class="lista-blocos">
@@ -31,7 +33,7 @@ export class ModelsPage extends LitElement {
                         `)}
                     </div>
                 </div>
-            </div>`
+            </div>` : html`<div>LOADING</div>`
     }
     static styles = css`
         .container {
