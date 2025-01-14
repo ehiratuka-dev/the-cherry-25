@@ -32,6 +32,9 @@ export class ModelHeaderInfo extends LitElement {
 	static styles = css`
 		.image-container {
 			position: relative;
+			width: calc(100% + var(--espacamento) + var(--espacamento));
+			margin-left: calc(0px - var(--espacamento));
+			margin-right: calc(0px - var(--espacamento));
 		}
 
 		.image-container::after {

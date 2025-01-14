@@ -63,7 +63,6 @@ export class ModelPageGenericFeed<T extends AssetType> extends LitElement {
 
 	static styles = css`
 		.feed-container {
-			padding: 0 var(--espacamento);
 			margin: 0 0 var(--espacamento);
 			display: grid;
 			gap: var(--espacamento);
@@ -95,7 +94,6 @@ export class ModelPageGenericFeed<T extends AssetType> extends LitElement {
 
 		p {
 			font-size: var(--tamanho-do-subtitulo);
-			padding: 0 var(--espacamento);
 			margin: 0 0 var(--espacamento);
 		}`
 }

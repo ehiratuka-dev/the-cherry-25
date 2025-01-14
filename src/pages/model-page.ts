@@ -64,11 +64,5 @@ export class ModelPage extends LitElement {
 				.gallery = "${this.gallery}"
 				@modal-closed = "${this.closeModal}"></model-page-modal>`
 	}
-	static styles = css`
-		.container {
-			background-color: var(--container-color);
-			min-height: 100vh;
-			position: relative;
-			color: var(--primary-text-color);
-		}`
+	static styles = css``
 }

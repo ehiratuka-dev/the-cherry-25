@@ -47,7 +47,6 @@ export class ModelHeaderInfo extends LitElement {
 			display: flex;
 			position: relative;
 			margin-top: min(calc(-20% / 2), calc(-120px / 2));
-			padding: 0 var(--espacamento);
 			margin-bottom: var(--espacamento);
 		}
 
