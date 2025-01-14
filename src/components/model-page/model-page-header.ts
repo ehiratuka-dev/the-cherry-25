@@ -4,7 +4,7 @@ import { customElement, property } from 'lit/decorators.js'
 import { Profile } from '../../types/profile-type';
 
 import './model-header/header-info';
-import './model-header/header-background';
+import '../headers/profile-header';
 
 @customElement('model-page-header')
 export class ModelPageHeaderComponent extends LitElement {
@@ -13,7 +13,7 @@ export class ModelPageHeaderComponent extends LitElement {
 
 	render() {
 		return this.profile ? html`
-			<model-header-background .profile="${this.profile}"></model-header-background>
+			<profile-header .profile="${this.profile}"></profile-header>
 			<model-header-info .profile="${this.profile}"></model-header-info>` : nothing;
 	}
 

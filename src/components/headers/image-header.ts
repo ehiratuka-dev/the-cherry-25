@@ -1,24 +1,16 @@
 import { LitElement, css, html, nothing } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 
-import { Profile } from '../../../types/profile-type';
-
-import '../../svgs/numbered-star-svg'
-import '../../buttons/back-link-button'
-
-@customElement('model-header-background')
-export class ModelHeaderInfo extends LitElement {
+@customElement('image-header')
+export class GenericHeader extends LitElement {
 	@property()
-	profile: Profile | undefined = undefined;
+	imageSource: string = '';
 
 	render() {
-		return this.profile ? html`
+		return this.imageSource ? html`
 			<div class="image-container">
-				<img src="${this.profile.bannerSrc}"/>
-
-				<back-link-button></back-link-button>
-
-				<numbered-star-header stars="${this.profile.nudometro}"></numbered-star-header>
+				<img src="${this.imageSource}"/>
+				<slot></slot>
 			</div>` : nothing;
 	}
 
