@@ -1,7 +1,7 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, state } from 'lit/decorators.js'
-
 import { repeat } from 'lit/directives/repeat.js';
+
 import { ProfileClass } from '../utils/ProfileClass';
 import { Profile } from '../types/profile-type';
 
@@ -33,6 +33,7 @@ export class ModelsPage extends LitElement {
                 </div>
             </div>` : html`<div>LOADING</div>`
     }
+
     static styles = css`
         .container {
             padding: 0 var(--espacamento);

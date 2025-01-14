@@ -1,11 +1,16 @@
 {
     "name": "the-cherry-25",
     "image": "mcr.microsoft.com/devcontainers/typescript-node:latest",
-    "appPort": [3000],
+    "appPort": [
+        3000
+    ],
     "customizations": {
         "vscode": {
             "settings": {
-                "terminal.integrated.shell.linux": "/bin/bash"
+                "terminal.integrated.shell.linux": "/bin/bash",
+                "editor.tabSize": 4,
+                "editor.insertSpaces": false,
+                "editor.detectIndentation": false
             },
             "extensions": [
                 "dbaeumer.vscode-eslint"
