@@ -1,6 +1,10 @@
 import { LitElement, css, html, nothing } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
-import { Profile } from '../../utils/profile-manager';
+
+import '@jamescoyle/svg-icon'
+import { mdiArrowLeftBold } from '@mdi/js'
+
+import { Profile } from '../../../types/profile-type';
 
 @customElement('model-header-background')
 export class ModelHeaderInfo extends LitElement {
@@ -14,11 +18,11 @@ export class ModelHeaderInfo extends LitElement {
     render() {
         return this.profile ? html`
             <div class="image-container">
-                <img src="../data/Social%20Media/@${ this.profile.id }/@${ this.profile.id } notion-banner.png" 
-                onerror="this.onerror=null; this.src='../data/Social Media/@default/@default notion.png';"/>
+                <img src="${ this.profile.bannerSrc }"/>
 
                 <div class="back-link" @click="${ this.backLinkClik }">
-                    Voltar
+                    <svg-icon type="mdi" path="${ mdiArrowLeftBold }" style="color: var(--primary-color)"></svg-icon>
+                    <p>Voltar</p>
                 </div>
 
                 <div class="star">${ this.profile.nudometro }</div>
@@ -49,7 +53,9 @@ export class ModelHeaderInfo extends LitElement {
         }
 
         .image-container .back-link {
-            display: block;
+            display: flex;
+            align-items: center;
+
             position: absolute;
             cursor: pointer;
             top: var(--espacamento);
@@ -67,9 +73,11 @@ export class ModelHeaderInfo extends LitElement {
         .image-container .back-link:hover {
             box-shadow: var(--box-shadow-hover);
         }
-            
-        
-        
+
+        .image-container .back-link p {
+            margin: 0 0 0 var(--espacamento);
+        }
+
         .star {
             position: absolute;
             right: var(--espacamento);

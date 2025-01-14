@@ -1,10 +1,12 @@
 import { LitElement, css, html, nothing } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
-import { Profile } from '../../utils/profile-manager';
+
 import '@jamescoyle/svg-icon'
 import { mdiAccount } from '@mdi/js'
 import { mdiCity } from '@mdi/js'
 import { mdiInstagram } from '@mdi/js'
+
+import { Profile } from '../../../types/profile-type'
 
 @customElement('model-header-info')
 export class ModelHeaderInfo extends LitElement {
@@ -14,8 +16,7 @@ export class ModelHeaderInfo extends LitElement {
 	render() {
 		return this.profile ? html`
 			<div class="header-info">
-				<img src="../data/Social%20Media/@${ this.profile.id }/@${ this.profile.id } notion-icon.jpg"
-				onerror="this.onerror=null; this.src='../data/Social Media/@default/@default notion-icon.jpg';" />
+				<img src="${ this.profile.iconSrc }" />
 				
 				<div class="tags">
 					${ this.profile.nome ? html`

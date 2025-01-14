@@ -1,13 +1,13 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, property, state } from 'lit/decorators.js'
 
-import { Profile } from '../utils/profile-manager';
 import { AssetType } from '../types/asset-type';
-
-import '../components/model-page-header'
-import '../components/model-page-generic-feed'
-import '../components/model-page-modal'
 import { ProfileClass } from '../utils/ProfileClass';
+import { Profile } from '../types/profile-type';
+
+import '../components/model-page/model-page-header'
+import '../components/model-page/model-page-generic-feed'
+import '../components/model-page/model-header/model-page-modal'
 
 @customElement('model-page')
 export class ModelPage extends LitElement {
@@ -28,7 +28,6 @@ export class ModelPage extends LitElement {
 
     async connectedCallback() {
         super.connectedCallback();
-        console.log("connectedCallback");
         this.profile = await ProfileClass.getProfileById(this.id);
     }
 
@@ -43,30 +42,25 @@ export class ModelPage extends LitElement {
     }
 
     render() {
-        console.log("render");
-        console.log(this.profile);
         return html`
-            <div class = "container" 
-				@modal-opened = "${ this.openModal }">
-                <model-page-header .profile = "${ this.profile }"></model-page-header>
+            <div class = "container" @modal-opened = "${ this.openModal }">
+                <model-page-header
+                    .profile = "${ this.profile }"></model-page-header>
 
-                <model-page-generic-feed 
+                <model-page-generic-feed
                     .assets = "${ this.profile?.socialMedia }"
-                    title = "Social Media">
-                </model-page-generic-feed>
+                    title = "Social Media"></model-page-generic-feed>
 
                 <model-page-generic-feed
                     .assets = "${ this.profile?.recs25 }"
-                    title = "RECs25">
-                </model-page-generic-feed>
+                    title = "RECs25"></model-page-generic-feed>
             </div>
 
-            <model-page-modal
+            <model-page-modal 
                 .open = "${ this.showModal }"
                 .index = "${ this.index }"
                 .gallery = "${ this.gallery }"
-                @modal-closed = "${ this.closeModal}">
-            </model-page-modal>`
+                @modal-closed = "${ this.closeModal}"></model-page-modal>`
     }
     static styles = css`
         .container {

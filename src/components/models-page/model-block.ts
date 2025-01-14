@@ -1,21 +1,22 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
-import { montarBanner } from '../utils/mount-url';
+
+import { Profile } from '../../types/profile-type';
 
 @customElement('model-block')
 export class ModelBlock extends LitElement {
 	@property()
-	tag: string = '';
+	profile: Profile | undefined = undefined;
 
 	private _onClick() {
-		window.location.href = `/#model/${ this.tag }`
+		window.location.href = `/#model/${ this.profile?.id }`
 	}
 
 	render() {
 		return html`
 			<div class="bloco" @click=${this._onClick}>
-				${ montarBanner(this.tag) }
-				<p>@${ this.tag }</p>
+                <img src="${ this.profile?.bannerSrc }"/>
+				<p>@${ this.profile?.id }</p>
 			</div>`
 	}
 

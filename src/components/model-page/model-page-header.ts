@@ -1,6 +1,7 @@
 import { LitElement, css, html, nothing } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
-import { Profile } from '../utils/profile-manager';
+
+import { Profile } from '../../types/profile-type';
 
 import './model-header/header-info';
 import './model-header/header-background';

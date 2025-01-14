@@ -1,10 +1,11 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, state } from 'lit/decorators.js'
 
-import '../components/model-block';
-import { Profile } from '../utils/profile-manager';
 import { repeat } from 'lit/directives/repeat.js';
 import { ProfileClass } from '../utils/ProfileClass';
+import { Profile } from '../types/profile-type';
+
+import '../components/models-page/model-block';
 
 @customElement('models-page')
 export class ModelsPage extends LitElement {
@@ -17,19 +18,16 @@ export class ModelsPage extends LitElement {
 
     async connectedCallback() {
         super.connectedCallback();
-        console.log("connectedCallback");
         this.profiles = await ProfileClass.getProfiles();
     }
 
     render() {
-        console.log("render");
-        console.log(this.profiles);
         return this.profiles ? html`<div class="container">
                 <div class="secao">
                     <p class="font-subtitle">Profiles</p>
                     <div class="lista-blocos">
                         ${repeat(this.profiles.filter(profile => profile.hidden === false), (profile: Profile) => profile.id, (profile) => html`
-                            <model-block tag="${ profile.id }"></model-block> <!-- ${ profile.id } -->
+                            <model-block .profile="${ profile }"></model-block>
                         `)}
                     </div>
                 </div>

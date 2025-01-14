@@ -1,7 +1,12 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import { AssetType } from '../types/asset-type';
-import 'fa-icons';
+
+import '@jamescoyle/svg-icon'
+import { mdiClose } from '@mdi/js'
+import { mdiChevronDoubleRight } from '@mdi/js'
+import { mdiChevronDoubleLeft } from '@mdi/js'
+
+import { AssetType } from '../../../types/asset-type';
 
 @customElement('model-page-modal')
 export class ModelPageModal extends LitElement {
@@ -49,18 +54,18 @@ export class ModelPageModal extends LitElement {
 						<button
 							class="close-button"
 							@click="${ this.closeModal }">
-								<fa-icon path-prefix="../node_modules" color="var(--primary-text-color)" class="fas fa-times" size="16"></fa-icon>	
+								<svg-icon type="mdi" path="${ mdiClose }" style="color: var(--primary-color)"></svg-icon>
 						</button>
 						<button
 							class="previous-button"
 							@click="${ this.previousImage }">
-								<fa-icon path-prefix="../node_modules" color="var(--primary-text-color)" class="fas fa-chevron-left" size="16"></fa-icon>
+								<svg-icon type="mdi" path="${ mdiChevronDoubleLeft }" style="color: var(--primary-color)"></svg-icon>
 						</button>
-						<img src="${ this.gallery[this.index]?.montarFeedSrc }" />
+						<img src="${ this.gallery[this.index]?.assetSrc }" />
 						<button
 							class="next-button"
 							@click="${ this.nextImage }">
-								<fa-icon path-prefix="../node_modules" color="var(--primary-text-color)" class="fas fa-chevron-right" size="16"></fa-icon>
+								<svg-icon type="mdi" path="${ mdiChevronDoubleRight }" style="color: var(--primary-color)"></svg-icon>
 						</button>
 					</div>
 			</div>`;

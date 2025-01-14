@@ -2,7 +2,7 @@ import { LitElement, css, html } from 'lit'
 import { customElement, property, state } from 'lit/decorators.js'
 import { repeat } from 'lit/directives/repeat.js';
 
-import { AssetType } from '../types/asset-type';
+import { AssetType } from '../../types/asset-type';
 
 @customElement('model-page-generic-feed')
 export class ModelPageGenericFeed<T extends AssetType> extends LitElement {
@@ -48,7 +48,7 @@ export class ModelPageGenericFeed<T extends AssetType> extends LitElement {
 				@modal-opened = "${ this.openModal }">
                     ${ repeat(this.assets, (asset: T) => asset.profile, (asset: T, index: number) =>  html` 
                         <div class="feed-item">
-                            <img src="${ asset.montarFeedSrc }" @click="${this.onBlockClick}" data-index=${ index }/>
+                            <img src="${ asset.assetSrc }" @click="${this.onBlockClick}" data-index=${ index }/>
                         </div>
                     `) }
             </div>

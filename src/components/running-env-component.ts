@@ -1,11 +1,8 @@
 import { LitElement, css, html } from 'lit'
-import { customElement, property } from 'lit/decorators.js'
+import { customElement } from 'lit/decorators.js'
 
 @customElement('running-env-component')
 export class RunningEnvComponent extends LitElement {
-    @property()
-    id: string = '';
-
     render() {
         return html`<div class="${ import.meta.env.MODE }">Running on ${ import.meta.env.MODE }</div>`
     }

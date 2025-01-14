@@ -9,7 +9,12 @@ export interface Profile {
     tags: string[];
     nudometro: number;
 
+    bannerSrc: string;
+    iconSrc: string;
+
     hidden: boolean;
+    bannered: boolean;
+
     socialMedia: SocialMedia[]
     recs25: RECs25[]
 }
