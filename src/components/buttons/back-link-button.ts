@@ -1,6 +1,8 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 
+import { router } from '../../utils/Router';
+
 import '@jamescoyle/svg-icon'
 import { mdiArrowLeftBold } from '@mdi/js'
 
@@ -13,7 +15,7 @@ export class BackLinkButton extends LitElement {
 	left: string = '';
 
 	backLinkClik() {
-		window.location.href = `/#models`
+		router.navigate('/models');
 	}
 
 	render() {

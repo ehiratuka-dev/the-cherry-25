@@ -1,7 +1,7 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, state } from 'lit/decorators.js'
 
-import Navigo from 'navigo';
+import { router } from './utils/Router';
 
 import './pages/model-page'
 import './pages/models-page'
@@ -12,12 +12,9 @@ export class TheCherry25App extends LitElement {
 	@state()
 	private routerOutlet = html`<models-page></models-page>`;
 
-	private router!: Navigo;
-
 	constructor() {
 		super();
-		this.router = new Navigo('/', { hash: true });
-		this.router
+		router
 			.on('/', () => this.routerOutlet = html`<models-page></models-page>`)
 			.on('/models', () => this.routerOutlet = html`<models-page></models-page>`)
 			.on("/model/:id", (match) => this.routerOutlet = html`<model-page id=${match?.data?.id}></model-page>`)
