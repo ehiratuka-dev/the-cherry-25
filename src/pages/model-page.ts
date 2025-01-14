@@ -1,12 +1,13 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, property, state } from 'lit/decorators.js'
 
-import { Profile, ProfileManager } from '../utils/profile-manager';
+import { Profile } from '../utils/profile-manager';
+import { AssetType } from '../types/asset-type';
 
 import '../components/model-page-header'
 import '../components/model-page-generic-feed'
 import '../components/model-page-modal'
-import { AssetType } from '../types/asset-type';
+import { ProfileClass } from '../utils/ProfileClass';
 
 @customElement('model-page')
 export class ModelPage extends LitElement {
@@ -27,11 +28,7 @@ export class ModelPage extends LitElement {
 
     connectedCallback() {
         super.connectedCallback();
-
-        const manager = new ProfileManager();
-        manager.getProfileById(this.id).then((profile: Profile | undefined) => {
-            this.profile = profile;
-        });
+        this.profile = ProfileClass.getProfileById(this.id);
     }
 
     openModal(e: CustomEvent) {

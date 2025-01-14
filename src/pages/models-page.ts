@@ -2,8 +2,9 @@ import { LitElement, css, html } from 'lit'
 import { customElement, state } from 'lit/decorators.js'
 
 import '../components/model-block';
-import { Profile, ProfileManager } from '../utils/profile-manager';
+import { Profile } from '../utils/profile-manager';
 import { repeat } from 'lit/directives/repeat.js';
+import { ProfileClass } from '../utils/ProfileClass';
 
 @customElement('models-page')
 export class ModelsPage extends LitElement {
@@ -16,11 +17,7 @@ export class ModelsPage extends LitElement {
 
     connectedCallback() {
         super.connectedCallback();
-
-        const manager = new ProfileManager();
-        manager.getProfiles().then((response: Profile[]) => {
-            this.profiles = response;
-        });
+        this.profiles = ProfileClass.getProfiles();
     }
 
     render() {

@@ -8,7 +8,7 @@ export class ModelHeaderInfo extends LitElement {
     profile: Profile | undefined = undefined;
 
     backLinkClik() {
-        window.history.back();
+		window.location.href = `/#models`
     }
 
     render() {

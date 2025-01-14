@@ -8,7 +8,7 @@ export class ModelBlock extends LitElement {
 	tag: string = '';
 
 	private _onClick() {
-		window.location.href = `model/${ this.tag }`
+		window.location.href = `/#model/${ this.tag }`
 	}
 
 	render() {

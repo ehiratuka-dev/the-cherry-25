@@ -46,7 +46,6 @@ export class ProfileManager {
 			const nudometroIndexes: Array<number> = this.recs25
 				.filter((rc: RECs25) => rc.profile === pessoa.id)
 				.map((rc: RECs25) => { 
-					console.log(`${ rc.profile }: ${ rc.id }|${ rc.clipe } - ${ rc.nudometro }`);
 					return rc.nudometro ?? 0
 			});
 			pessoa.nudometro = nudometroIndexes.length > 0 ? Math.max(...nudometroIndexes) : 0;
