@@ -63,8 +63,8 @@ npm run format
 ```
 
 npm run build
-docker build -t the-cherry-25 ./
-docker run -d -p 80:80 -v the-cherry-25-volume:/share/data the-cherry-25
+docker build -t the-cherry-25-image ./
+docker run -d -p 80:80 -v the-cherry-25-data:/share/data the-cherry-25
 
 docker run --rm -it the-cherry-25-webapp /bin/bash
 docker-compose up
@@ -89,7 +89,7 @@ docker-compose up
         volumes:
             - ./server.conf:/etc/nginx/conf.d/default.conf
             - ./dist:/share/webapp
-            - the-cherry-25-volume:/share/data
+            - the-cherry-25-data:/share/data
         depends_on:
             - node
         restart: unless-stopped

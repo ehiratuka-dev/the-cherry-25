@@ -22,7 +22,7 @@
 	},
 	"postCreateCommand": "npm install",
 	"mounts": [
-		"source=the-cherry-25-volume,target=/workspaces/the-cherry-25/public/data,type=volume",
+		"source=the-cherry-25-data,target=/workspaces/the-cherry-25/public/data,type=volume",
 		"source=the-cherry-25-webapp,target=/workspaces/the-cherry-25/dist,type=volume"
 	]
 }
