@@ -15,17 +15,23 @@ export class NumberedStartSVG extends LitElement {
 	static styles = css`
 		.star {
 			position: absolute;
-			right: var(--espacamento);
 			top: var(--espacamento);
+			right: var(--espacamento);
+
 			display: inline-flex;
 			align-items: center;
 			justify-content: center;
 
+			width: var(--header-response-width);
 			min-width: var(--header-min-response-width);
-			width: 20%;
 			aspect-ratio: 1 / 1;
 
-			background: gold;
+			background: var(--bs-yellow);
+			color: var(--bs-white);
+			font-size: var(--tamanho-do-subtitulo);
+			font-weight: var(--peso-do-subtitulo);
+			text-shadow: var(--box-shadow);
+
 			clip-path: polygon(
 				50% 0%,
 				61% 35%,
@@ -38,9 +44,5 @@ export class NumberedStartSVG extends LitElement {
 				2% 35%,
 				39% 35%
 			);
-			font-size: var(--tamanho-do-subtitulo);
-			font-weight: bold;
-			color: white;
-			text-shadow: var(--box-shadow);
 		}`
 }
