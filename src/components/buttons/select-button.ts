@@ -13,6 +13,7 @@ export class SelectButton extends BaseButton {
 	constructor() {
 		super();
 		this.style.setProperty('--button-spacing', '0.2rem');
+		this.style.setProperty('--button-text-size', '0.75rem');
 	}
 
 	handleClick() {

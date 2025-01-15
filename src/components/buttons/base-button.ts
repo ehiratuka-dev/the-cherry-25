@@ -62,6 +62,7 @@ export class BaseButton extends LitElement {
 			background-color: var(--button-bg-color, transparent);
 			color: var(--button-text-color, transparent);
 			padding: var(--button-spacing, calc(var(--espacamento) / 2));
+			font-size: var(--button-text-size, inherit);
 		}
 
 		.container-base-button p {
