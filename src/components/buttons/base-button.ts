@@ -3,6 +3,19 @@ import { customElement, property } from 'lit/decorators.js'
 
 import '@jamescoyle/svg-icon'
 
+export const enum COLORS {
+	BLUE = "blue",
+	INDIGO = "indigo",
+	PURPLE = "purple",
+	PINK = "pink",
+	RED = "red",
+	ORANGE = "orange",
+	YELLOW = "yellow",
+	GREEN = "green",
+	TEAL = "teal",
+	CYAN = "cyan",
+}
+
 @customElement('base-button')
 export class BaseButton extends LitElement {
 	@property()
@@ -11,8 +24,8 @@ export class BaseButton extends LitElement {
 	@property()
 	text: string | undefined;
 
-	@property({ type: String })
-	color: string = 'transparent'; // Valor padrão
+	@property()
+	color: COLORS | undefined;
 
 	protected handleClick() {
 		console.log("Botão clicado");
@@ -29,7 +42,8 @@ export class BaseButton extends LitElement {
 	updated(changedProperties: Map<string, unknown>) {
 		super.updated(changedProperties);
 		if (changedProperties.has('color')) {
-			this.style.setProperty('--button-color', this.color); // Atualiza a variável CSS
+			this.style.setProperty('--button-bg-color', `var(--bs-${this.color})`);
+			this.style.setProperty('--button-text-color', `var(--bs-${this.color}-subtle)`);
 		}
 	}
 
@@ -38,42 +52,23 @@ export class BaseButton extends LitElement {
 			display: flex;
 			align-items: center;
 		
-			padding: var(--espacamento);
 			border-radius: var(--borda-arredondada);
 			transition: var(--box-shadow-transition);
 			box-shadow: var(--box-shadow);
 
 			cursor: pointer;
 			position: relative;
-		}
-		.container-base-button::before {
-		    content: "";
-			position: absolute;
-			top: 0px;
-			left: 0px;
-			height: 100%;
-			width: 100%;
-			background-color: var(--button-color, transparent);
-			transition: background-color 180ms ease-in-out;
-			opacity: 0.2;
 
-			display: flex;
-			align-items: center;
-
-			border-radius: var(--borda-arredondada);
-			transition: var(--box-shadow-transition);
-			box-shadow: var(--box-shadow);
-
-			pointer-events: none;
+			background-color: var(--button-bg-color, transparent);
+			color: var(--button-text-color, transparent);
+			padding: var(--button-spacing, calc(var(--espacamento) / 2));
 		}
 
 		.container-base-button p {
-			color: var(--button-color, transparent);
 			margin: 0 0 0 var(--espacamento);
 		}
 
 		.container-base-button svg-icon {
-			color: var(--button-color, transparent)
 		}
 
 		`

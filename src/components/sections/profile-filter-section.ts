@@ -29,6 +29,9 @@ export class ProfileFilterSection extends LitElement {
 	static styles = css`
 		.filter-category {
 			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			margin-top: var(--espacamento);
 		}
 
 		.filter-category * {

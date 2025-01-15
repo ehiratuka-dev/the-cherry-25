@@ -69,22 +69,39 @@ a:focus {
 	 * Cores
 	 *
 	 ******************************/
-
-
 	--bs-blue: #0d6efd;
+	--bs-blue-subtle: #cfe2ff;
+
     --bs-indigo: #6610f2;
+	--bs-indigo-subtle: #e6d4ff;
+
     --bs-purple: #6f42c1;
+	--bs-purple-subtle: #d0b8ff;
+
     --bs-pink: #d63384;
+	--bs-pink-subtle: #f1c3d8;
+
     --bs-red: #dc3545;
+	--bs-red-subtle: #f8d7da;
+
     --bs-orange: #fd7e14;
+	--bs-orange-subtle: #fcd8a6;
+
     --bs-yellow: #ffc107;
+	--bs-yellow-subtle: #fff3cd;
+
     --bs-green: #198754;
+	--bs-green-subtle: #d1e7dd;
+
     --bs-teal: #20c997;
+	--bs-teal-subtle: a4e5d3;
+
     --bs-cyan: #0dcaf0;
+	--bs-cyan-subtle: #cff4fc;
+
     --bs-black: #000;
     --bs-white: #fff;
-    --bs-gray: #6c757d;
-    --bs-gray-dark: #343a40;
+
     --bs-gray-100: #f8f9fa;
     --bs-gray-200: #e9ecef;
     --bs-gray-300: #dee2e6;
@@ -103,11 +120,26 @@ a:focus {
     --bs-danger: var(--bs-red);
     --bs-light: var(--bs-gray-100);
     --bs-dark: var(--bs-gray-900);
+    --bs-gray: var(--bs-gray-600);
+    --bs-gray-dark: var(--bs-gray-800);
 
 	--page-color: #212529;
 	--container-color: #343A40;
 	--primary-text-color: #DEE2E6;
 
+
+
+
+	/******************************
+	 *
+	 * Regras Dinâmicas
+	 *
+	 * Button
+	 * 		--button-bg-color		transparent
+	 * 		--button-text-color		transparent
+	 * 		--button-spacing		calc(var(--espacamento) / 2)
+	 ******************************/
+	 
 
 	--box-shadow-color: #212529;
 	--box-shadow: 4px 4px 6px var(--box-shadow-color);
