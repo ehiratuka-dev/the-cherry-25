@@ -4,8 +4,8 @@ import { repeat } from 'lit/directives/repeat.js';
 
 import { AssetType } from '../../types/asset-type';
 
-@customElement('asset-feed-section')
-export class AssetFeedSectuib<T extends AssetType> extends LitElement {
+@customElement('asset-list-section')
+export class AssetListection<T extends AssetType> extends LitElement {
 	@property()
 	title: string = '';
 

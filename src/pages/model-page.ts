@@ -7,7 +7,7 @@ import { Profile } from '../types/profile-type';
 
 import '../components/headers/profile-header'
 import '../components/sections/profile-info-section'
-import '../components/sections/asset-feed-section'
+import '../components/sections/asset-list-section'
 import '../components/modals/gallery-modal'
 
 @customElement('model-page')
@@ -51,13 +51,13 @@ export class ModelPage extends LitElement {
 				
 				<profile-info-section .profile="${this.profile}"></profile-info-section>
 
-				<asset-feed-section
+				<asset-list-section
 					.assets = "${this.profile?.socialMedia}"
-					title = "Social Media"></asset-feed-section>
+					title = "Social Media"></asset-list-section>
 
-				<asset-feed-section
+				<asset-list-section
 					.assets = "${this.profile?.recs25}"
-					title = "RECs25"></asset-feed-section>
+					title = "RECs25"></asset-list-section>
 			</div>
 
 			<gallery-modal 

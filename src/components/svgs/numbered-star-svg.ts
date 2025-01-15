@@ -3,7 +3,7 @@ import { customElement, property } from 'lit/decorators.js'
 
 
 @customElement('numbered-star-svg')
-export class NumberedStartHeader extends LitElement {
+export class NumberedStartSVG extends LitElement {
 	@property()
 	stars: number = 0;
 

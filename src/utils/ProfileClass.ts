@@ -19,26 +19,26 @@ export class ProfileClass {
 		const recs25 = await this.loadDataByCategory<RECs25[]>('recs25');
 		const socialMedia = await this.loadDataByCategory<SocialMedia[]>('social-media');
 
-		this.profiles.forEach(async (pessoa: Profile) => {
-			pessoa.hidden = pessoa.hidden === undefined ? false : pessoa.hidden;
-			pessoa.bannered = pessoa.bannered === undefined ? true : pessoa.bannered;
+		this.profiles.forEach(async (profile: Profile) => {
+			profile.hidden = profile.hidden === undefined ? false : profile.hidden;
+			profile.bannered = profile.bannered === undefined ? true : profile.bannered;
 
-			pessoa.recs25 = this.gerarRECs25(pessoa, recs25);
-			pessoa.socialMedia = this.gerarSocialMedia(pessoa, socialMedia);
-			pessoa.nudometro = this.calcularNudometro(pessoa);
+			profile.recs25 = this.gerarRECs25(profile, recs25);
+			profile.socialMedia = this.gerarSocialMedia(profile, socialMedia);
+			profile.nudometro = this.calcularNudometro(profile);
 
-			if (pessoa.bannered) {
-				pessoa.bannerSrc = `../data/Profile/@${pessoa.id} banner.png`
-				pessoa.iconSrc = `../data/Profile/@${pessoa.id} icon.jpg`
+			if (profile.bannered) {
+				profile.bannerSrc = `/data/Profile/@${profile.id} banner.png`
+				profile.iconSrc = `/data/Profile/@${profile.id} icon.jpg`
 			} else {
-				pessoa.bannerSrc = `../data/Profile/default banner.png`
-				pessoa.iconSrc = `../data/Profile/default icon.jpg`
+				profile.bannerSrc = `/data/Profile/default banner.png`
+				profile.iconSrc = `/data/Profile/default icon.jpg`
 			}
 		});
 	}
 
 	private static async loadDataByCategory<T>(category: string) {
-		const response = await fetch(`../data/${category}.yaml`, {
+		const response = await fetch(`/data/${category}.yaml`, {
 			method: 'GET',
 			headers: {
 				Accept: 'application/json',
@@ -48,31 +48,31 @@ export class ProfileClass {
 		return yaml.load(dataTxt) as T;
 	}
 
-	private static gerarRECs25(pessoa: Profile, recs25: RECs25[]): RECs25[] {
+	private static gerarRECs25(profile: Profile, recs25: RECs25[]): RECs25[] {
 		return recs25
-			.filter((rc: RECs25) => rc.profile === pessoa.id)
+			.filter((rc: RECs25) => rc.profile === profile.id)
 			.flatMap((rc: RECs25) => {
 				return Array.from({ length: 3 }, (_, index) => {
 					const newRc = { ...rc };
-					newRc.assetSrc = `../data/RECs25/Hot/RECs25-${rc.id?.toString().padStart(2, '0')} Clipe-${(rc.clipe).toString().padStart(2, '0')} Hot-0${index + 1}.png`;
+					newRc.assetSrc = `/data/RECs25/Hot/RECs25-${rc.id?.toString().padStart(2, '0')} Clipe-${(rc.clipe).toString().padStart(2, '0')} Hot-0${index + 1}.png`;
 					return newRc;
 				});
 			});
 	}
 
-	private static gerarSocialMedia(pessoa: Profile, socialMedia: SocialMedia[]): SocialMedia[] {
+	private static gerarSocialMedia(profile: Profile, socialMedia: SocialMedia[]): SocialMedia[] {
 		return socialMedia
-			.filter((sm: SocialMedia) => sm.profile === pessoa.id)
+			.filter((sm: SocialMedia) => sm.profile === profile.id)
 			.map((sm: SocialMedia) => {
-				sm.assetSrc = `../data/Social Media/@${sm.profile}/@${sm.profile} feed-${sm.sequencial ? sm.data + '-' + sm.sequencial : sm.data}.jpg`;
+				sm.assetSrc = `/data/Social Media/@${sm.profile}/@${sm.profile} feed-${sm.sequencial ? sm.data + '-' + sm.sequencial : sm.data}.jpg`;
 				return sm;
 			}
 			);
 	}
 
-	private static calcularNudometro(pessoa: Profile) {
-		const nudometroIndexes: Array<number> = pessoa.recs25
-			.filter((rc: RECs25) => rc.profile === pessoa.id)
+	private static calcularNudometro(profile: Profile) {
+		const nudometroIndexes: Array<number> = profile.recs25
+			.filter((rc: RECs25) => rc.profile === profile.id)
 			.map((rc: RECs25) => {
 				return rc.nudometro ?? 0
 			});
