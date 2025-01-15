@@ -1,27 +1,10 @@
-name: the-cherry-25
+version: '3'
 services:
-    webapp:
-        build: .
-        environment:
-          - NODE_ENV=production
-        volumes:
-          - the-cherry-webapp:/share/webapp/dist
-
-    webserver:
-        image: nginx:latest
-        ports:
-            - '80:80'
-        volumes:
-            - ./server.conf:/etc/nginx/conf.d/default.conf
-            - the-cherry-25-webapp:/share/webapp/dist
-            - the-cherry-25-data:/share/data
-        depends_on:
-            - webapp
-        restart: always
-
-volumes:
-    the-cherry-25-data:
-        name: the-cherry-25-data
-        external: true
-    the-cherry-25-webapp:
-        name: the-cherry-25-webapp
+  webserver:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./server.conf:/etc/nginx/conf.d/default.conf
+      - /media/usb:/share/data  # Mapeia a pasta do USB para o container
+    restart: always
