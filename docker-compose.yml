@@ -1,10 +1,10 @@
 version: '3'
 services:
-  webserver:
-    image: nginx:latest
-    ports:
-      - "80:80"
-    volumes:
-      - ./server.conf:/etc/nginx/conf.d/default.conf
-      - /media/usb:/share/data  # Mapeia a pasta do USB para o container
-    restart: always
+    webserver:
+        image: nginx:latest
+        ports:
+            - '80:80'
+        volumes:
+            - ./server.conf:/etc/nginx/conf.d/default.conf
+            - /media/usb:/share/data # Mapeia a pasta do USB para o container
+        restart: always

@@ -33,6 +33,7 @@ export default [
 			'@typescript-eslint/explicit-module-boundary-types': 'off',
 			'no-console': 'warn',
 			'no-debugger': 'error',
+			'linebreak-style': ['error', 'unix'],
 		},
 	},
 ]
