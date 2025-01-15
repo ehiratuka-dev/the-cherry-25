@@ -1,24 +1,21 @@
 import { LitElement, css, html } from 'lit'
 import { customElement } from 'lit/decorators.js'
 
-
 @customElement('not-found-page')
 export class NotFoundPage extends LitElement {
-
 	constructor() {
-		super();
+		super()
 	}
 
 	async connectedCallback() {
-		super.connectedCallback();
+		super.connectedCallback()
 	}
 
 	render() {
-		return html`
-			<div class="flex-container">
-				<p>Página Não Encontrada</p>
-				<back-link-button .left="${ '0px' }"></back-link-button>
-			</div>`
+		return html` <div class="flex-container">
+			<p>Página Não Encontrada</p>
+			<back-link-button .left="${'0px'}"></back-link-button>
+		</div>`
 	}
 
 	static styles = css`

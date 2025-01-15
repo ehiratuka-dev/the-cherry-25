@@ -4,14 +4,15 @@ import { customElement, property } from 'lit/decorators.js'
 @customElement('image-header')
 export class ImageHeader extends LitElement {
 	@property()
-	imageSource: string = '';
+	imageSource: string = ''
 
 	render() {
-		return this.imageSource ? html`
-			<div class="image-container">
-				<img src="${this.imageSource}"/>
-				<slot></slot>
-			</div>` : nothing;
+		return this.imageSource
+			? html` <div class="image-container">
+					<img src="${this.imageSource}" />
+					<slot></slot>
+				</div>`
+			: nothing
 	}
 
 	static styles = css`
@@ -29,14 +30,21 @@ export class ImageHeader extends LitElement {
 			left: 0;
 			width: 100%;
 			height: 100%;
-			background: linear-gradient(to bottom, rgba(33, 37, 41, 0%) 0%, rgba(52, 58, 64, 1) 100%) 100%;
 			pointer-events: none;
+			background: linear-gradient(
+					to bottom,
+					rgba(33, 37, 41, 0%) 0%,
+					rgba(52, 58, 64, 1) 100%
+				)
+				100%;
 		}
 
 		.image-container img {
 			width: 100%;
-			height: var(--header-height);
 			margin: 0 0 0 0;
 			object-fit: cover;
-		}`
+
+			height: var(--header-height);
+		}
+	`
 }

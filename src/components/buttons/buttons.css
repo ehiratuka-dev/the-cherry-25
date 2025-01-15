@@ -1,0 +1,7 @@
+/* Váriaveis para componentes tipo Buttons */
+:root {
+	--button-bg-color: transparent;
+	--button-text-color: transparent;
+	--button-spacing: 0.75rem;
+	--button-text-size: inherit;
+}

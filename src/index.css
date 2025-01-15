@@ -1,92 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('./styles/reset.css');
+@import url('./styles/colors.css');
+@import url('./styles/fonts.css');
+@import url('./components/buttons/buttons.css');
+@import url('./components/headers/headers.css');
 
-/*********************************
- * 
- * Modificadores de Padronização
- *
- *********************************/
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
-html,
-body {
-	height: 100%;
-	width: 100%;
-	font-family: "Roboto", serif;
-	font-weight: 400;
-	font-style: normal;
-	font-size: 16px;
-}
-
-body {
-	overflow-x: hidden;
-}
-
-a {
-	text-decoration: none;
-	color: inherit;
-}
-
-a:hover,
-a:focus {
-	text-decoration: none;
-	color: inherit;
-}
-
-/**********************************
- * 
- * Definição de Variáveis
- *
- **********************************/
+/* Váriaveis em Revisão */
 :root {
 	--tamanho-do-titulo: 2rem;
 	--tamanho-do-subtitulo: 1.5rem;
-
-	/******************************
-	 *
-	 * Espaços
-	 *
-	 ******************************/
 	--espacamento: 12px;
 	--borda-arredondada: 12px;
 	--largura-do-app: 1080px;
-
-	--header-height: 350px;
-	--header-response-width: 20%;
-	--header-min-response-width: 120px;
-
 	--da-bunda0: 200px;
 	--da-bunda1: 500px;
-
 	--block-qtds: 6;
-	--block-size: calc(calc(var(--largura-do-app) - calc(calc(var(--block-qtds) + 1) * var(--espacamento))) / var(--block-qtds));
-
-	/******************************
-	 *
-	 * Cores
-	 *
-	 ******************************/
-	--page-color: #212529;
-	--container-color: #343A40;
-	--primary-text-color: #DEE2E6;
-
+	--block-size: calc(
+		calc(
+				var(--largura-do-app) -
+					calc(calc(var(--block-qtds) + 1) * var(--espacamento))
+			) /
+			var(--block-qtds)
+	);
 
 	--box-shadow-color: #212529;
 	--box-shadow: 4px 4px 6px var(--box-shadow-color);
 	--box-shadow-hover: 4px 4px 6px var(--primary-color);
 	--box-shadow-transition: box-shadow 0.3s ease;
 
-	--primary-color: #0D6EFD;
+	--primary-color: #0d6efd;
+
+	--header-height: 350px;
+	--header-response-width: 20%;
+	--header-min-response-width: 120px;
 }
 
-/**********************************
- * 
- * Definição de Paineis
- *
- **********************************/
 body {
 	background-color: var(--page-color);
 	color: var(--primary-text-color);
