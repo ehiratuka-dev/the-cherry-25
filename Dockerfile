@@ -1,6 +1,5 @@
-FROM nginx
-COPY package*.json /share/webapp
-COPY dist/ /share/webapp
-COPY server.conf/ /etc/nginx/conf.d/default.conf
+FROM mcr.microsoft.com/devcontainers/typescript-node:latest
+WORKDIR /share/webapp
+ADD https://github.com/ehiratuka-dev/the-cherry-25.git ./
 RUN npm install
-EXPOSE 80
+RUN npm run build

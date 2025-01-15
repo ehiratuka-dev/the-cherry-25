@@ -61,3 +61,35 @@ Formata o código com o Prettier.
 ```bash
 npm run format
 ```
+
+npm run build
+docker build -t the-cherry-25 ./
+docker run -d -p 80:80 -v the-cherry-25-volume:/share/data the-cherry-25
+
+docker run --rm -it the-cherry-25-webapp /bin/bash
+docker-compose up
+
+        node:
+            image: mcr.microsoft.com/devcontainers/typescript-node:latest
+            container_name: node-build
+            volumes:
+                - ./:/usr/src/app
+                - ./dist:/usr/src/app/dist
+            working_dir: /usr/src/app
+            command: npm install | npm install -g tsc | npm run build
+
+
+
+    nginx:
+        image: nginx:latest
+        container_name: nginx-service
+        ports:
+            - '80:80'
+        hostname: the-cherry-25.internal
+        volumes:
+            - ./server.conf:/etc/nginx/conf.d/default.conf
+            - ./dist:/share/webapp
+            - the-cherry-25-volume:/share/data
+        depends_on:
+            - node
+        restart: unless-stopped
