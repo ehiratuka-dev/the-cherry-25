@@ -4,66 +4,60 @@ O webapp `The Cherry 25` trata-se de um site estático que obtêm os dados de um
 
 ## Tecnologias Utilizadas
 
-- **[Vite](https://vitejs.dev/)**: Ferramenta de bundling e desenvolvimento extremamente rápida, que utiliza módulos ES nativos no navegador.
-- **[TypeScript](https://www.typescriptlang.org/)**: Superset do JavaScript que adiciona tipagem estática, melhorando a manutenção e a qualidade do código.
-- **[Lit](https://lit.dev/)**: Uma biblioteca leve e rápida para criar componentes Web reutilizáveis, baseada no padrão Web Components.
-- **[@lit-labs/router](https://github.com/lit/lit-router)**: Biblioteca de roteamento para Lit, permitindo navegação eficiente e a criação de aplicações SPA com Web Components.
+- **[Vite](https://vitejs.dev/)**: Build tool rápido e moderno para aplicações web, com suporte a hot-reload e otimização.
+- **[eslint/eslint](github.com/eslint/eslint)**: Ferramenta de linting para JavaScript e TypeScript, detecta e corrige problemas no código.
+- **[Prettier](github.com/prettier/prettier)**: Formatador de código para garantir consistência no estilo, suportando múltiplas linguagens.
+- **[TypeScript](https://www.typescriptlang.org/)**: Superset do JavaScript que adiciona tipagem estática e recursos de programação orientada a objetos.
+- **[Lit](https://lit.dev/)**: Biblioteca leve para criar componentes web reativos com foco em desempenho e simplicidade.
+- **[krasimir/navigo](https://github.com/krasimir/navigo)**: Biblioteca de roteamento para JavaScript, ideal para aplicações SPA, com manipulação de URLs e histórico.
 
-## Instalação e Configuração
+## Instalação
 
-### Requisitos
+### 1. Clone o repositório
 
-- **Node.js** v16 ou superior
-- **npm** (gerenciador de pacotes do Node.js)
-
-### Passos
-
-1. **Clonar o repositório**:
-
-    Execute o comando abaixo para clonar o projeto:
-
-    ```bash
-    git clone https://github.com/ehiratuka-dev/the-cherry-25
-    cd the-cherry-25
-    ```
+```bash
+git clone https://github.com/ehiratuka-dev/the-cherry-25
+cd the-cherry-25
+```
 
 2. **Instalar as dependências**:
 
-    Após acessar o diretório do projeto, instale as dependências utilizando o npm:
+```bash
+npm install
+```
 
-    ```bash
-    npm install
-    ```
+## Scripts
 
-3. **Rodar o webapp localmente**:
+### Desenvolvimento:
 
-    Para iniciar o servidor de desenvolvimento e visualizar o aplicativo, execute o comando:
+Inicia o servidor de desenvolvimento com hot reload.
 
-    ```bash
-    npm run dev
-    ```
+```bash
+npm run dev
+```
 
-Após a execução dos passos acima, o sistema estará disponível no endereço: [http://localhost:5173/](http://localhost:5173/)
+Após a execução, o webapp estará disponível no endereço: [http://localhost:3000/](http://localhost:3000/)
 
-## Compilação em Produção
+### Build:
 
-### Passos
+Cria a versão de produção otimizada.
 
-1. **Clonar o repositório**:
+```bash
+npm run build
+```
 
-    Execute o comando abaixo para clonar o projeto:
+### Linting:
 
-    ```bash
-    git clone https://github.com/ehiratuka-dev/the-cherry-25
-    cd the-cherry-25
-    ```
+Executa o ESLint para verificar erros e problemas de estilo.
 
-2. **Rodar o webapp localmente**:
+```bash
+npm run lint
+```
 
-    Para iniciar o servidor de desenvolvimento e visualizar o aplicativo, execute o comando:
+### Formatar:
 
-	 ```bash
-	 npm run build
-	 docker-compose up --build -d
-	 ```
+Formata o código com o Prettier.
 
+```bash
+npm run format
+```
