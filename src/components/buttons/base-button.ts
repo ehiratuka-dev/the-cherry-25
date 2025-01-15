@@ -59,10 +59,10 @@ export class BaseButton extends LitElement {
 			cursor: pointer;
 			position: relative;
 
-			background-color: var(--button-bg-color, transparent);
-			color: var(--button-text-color, transparent);
-			padding: var(--button-spacing, calc(var(--espacamento) / 2));
-			font-size: var(--button-text-size, inherit);
+			background-color: var(--button-bg-color);
+			color: var(--button-text-color);
+			padding: var(--button-spacing);
+			font-size: var(--button-text-size);
 		}
 
 		.container-base-button p {
@@ -70,7 +70,5 @@ export class BaseButton extends LitElement {
 		}
 
 		.container-base-button svg-icon {
-		}
-
-		`
+		}`
 }

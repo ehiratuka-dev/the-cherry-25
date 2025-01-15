@@ -1,7 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url('./styles/reset.css');
 @import url('./styles/colors.css');
+@import url('./components/buttons/buttons.css');
+@import url('./components/headers/headers.css');
 
+/* Váriaveis em Revisão */
 :root {
   --tamanho-do-titulo: 2rem;
   --tamanho-do-subtitulo: 1.5rem;
@@ -24,11 +27,6 @@
   --box-shadow-transition: box-shadow 0.3s ease;
 
   --primary-color: #0d6efd;
-
-  --button-bg-color: transparent;
-  --button-text-color: transparent;
-  --button-spacing: 0.75rem;
-  --button-text-size: inherit;
 
   --header-height: 350px;
   --header-response-width: 20%;
