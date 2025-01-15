@@ -64,6 +64,7 @@ Após a execução dos passos acima, o sistema estará disponível no endereço:
 	 Para iniciar o servidor de desenvolvimento e visualizar o aplicativo, execute o comando:
 
 	 ```bash
+	 npm run build
 	 docker-compose up --build -d
 	 ```
 
