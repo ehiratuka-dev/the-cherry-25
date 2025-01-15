@@ -1,11 +1,37 @@
+import typescriptEslint from '@typescript-eslint/eslint-plugin'
+import typescriptParser from '@typescript-eslint/parser'
+import prettierPlugin from 'eslint-plugin-prettier'
+import prettierConfig from 'eslint-config-prettier'
 import globals from 'globals'
-import pluginJs from '@eslint/js'
-import tseslint from 'typescript-eslint'
 
-/** @type {import('eslint').Linter.Config[]} */
 export default [
-	{ files: ['**/*.{js,mjs,cjs,ts}'] },
-	{ languageOptions: { globals: globals.browser } },
-	pluginJs.configs.recommended,
-	...tseslint.configs.recommended,
+	{
+		// Define o ambiente do projeto
+		languageOptions: {
+			parser: typescriptParser,
+			globals: {
+				...globals.browser,
+				...globals.node,
+				...globals.es2021,
+			},
+			parserOptions: {
+				ecmaVersion: 2020,
+				sourceType: 'module',
+			},
+		},
+		files: ['**/*.ts'],
+		plugins: {
+			'@typescript-eslint': typescriptEslint,
+			prettier: prettierPlugin,
+		},
+		rules: {
+			...typescriptEslint.configs.recommended.rules,
+			...prettierConfig.rules,
+			'prettier/prettier': ['error'],
+			'@typescript-eslint/no-explicit-any': 'warn',
+			'@typescript-eslint/explicit-module-boundary-types': 'off',
+			'no-console': 'warn',
+			'no-debugger': 'error',
+		},
+	},
 ]

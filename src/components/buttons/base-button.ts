@@ -27,9 +27,7 @@ export class BaseButton extends LitElement {
 	@property()
 	color: COLORS | undefined
 
-	protected handleClick() {
-		console.log('Botão clicado')
-	}
+	protected handleClick() {}
 
 	render() {
 		return html` <div
