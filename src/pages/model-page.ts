@@ -10,6 +10,8 @@ import '../components/sections/profile-info-section'
 import '../components/sections/asset-list-section'
 import '../components/modals/gallery-modal'
 
+import { Asset } from '../types/asset';
+
 @customElement('model-page')
 export class ModelPage extends LitElement {
 	@property()
@@ -17,6 +19,9 @@ export class ModelPage extends LitElement {
 
 	@state()
 	profile: Profile | undefined = undefined;
+
+	@state()
+	assets: Asset[] = [];
 
 	@state()
 	showModal: boolean = false;
@@ -30,6 +35,7 @@ export class ModelPage extends LitElement {
 	async connectedCallback() {
 		super.connectedCallback();
 		this.profile = await ProfileClass.getProfileById(this.id);
+		this.assets = await ProfileClass.getAssets();
 	}
 
 	openModal(e: CustomEvent) {
@@ -64,7 +70,7 @@ export class ModelPage extends LitElement {
 				.open = "${this.showModal}"
 				.index = "${this.index}"
 				.gallery = "${this.gallery}"
-				@modal-closed = "${this.closeModal}"></gallery-modal >`
+				@modal-closed = "${this.closeModal}"></gallery-modal>`
 	}
 	static styles = css``
 }

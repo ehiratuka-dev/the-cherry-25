@@ -1,6 +1,7 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 
+import { router } from '../../utils/Router';
 import { Profile } from '../../types/profile-type';
 
 @customElement('profile-item-section')
@@ -9,7 +10,7 @@ export class ProfileItemSection extends LitElement {
 	profile: Profile | undefined = undefined;
 
 	private _onClick() {
-		window.location.href = `/#model/${this.profile?.id}`
+			router.navigate(`model/${this.profile?.id}`);
 	}
 
 	render() {
