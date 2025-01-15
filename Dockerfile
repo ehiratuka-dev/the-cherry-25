@@ -1,6 +1,9 @@
-FROM mcr.microsoft.com/devcontainers/typescript-node:latest
+FROM mcr.microsoft.com/devcontainers/typescript-node:latest AS builder
 WORKDIR /share/webapp
-ADD https://github.com/ehiratuka-dev/the-cherry-25.git ./
+RUN apt-get update && apt-get install -y git
+RUN git clone https://github.com/ehiratuka-dev/the-cherry-25.git ./
 RUN npm install
 RUN npm run build
-VOLUME /share/webapp/dist
+
+FROM nginx:latest
+COPY --from=builder /share/webapp/dist /usr/share/nginx/html
