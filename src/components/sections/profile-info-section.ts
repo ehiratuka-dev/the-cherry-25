@@ -11,42 +11,57 @@ import { Profile } from '../../types/profile-type'
 @customElement('profile-info-section')
 export class ProfileInfoSection extends LitElement {
 	@property()
-	profile: Profile | undefined = undefined;
+	profile: Profile | undefined = undefined
 
 	render() {
-		return this.profile ? html`
-			<div class="header-info">
-				<img src="${this.profile.iconSrc}" />
-				
-				<div class="tags">
-					${this.profile.nome ? html`
-						<div class="tag">
-							<svg-icon type="mdi" path="${mdiAccount}" style="color: var(--primary-color)"></svg-icon>
-							<p>${this.profile.nome}</p>
-						</div>` : nothing}
+		return this.profile
+			? html` <div class="header-info">
+					<img src="${this.profile.iconSrc}" />
 
-					${this.profile.cidade ? html`
-						<div class="tag">
-							<svg-icon type="mdi" path="${mdiCity}" style="color: var(--primary-color)"></svg-icon>
-							<p>${this.profile.cidade}</p>
-						</div>` : nothing}
-
-					${this.profile.instagram ? html`
-						<div class="tag">
-							<svg-icon type="mdi" path="${mdiInstagram}" style="color: var(--primary-color)"></svg-icon>
-							<p>${this.profile.instagram}</p>
-						</div>` : nothing}
-				</div>
-				
-			</div>` : nothing;
+					<div class="tags">
+						${this.profile.nome
+							? html` <div class="tag">
+									<svg-icon
+										type="mdi"
+										path="${mdiAccount}"
+										style="color: var(--primary-color)"
+									></svg-icon>
+									<p>${this.profile.nome}</p>
+							  </div>`
+							: nothing}
+						${this.profile.cidade
+							? html` <div class="tag">
+									<svg-icon
+										type="mdi"
+										path="${mdiCity}"
+										style="color: var(--primary-color)"
+									></svg-icon>
+									<p>${this.profile.cidade}</p>
+							  </div>`
+							: nothing}
+						${this.profile.instagram
+							? html` <div class="tag">
+									<svg-icon
+										type="mdi"
+										path="${mdiInstagram}"
+										style="color: var(--primary-color)"
+									></svg-icon>
+									<p>${this.profile.instagram}</p>
+							  </div>`
+							: nothing}
+					</div>
+			  </div>`
+			: nothing
 	}
 
 	static styles = css`
-
 		.header-info {
 			display: flex;
 			position: relative;
-			margin-top: min(calc(calc(0 - var(--header-response-width)) / 2), calc(calc(0 - var(--header-min-response-width)) / 2));
+			margin-top: min(
+				calc(calc(0 - var(--header-response-width)) / 2),
+				calc(calc(0 - var(--header-min-response-width)) / 2)
+			);
 			margin-bottom: var(--espacamento);
 		}
 
@@ -56,14 +71,17 @@ export class ProfileInfoSection extends LitElement {
 
 			border-radius: 100%;
 		}
-		
+
 		.header-info .tags {
 			width: calc(var(--largura-do-app) - var(--header-response-width));
 			padding: 0 0 0 var(--espacamento);
 			align-self: flex-end;
 
 			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(var(--da-bunda0), 1fr));
+			grid-template-columns: repeat(
+				auto-fit,
+				minmax(var(--da-bunda0), 1fr)
+			);
 			gap: calc(var(--espacamento) / 2);
 			align-content: stretch;
 			align-items: center;
@@ -83,5 +101,6 @@ export class ProfileInfoSection extends LitElement {
 			text-overflow: ellipsis;
 			overflow: hidden;
 			white-space: nowrap;
-		}`
+		}
+	`
 }

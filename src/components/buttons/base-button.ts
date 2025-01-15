@@ -4,46 +4,54 @@ import { customElement, property } from 'lit/decorators.js'
 import '@jamescoyle/svg-icon'
 
 export const enum COLORS {
-	BLUE = "blue",
-	INDIGO = "indigo",
-	PURPLE = "purple",
-	PINK = "pink",
-	RED = "red",
-	ORANGE = "orange",
-	YELLOW = "yellow",
-	GREEN = "green",
-	TEAL = "teal",
-	CYAN = "cyan",
+	BLUE = 'blue',
+	INDIGO = 'indigo',
+	PURPLE = 'purple',
+	PINK = 'pink',
+	RED = 'red',
+	ORANGE = 'orange',
+	YELLOW = 'yellow',
+	GREEN = 'green',
+	TEAL = 'teal',
+	CYAN = 'cyan',
 }
 
 @customElement('base-button')
 export class BaseButton extends LitElement {
 	@property()
-	icon: string | undefined;
+	icon: string | undefined
 
 	@property()
-	text: string | undefined;
+	text: string | undefined
 
 	@property()
-	color: COLORS | undefined;
+	color: COLORS | undefined
 
 	protected handleClick() {
-		console.log("Botão clicado");
+		console.log('Botão clicado')
 	}
 
 	render() {
-		return html`
-			<div class="container-base-button" @click="${this.handleClick}">
-				<svg-icon type="mdi" path="${this.icon}"></svg-icon>
-				<p>${this.text}</p>
-			</div>`;
+		return html` <div
+			class="container-base-button"
+			@click="${this.handleClick}"
+		>
+			<svg-icon type="mdi" path="${this.icon}"></svg-icon>
+			<p>${this.text}</p>
+		</div>`
 	}
 
 	updated(changedProperties: Map<string, unknown>) {
-		super.updated(changedProperties);
+		super.updated(changedProperties)
 		if (changedProperties.has('color')) {
-			this.style.setProperty('--button-bg-color', `var(--bs-${this.color})`);
-			this.style.setProperty('--button-text-color', `var(--bs-${this.color}-subtle)`);
+			this.style.setProperty(
+				'--button-bg-color',
+				`var(--bs-${this.color})`
+			)
+			this.style.setProperty(
+				'--button-text-color',
+				`var(--bs-${this.color}-subtle)`
+			)
 		}
 	}
 
@@ -51,7 +59,7 @@ export class BaseButton extends LitElement {
 		.container-base-button {
 			display: flex;
 			align-items: center;
-		
+
 			border-radius: var(--borda-arredondada);
 			transition: var(--box-shadow-transition);
 			box-shadow: var(--box-shadow);
@@ -68,7 +76,5 @@ export class BaseButton extends LitElement {
 		.container-base-button p {
 			margin: 0 0 0 var(--espacamento);
 		}
-
-		.container-base-button svg-icon {
-		}`
+	`
 }

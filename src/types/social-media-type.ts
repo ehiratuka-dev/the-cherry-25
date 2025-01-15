@@ -1,6 +1,6 @@
-import { AssetType } from "./asset-type";
+import { AssetType } from './asset-type'
 
 export interface SocialMedia extends AssetType {
-	data: string;
-	sequencial: string | undefined;
+	data: string
+	sequencial: string | undefined
 }

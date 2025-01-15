@@ -1,15 +1,13 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 
-
 @customElement('numbered-star-svg')
 export class NumberedStartSVG extends LitElement {
 	@property()
-	stars: number = 0;
+	stars: number = 0
 
 	render() {
-		return html`
-			<div class="star">${this.stars}</div>`;
+		return html` <div class="star">${this.stars}</div>`
 	}
 
 	static styles = css`
@@ -44,5 +42,6 @@ export class NumberedStartSVG extends LitElement {
 				2% 35%,
 				39% 35%
 			);
-		}`
+		}
+	`
 }

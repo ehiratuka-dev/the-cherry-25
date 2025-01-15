@@ -1,5 +1,4 @@
-
 export interface AssetType {
-	profile: string;
-	assetSrc: string;
+	profile: string
+	assetSrc: string
 }

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('./styles/reset.css');
 @import url('./styles/colors.css');
 @import url('./styles/fonts.css');
@@ -7,38 +7,38 @@
 
 /* Váriaveis em Revisão */
 :root {
-  --tamanho-do-titulo: 2rem;
-  --tamanho-do-subtitulo: 1.5rem;
-  --espacamento: 12px;
-  --borda-arredondada: 12px;
-  --largura-do-app: 1080px;
-  --da-bunda0: 200px;
-  --da-bunda1: 500px;
-  --block-qtds: 6;
-  --block-size: calc(
-    calc(
-        var(--largura-do-app) -
-          calc(calc(var(--block-qtds) + 1) * var(--espacamento))
-      ) / var(--block-qtds)
-  );
+	--tamanho-do-titulo: 2rem;
+	--tamanho-do-subtitulo: 1.5rem;
+	--espacamento: 12px;
+	--borda-arredondada: 12px;
+	--largura-do-app: 1080px;
+	--da-bunda0: 200px;
+	--da-bunda1: 500px;
+	--block-qtds: 6;
+	--block-size: calc(
+		calc(
+				var(--largura-do-app) -
+					calc(calc(var(--block-qtds) + 1) * var(--espacamento))
+			) / var(--block-qtds)
+	);
 
-  --box-shadow-color: #212529;
-  --box-shadow: 4px 4px 6px var(--box-shadow-color);
-  --box-shadow-hover: 4px 4px 6px var(--primary-color);
-  --box-shadow-transition: box-shadow 0.3s ease;
+	--box-shadow-color: #212529;
+	--box-shadow: 4px 4px 6px var(--box-shadow-color);
+	--box-shadow-hover: 4px 4px 6px var(--primary-color);
+	--box-shadow-transition: box-shadow 0.3s ease;
 
-  --primary-color: #0d6efd;
+	--primary-color: #0d6efd;
 
-  --header-height: 350px;
-  --header-response-width: 20%;
-  --header-min-response-width: 120px;
+	--header-height: 350px;
+	--header-response-width: 20%;
+	--header-min-response-width: 120px;
 }
 
 body {
-  background-color: var(--page-color);
-  color: var(--primary-text-color);
+	background-color: var(--page-color);
+	color: var(--primary-text-color);
 }
 
 the-cherry-25-app {
-  width: var(--largura-do-app);
+	width: var(--largura-do-app);
 }

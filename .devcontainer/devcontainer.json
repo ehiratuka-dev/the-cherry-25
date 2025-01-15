@@ -1,27 +1,28 @@
 {
-		"name": "the-cherry-25",
-		"image": "mcr.microsoft.com/devcontainers/typescript-node:latest",
-		"appPort": [
-				3000
-		],
-		"customizations": {
-				"vscode": {
-						"settings": {
-								"terminal.integrated.shell.linux": "/bin/bash",
-								"editor.tabSize": 4,
-								"editor.insertSpaces": false,
-								"editor.detectIndentation": false
-						},
-						"extensions": [
-								"dbaeumer.vscode-eslint",
-								"redhat.vscode-yaml",
-								"esbenp.prettier-vscode"
-						]
-				}
-		},
-		"postCreateCommand": "npm install",
-		"mounts": [
-				"source=the-cherry-25-volume,target=/workspaces/the-cherry-25/public/data,type=volume",
-				"source=the-cherry-25-webapp,target=/workspaces/the-cherry-25/dist,type=volume"
-		]
+	"name": "the-cherry-25",
+	"image": "mcr.microsoft.com/devcontainers/typescript-node:latest",
+	"appPort": [3000],
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"terminal.integrated.shell.linux": "/bin/bash",
+				"editor.tabSize": 4,
+				"editor.insertSpaces": false,
+				"editor.detectIndentation": false,
+				"editor.formatOnPaste": true,
+				"editor.formatOnSave": true,
+				"editor.defaultFormatter": "esbenp.prettier-vscode"
+			},
+			"extensions": [
+				"dbaeumer.vscode-eslint",
+				"redhat.vscode-yaml",
+				"esbenp.prettier-vscode"
+			]
+		}
+	},
+	"postCreateCommand": "npm install",
+	"mounts": [
+		"source=the-cherry-25-volume,target=/workspaces/the-cherry-25/public/data,type=volume",
+		"source=the-cherry-25-webapp,target=/workspaces/the-cherry-25/dist,type=volume"
+	]
 }

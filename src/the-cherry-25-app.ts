@@ -1,7 +1,7 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, state } from 'lit/decorators.js'
 
-import { router } from './utils/Router';
+import { router } from './utils/Router'
 
 import './pages/model-page'
 import './pages/models-page'
@@ -10,29 +10,42 @@ import './pages/not-found-page'
 @customElement('the-cherry-25-app')
 export class TheCherry25App extends LitElement {
 	@state()
-	private routerOutlet = html`<models-page></models-page>`;
+	private routerOutlet = html`<models-page></models-page>`
 
 	constructor() {
-		super();
+		super()
 		router
-			.on('/', () => this.routerOutlet = html`<models-page></models-page>`)
-			.on('/models', () => this.routerOutlet = html`<models-page></models-page>`)
-			.on("/model/:id", (match) => this.routerOutlet = html`<model-page id=${match?.data?.id}></model-page>`)
-			.notFound(() => this.routerOutlet = html`<not-found-page></not-found-page>`)
-			.resolve();
-
+			.on(
+				'/',
+				() => (this.routerOutlet = html`<models-page></models-page>`)
+			)
+			.on(
+				'/models',
+				() => (this.routerOutlet = html`<models-page></models-page>`)
+			)
+			.on(
+				'/model/:id',
+				(match) =>
+					(this.routerOutlet = html`<model-page
+						id=${match?.data?.id}
+					></model-page>`)
+			)
+			.notFound(
+				() =>
+					(this.routerOutlet = html`<not-found-page></not-found-page>`)
+			)
+			.resolve()
 	}
 
 	render() {
-		return html`
-			<div class="container">
-				${this.routerOutlet}
-			</div>`
+		return html` <div class="container">${this.routerOutlet}</div>`
 	}
 
 	static styles = css`
 		.container {
-			max-width: calc(var(--largura-do-app) - var(--espacamento) - var(--espacamento));
+			max-width: calc(
+				var(--largura-do-app) - var(--espacamento) - var(--espacamento)
+			);
 			min-height: 100vh;
 			margin: 0 auto;
 			padding: 0 var(--espacamento);
@@ -44,8 +57,9 @@ export class TheCherry25App extends LitElement {
 
 			background-color: var(--container-color);
 		}
-			
+
 		.container * {
 			width: 100%;
-		}`
+		}
+	`
 }

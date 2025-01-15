@@ -1,24 +1,23 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 
-import { router } from '../../utils/Router';
-import { Profile } from '../../types/profile-type';
+import { router } from '../../utils/Router'
+import { Profile } from '../../types/profile-type'
 
 @customElement('profile-item-section')
 export class ProfileItemSection extends LitElement {
 	@property()
-	profile: Profile | undefined = undefined;
+	profile: Profile | undefined = undefined
 
 	private _onClick() {
-			router.navigate(`model/${this.profile?.id}`);
+		router.navigate(`model/${this.profile?.id}`)
 	}
 
 	render() {
-		return html`
-			<div class="bloco" @click=${this._onClick}>
-				<img src="${this.profile?.bannerSrc}"/>
-				<p>@${this.profile?.id}</p>
-			</div>`
+		return html` <div class="bloco" @click=${this._onClick}>
+			<img src="${this.profile?.bannerSrc}" />
+			<p>@${this.profile?.id}</p>
+		</div>`
 	}
 
 	static styles = css`
@@ -54,5 +53,6 @@ export class ProfileItemSection extends LitElement {
 
 			border-bottom-left-radius: var(--borda-arredondada);
 			border-bottom-right-radius: var(--borda-arredondada);
-		}`
+		}
+	`
 }

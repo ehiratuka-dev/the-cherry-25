@@ -1,14 +1,15 @@
-
 import { viteStaticCopy } from 'vite-plugin-static-copy'
-import { defineConfig } from "vite";
+import { defineConfig } from 'vite'
 
 export default defineConfig({
 	plugins: [
 		viteStaticCopy({
-			targets: [{
-				src: 'public/assets/**/*',
-				dest: 'assets',
-			}],
+			targets: [
+				{
+					src: 'public/assets/**/*',
+					dest: 'assets',
+				},
+			],
 		}),
 	],
 	server: {
@@ -21,6 +22,6 @@ export default defineConfig({
 		strictPort: true,
 	},
 	build: {
-		copyPublicDir: false
-	}
-});
+		copyPublicDir: false,
+	},
+})

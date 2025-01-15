@@ -1,3 +1,3 @@
-import Navigo from 'navigo';
+import Navigo from 'navigo'
 
-export const router = new Navigo('/', { hash: true });
+export const router = new Navigo('/', { hash: true })

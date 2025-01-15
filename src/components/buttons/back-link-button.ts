@@ -1,39 +1,39 @@
 import { customElement, property } from 'lit/decorators.js'
 
-import { router } from '../../utils/Router';
+import { router } from '../../utils/Router'
 
 import '@jamescoyle/svg-icon'
 import { mdiArrowLeftBold } from '@mdi/js'
-import { BaseButton, COLORS } from './base-button';
-import { css } from 'lit';
+import { BaseButton, COLORS } from './base-button'
+import { css, CSSResultGroup } from 'lit'
 
 @customElement('back-link-button')
 export class BackLinkButton extends BaseButton {
 	@property()
-	top: string = '';
+	top: string = ''
 
 	@property()
-	left: string = '';
+	left: string = ''
 
 	constructor() {
-		super();
-		this.icon = mdiArrowLeftBold;
-		this.text = 'Voltar';
-		this.color = COLORS.GREEN;
+		super()
+		this.icon = mdiArrowLeftBold
+		this.text = 'Voltar'
+		this.color = COLORS.GREEN
 	}
 
-	static styles = [
-		super.styles, // Reutiliza os estilos do BaseButton
+	static styles: CSSResultGroup[] = [
+		super.styles,
 		css`
 			:host {
-		  		position: absolute;
+				position: absolute;
 				left: var(--espacamento);
 				top: var(--espacamento);
 			}
 		`,
-	  ];
+	]
 
 	handleClick() {
-		router.navigate('/models');
+		router.navigate('/models')
 	}
 }
