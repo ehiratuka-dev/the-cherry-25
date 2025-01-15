@@ -1,5 +1,6 @@
 import typescriptEslint from '@typescript-eslint/eslint-plugin'
 import typescriptParser from '@typescript-eslint/parser'
+import stylisticJs from '@stylistic/eslint-plugin-js'
 import prettierPlugin from 'eslint-plugin-prettier'
 import prettierConfig from 'eslint-config-prettier'
 import globals from 'globals'
@@ -23,6 +24,7 @@ export default [
 		plugins: {
 			'@typescript-eslint': typescriptEslint,
 			prettier: prettierPlugin,
+			'@stylistic/js': stylisticJs,
 		},
 		rules: {
 			...typescriptEslint.configs.recommended.rules,
@@ -35,3 +37,4 @@ export default [
 		},
 	},
 ]
+
