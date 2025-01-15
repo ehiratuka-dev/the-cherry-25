@@ -20,7 +20,7 @@ export class ProfileHeader extends LitElement {
 					<numbered-star-svg
 						stars="${this.profile.nudometro}"
 					></numbered-star-svg>
-			  </image-header>`
+				</image-header>`
 			: nothing
 	}
 }

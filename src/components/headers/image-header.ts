@@ -11,7 +11,7 @@ export class ImageHeader extends LitElement {
 			? html` <div class="image-container">
 					<img src="${this.imageSource}" />
 					<slot></slot>
-			  </div>`
+				</div>`
 			: nothing
 	}
 

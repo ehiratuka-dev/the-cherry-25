@@ -19,7 +19,8 @@
 		calc(
 				var(--largura-do-app) -
 					calc(calc(var(--block-qtds) + 1) * var(--espacamento))
-			) / var(--block-qtds)
+			) /
+			var(--block-qtds)
 	);
 
 	--box-shadow-color: #212529;

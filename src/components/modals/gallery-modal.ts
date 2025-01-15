@@ -94,7 +94,9 @@ export class GalleryModal extends LitElement {
 			justify-content: center;
 			z-index: 1000;
 
-			transition: visibility 0s, opacity 0.3s ease-in-out;
+			transition:
+				visibility 0s,
+				opacity 0.3s ease-in-out;
 			visibility: hidden;
 			opacity: 0;
 		}

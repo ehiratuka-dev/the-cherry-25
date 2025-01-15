@@ -36,7 +36,7 @@ export class ProfileListSection extends LitElement {
 				`
 						)}
 					</div>
-			  </div>`
+				</div>`
 			: nothing
 	}
 

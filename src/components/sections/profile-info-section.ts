@@ -27,7 +27,7 @@ export class ProfileInfoSection extends LitElement {
 										style="color: var(--primary-color)"
 									></svg-icon>
 									<p>${this.profile.nome}</p>
-							  </div>`
+								</div>`
 							: nothing}
 						${this.profile.cidade
 							? html` <div class="tag">
@@ -37,7 +37,7 @@ export class ProfileInfoSection extends LitElement {
 										style="color: var(--primary-color)"
 									></svg-icon>
 									<p>${this.profile.cidade}</p>
-							  </div>`
+								</div>`
 							: nothing}
 						${this.profile.instagram
 							? html` <div class="tag">
@@ -47,10 +47,10 @@ export class ProfileInfoSection extends LitElement {
 										style="color: var(--primary-color)"
 									></svg-icon>
 									<p>${this.profile.instagram}</p>
-							  </div>`
+								</div>`
 							: nothing}
 					</div>
-			  </div>`
+				</div>`
 			: nothing
 	}
 

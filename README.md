@@ -4,17 +4,17 @@ O webapp `The Cherry 25` trata-se de um site estático que obtêm os dados de um
 
 ## Tecnologias Utilizadas
 
--   **[Vite](https://vitejs.dev/)**: Ferramenta de bundling e desenvolvimento extremamente rápida, que utiliza módulos ES nativos no navegador.
--   **[TypeScript](https://www.typescriptlang.org/)**: Superset do JavaScript que adiciona tipagem estática, melhorando a manutenção e a qualidade do código.
--   **[Lit](https://lit.dev/)**: Uma biblioteca leve e rápida para criar componentes Web reutilizáveis, baseada no padrão Web Components.
--   **[@lit-labs/router](https://github.com/lit/lit-router)**: Biblioteca de roteamento para Lit, permitindo navegação eficiente e a criação de aplicações SPA com Web Components.
+- **[Vite](https://vitejs.dev/)**: Ferramenta de bundling e desenvolvimento extremamente rápida, que utiliza módulos ES nativos no navegador.
+- **[TypeScript](https://www.typescriptlang.org/)**: Superset do JavaScript que adiciona tipagem estática, melhorando a manutenção e a qualidade do código.
+- **[Lit](https://lit.dev/)**: Uma biblioteca leve e rápida para criar componentes Web reutilizáveis, baseada no padrão Web Components.
+- **[@lit-labs/router](https://github.com/lit/lit-router)**: Biblioteca de roteamento para Lit, permitindo navegação eficiente e a criação de aplicações SPA com Web Components.
 
 ## Instalação e Configuração
 
 ### Requisitos
 
--   **Node.js** v16 ou superior
--   **npm** (gerenciador de pacotes do Node.js)
+- **Node.js** v16 ou superior
+- **npm** (gerenciador de pacotes do Node.js)
 
 ### Passos
 

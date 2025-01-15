@@ -20,9 +20,8 @@ export class ProfileClass {
 		this.profiles = await this.loadDataByCategory<Profile[]>('profiles')
 		this.assets = await this.loadDataByCategory<Asset[]>('assets')
 		const recs25 = await this.loadDataByCategory<RECs25[]>('recs25')
-		const socialMedia = await this.loadDataByCategory<SocialMedia[]>(
-			'social-media'
-		)
+		const socialMedia =
+			await this.loadDataByCategory<SocialMedia[]>('social-media')
 
 		this.profiles.forEach(async (profile: Profile) => {
 			profile.hidden =

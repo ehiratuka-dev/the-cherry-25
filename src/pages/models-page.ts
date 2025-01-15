@@ -28,7 +28,7 @@ export class ModelsPage extends LitElement {
 					<profile-list-section
 						.profiles="${this.profiles}"
 					></profile-list-section>
-			  </div>`
+				</div>`
 			: nothing
 	}
 }
