@@ -20,7 +20,7 @@ export class ProfileFilterSection extends LitElement {
 		return html`
 			<div class="filter-category">
 				${repeat(this.assets, (asset: Asset) => asset.id, (asset: Asset) => html` 
-					<category-filter-button .icon="${mdiArrowLeftBold}" .asset="${asset}">${asset.name}</category-filter-button>
+					<category-filter-button .icon="${mdiArrowLeftBold}" .asset="${asset}"></category-filter-button>
 				`)}
 			</div>
 		`;

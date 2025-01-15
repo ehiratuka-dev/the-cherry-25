@@ -1,4 +1,3 @@
-import { css } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 
 import '@jamescoyle/svg-icon'
@@ -30,21 +29,4 @@ export class CategoryFilterButton extends BaseButton {
 	handleClick() {
 		console.log(this.asset?.name);
 	}
-
-	static styles = css`
-		.category-filter {
-			display: flex;
-			align-items: center;
-		
-			padding: var(--espacamento);
-			border-radius: var(--borda-arredondada);
-			transition: var(--box-shadow-transition);
-			box-shadow: var(--box-shadow);
-
-			cursor: pointer;
-		}
-
-		.category-filter p {
-			margin: 0 0 0 var(--espacamento);
-		}`
 }

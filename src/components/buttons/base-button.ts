@@ -17,14 +17,14 @@ export class BaseButton extends LitElement {
 
 	render() {
 		return html`
-			<div class="category-filter" @click="${this.handleClick}">
+			<div class="container-base-button" @click="${this.handleClick}">
 				<svg-icon type="mdi" path="${this.icon}" style="color: var(--primary-color)"></svg-icon>
 				<p>${this.text}</p>
 			</div>`;
 	}
 
 	static styles = css`
-		:host {
+		.container-base-button {
 			display: flex;
 			align-items: center;
 		
@@ -36,7 +36,7 @@ export class BaseButton extends LitElement {
 			cursor: pointer;
 		}
 
-		.category-filter p {
+		.container-base-button p {
 			margin: 0 0 0 var(--espacamento);
 		}`
 }
