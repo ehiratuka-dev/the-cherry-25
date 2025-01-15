@@ -14,7 +14,8 @@
 						},
 						"extensions": [
 								"dbaeumer.vscode-eslint",
-								"redhat.vscode-yaml"
+								"redhat.vscode-yaml",
+								"esbenp.prettier-vscode"
 						]
 				}
 		},

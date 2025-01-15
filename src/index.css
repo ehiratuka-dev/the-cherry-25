@@ -1,150 +1,45 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url('./styles/reset.css');
+@import url('./styles/colors.css');
 
-/*********************************
- * 
- * Modificadores de Padronização
- *
- *********************************/
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
-html,
-body {
-	height: 100%;
-	width: 100%;
-	font-family: "Roboto", serif;
-	font-weight: 400;
-	font-style: normal;
-	font-size: 16px;
-}
-
-body {
-	overflow-x: hidden;
-}
-
-a {
-	text-decoration: none;
-	color: inherit;
-}
-
-a:hover,
-a:focus {
-	text-decoration: none;
-	color: inherit;
-}
-
-/**********************************
- * 
- * Definição de Variáveis
- *
- **********************************/
 :root {
-	--tamanho-do-titulo: 2rem;
-	--tamanho-do-subtitulo: 1.5rem;
+  --tamanho-do-titulo: 2rem;
+  --tamanho-do-subtitulo: 1.5rem;
+  --espacamento: 12px;
+  --borda-arredondada: 12px;
+  --largura-do-app: 1080px;
+  --da-bunda0: 200px;
+  --da-bunda1: 500px;
+  --block-qtds: 6;
+  --block-size: calc(
+    calc(
+        var(--largura-do-app) -
+          calc(calc(var(--block-qtds) + 1) * var(--espacamento))
+      ) / var(--block-qtds)
+  );
 
-	/******************************
-	 *
-	 * Espaços
-	 *
-	 ******************************/
-	--espacamento: 12px;
-	--borda-arredondada: 12px;
-	--largura-do-app: 1080px;
+  --box-shadow-color: #212529;
+  --box-shadow: 4px 4px 6px var(--box-shadow-color);
+  --box-shadow-hover: 4px 4px 6px var(--primary-color);
+  --box-shadow-transition: box-shadow 0.3s ease;
 
-	--header-height: 350px;
-	--header-response-width: 20%;
-	--header-min-response-width: 120px;
+  --primary-color: #0d6efd;
 
-	--da-bunda0: 200px;
-	--da-bunda1: 500px;
+  --button-bg-color: transparent;
+  --button-text-color: transparent;
+  --button-spacing: 0.75rem;
+  --button-text-size: inherit;
 
-	--block-qtds: 6;
-	--block-size: calc(calc(var(--largura-do-app) - calc(calc(var(--block-qtds) + 1) * var(--espacamento))) / var(--block-qtds));
-
-	/******************************
-	 *
-	 * Cores
-	 *
-	 ******************************/
-	--bs-blue: #0d6efd;
-	--bs-blue-subtle: #cfe2ff;
-
-    --bs-indigo: #6610f2;
-	--bs-indigo-subtle: #e6d4ff;
-
-    --bs-purple: #6f42c1;
-	--bs-purple-subtle: #d0b8ff;
-
-    --bs-pink: #d63384;
-	--bs-pink-subtle: #f1c3d8;
-
-    --bs-red: #dc3545;
-	--bs-red-subtle: #f8d7da;
-
-    --bs-orange: #fd7e14;
-	--bs-orange-subtle: #fcd8a6;
-
-    --bs-yellow: #ffc107;
-	--bs-yellow-subtle: #fff3cd;
-
-    --bs-green: #198754;
-	--bs-green-subtle: #d1e7dd;
-
-    --bs-teal: #20c997;
-	--bs-teal-subtle: a4e5d3;
-
-    --bs-cyan: #0dcaf0;
-	--bs-cyan-subtle: #cff4fc;
-
-    --bs-black: #000;
-    --bs-white: #fff;
-
-    --bs-gray-100: #f8f9fa;
-    --bs-gray-200: #e9ecef;
-    --bs-gray-300: #dee2e6;
-    --bs-gray-400: #ced4da;
-    --bs-gray-500: #adb5bd;
-    --bs-gray-600: #6c757d;
-    --bs-gray-700: #495057;
-    --bs-gray-800: #343a40;
-    --bs-gray-900: #212529;
-
-	--bs-primary: var(--bs-blue);
-    --bs-secondary: var(--bs-gray);
-    --bs-success: var(--bs-green);
-    --bs-info: var(--bs-cyan);
-    --bs-warning: var(--bs-yellow);
-    --bs-danger: var(--bs-red);
-    --bs-light: var(--bs-gray-100);
-    --bs-dark: var(--bs-gray-900);
-    --bs-gray: var(--bs-gray-600);
-    --bs-gray-dark: var(--bs-gray-800);
-
-	--page-color: #212529;
-	--container-color: #343A40;
-	--primary-text-color: #DEE2E6;
-
-	--box-shadow-color: #212529;
-	--box-shadow: 4px 4px 6px var(--box-shadow-color);
-	--box-shadow-hover: 4px 4px 6px var(--primary-color);
-	--box-shadow-transition: box-shadow 0.3s ease;
-
-	--primary-color: #0D6EFD;
+  --header-height: 350px;
+  --header-response-width: 20%;
+  --header-min-response-width: 120px;
 }
 
-/**********************************
- * 
- * Definição de Paineis
- *
- **********************************/
 body {
-	background-color: var(--page-color);
-	color: var(--primary-text-color);
+  background-color: var(--page-color);
+  color: var(--primary-text-color);
 }
 
 the-cherry-25-app {
-	width: var(--largura-do-app);
+  width: var(--largura-do-app);
 }
