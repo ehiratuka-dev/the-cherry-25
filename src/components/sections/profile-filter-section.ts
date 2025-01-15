@@ -27,9 +27,11 @@ export class ProfileFilterSection extends LitElement {
 	}
 
 	static styles = css`
-			.filter-category {
-				display: flex;
-			}
-		.
-	`
+		.filter-category {
+			display: flex;
+		}
+
+		.filter-category * {
+			margin-right: var(--espacamento);
+		}`
 }
