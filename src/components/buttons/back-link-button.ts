@@ -5,7 +5,7 @@ import { router } from '../../utils/Router'
 import '@jamescoyle/svg-icon'
 import { mdiArrowLeftBold } from '@mdi/js'
 import { BaseButton, COLORS } from './base-button'
-import { css, CSSResultGroup } from 'lit'
+import { css } from 'lit'
 
 @customElement('back-link-button')
 export class BackLinkButton extends BaseButton {
@@ -22,7 +22,7 @@ export class BackLinkButton extends BaseButton {
 		this.color = COLORS.GREEN
 	}
 
-	static styles: CSSResultGroup[] = [
+	static styles = [
 		super.styles,
 		css`
 			:host {
