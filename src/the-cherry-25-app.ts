@@ -3,32 +3,34 @@ import { customElement, state } from 'lit/decorators.js'
 
 import { router } from './utils/Router'
 
-import './pages/model-page'
-import './pages/models-page'
+import './pages/profile-page'
+import './pages/profiles-page'
 import './pages/not-found-page'
 
 @customElement('the-cherry-25-app')
 export class TheCherry25App extends LitElement {
 	@state()
-	private routerOutlet = html`<models-page></models-page>`
+	private routerOutlet = html`<profiles-page></profiles-page>`
 
 	constructor() {
 		super()
 		router
 			.on(
 				'/',
-				() => (this.routerOutlet = html`<models-page></models-page>`)
+				() =>
+					(this.routerOutlet = html`<profiles-page></profiles-page>`)
 			)
 			.on(
-				'/models',
-				() => (this.routerOutlet = html`<models-page></models-page>`)
+				'/profiles',
+				() =>
+					(this.routerOutlet = html`<profiles-page></profiles-page>`)
 			)
 			.on(
-				'/model/:id',
+				'/profile/:id',
 				(match) =>
-					(this.routerOutlet = html`<model-page
+					(this.routerOutlet = html`<profile-page
 						id=${match?.data?.id}
-					></model-page>`)
+					></profile-page>`)
 			)
 			.notFound(
 				() =>
@@ -48,7 +50,7 @@ export class TheCherry25App extends LitElement {
 			);
 			min-height: 100vh;
 			margin: 0 auto;
-			padding: 0 var(--espacamento);
+			padding: var(--espacamento) var(--espacamento) 0;
 
 			display: flex;
 			flex-direction: column;

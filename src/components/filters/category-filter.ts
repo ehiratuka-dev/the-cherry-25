@@ -1,31 +1,31 @@
 import { css, html, LitElement } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 import { ProfileClass } from '../../utils/ProfileClass'
-import { Asset } from '../../types/asset'
+import { Category } from '../../types/category'
 
 @customElement('category-filter')
 export class CategoryFilter extends LitElement {
-	@property({ type: Array }) assets: Asset[] = []
-	@property({ type: Array }) selectedAssets: Asset[] = []
+	@property({ type: Array }) categories: Category[] = []
+	@property({ type: Array }) selectedCategories: Category[] = []
 
 	constructor() {
 		super()
-		this.assets = ProfileClass.getAssets()
+		this.categories = ProfileClass.getCategories()
 		this.style.setProperty('--button-spacing', '0.2rem 1rem')
 		this.style.setProperty('--button-text-size', '0.75rem')
 	}
 
-	private toggleCategory(asset: Asset) {
-		if (this.selectedAssets.includes(asset)) {
-			this.selectedAssets = this.selectedAssets.filter(
-				(selectedAsset) => selectedAsset !== asset
+	private toggleCategory(category: Category) {
+		if (this.selectedCategories.includes(category)) {
+			this.selectedCategories = this.selectedCategories.filter(
+				(selectedCategory) => selectedCategory !== category
 			)
 		} else {
-			this.selectedAssets = [...this.selectedAssets, asset]
+			this.selectedCategories = [...this.selectedCategories, category]
 		}
 		this.dispatchEvent(
 			new CustomEvent('categories-changed', {
-				detail: { selectedCategories: this.selectedAssets },
+				detail: { selectedCategories: this.selectedCategories },
 				bubbles: true,
 				composed: true,
 			})
@@ -35,19 +35,21 @@ export class CategoryFilter extends LitElement {
 	render() {
 		return html`
 			<div class="category-list">
-				${this.assets.map(
-					(asset) => html`
+				${this.categories.map(
+					(category) => html`
 						<div class="category-item">
 							<input
 								type="checkbox"
-								id="asset-${asset.id}"
-								.checked="${this.selectedAssets.includes(
-									asset
+								id="category-${category.id}"
+								.checked="${this.selectedCategories.includes(
+									category
 								)}"
-								@change="${() => this.toggleCategory(asset)}"
+								@change="${() => this.toggleCategory(category)}"
 								hidden
 							/>
-							<label for="asset-${asset.id}">${asset.name}</label>
+							<label for="category-${category.id}"
+								>${category.name}</label
+							>
 						</div>
 					`
 				)}

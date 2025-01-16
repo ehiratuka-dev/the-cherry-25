@@ -10,7 +10,7 @@ export class ProfileItemSection extends LitElement {
 	profile: Profile | undefined = undefined
 
 	private _onClick() {
-		router.navigate(`model/${this.profile?.id}`)
+		router.navigate(`profile/${this.profile?.id}`)
 	}
 
 	render() {

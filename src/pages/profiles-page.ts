@@ -9,8 +9,8 @@ import '../components/sections/profile-list-section'
 import '../components/filters/category-filter'
 import '../components/filters/nudometro-filter'
 
-@customElement('models-page')
-export class ModelsPage extends LitElement {
+@customElement('profiles-page')
+export class ProfilesPage extends LitElement {
 	@property()
 	protected profiles: Profile[] | undefined
 
@@ -25,36 +25,14 @@ export class ModelsPage extends LitElement {
 
 	render() {
 		return this.profiles
-			? html` <div>
-					<div class="container">
-						<profile-filter-section></profile-filter-section>
-						<profile-list-section
-							.profiles="${this.profiles}"
-						></profile-list-section>
-					</div>
+			? html`<div class="profile-page-container">
+					<profile-filter-section></profile-filter-section>
+					<profile-list-section
+						.profiles="${this.profiles}"
+					></profile-list-section>
 				</div>`
 			: nothing
 	}
 
-	static styles = css`
-		.category-list {
-			display: flex;
-			flex-wrap: wrap;
-			gap: 8px;
-		}
-
-		.category-list label {
-			cursor: pointer;
-			background-color: #f0f0f0;
-			border: 1px solid #ccc;
-			border-radius: 4px;
-			padding: 6px 12px;
-		}
-
-		.category-list input:checked + label {
-			background-color: #007bff;
-			color: #fff;
-			border-color: #0056b3;
-		}
-	`
+	static styles = css``
 }

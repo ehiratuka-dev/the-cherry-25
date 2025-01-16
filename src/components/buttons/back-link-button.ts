@@ -22,6 +22,6 @@ export class BackLinkButton extends BaseButton {
 	}
 
 	handleClick() {
-		router.navigate('/models')
+		router.navigate('/profiles')
 	}
 }

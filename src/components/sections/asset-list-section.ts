@@ -64,12 +64,12 @@ export class AssetListection<T extends AssetType> extends LitElement {
 						)}
 					</div>
 
-					<model-page-modal
+					<profile-page-modal
 						.open="${this.showModal}"
 						.name="${this.name}"
 						@modal-closed="${this.closeModal}"
 					>
-					</model-page-modal>`
+					</profile-page-modal>`
 			: html``
 	}
 

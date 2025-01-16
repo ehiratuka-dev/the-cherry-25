@@ -10,18 +10,13 @@ import '../components/sections/profile-info-section'
 import '../components/sections/asset-list-section'
 import '../components/modals/gallery-modal'
 
-import { Asset } from '../types/asset'
-
-@customElement('model-page')
-export class ModelPage extends LitElement {
+@customElement('profile-page')
+export class ProfilePage extends LitElement {
 	@property()
 	id: string = ''
 
 	@state()
 	profile: Profile | undefined = undefined
-
-	@state()
-	assets: Asset[] = []
 
 	@state()
 	showModal: boolean = false
@@ -35,7 +30,6 @@ export class ModelPage extends LitElement {
 	async connectedCallback() {
 		super.connectedCallback()
 		this.profile = await ProfileClass.getProfileById(this.id)
-		this.assets = await ProfileClass.getAssets()
 	}
 
 	openModal(e: CustomEvent) {

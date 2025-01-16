@@ -3,12 +3,12 @@ import yaml from 'js-yaml'
 import { RECs25 } from '../types/recs25-type'
 import { SocialMedia } from '../types/social-media-type'
 import { Profile } from '../types/profile-type'
-import { Asset } from '../types/asset'
+import { Category } from '../types/category'
 
 export class ProfileClass {
 	private static profiles: Profile[]
 
-	private static assets: Asset[]
+	private static categories: Category[]
 
 	private constructor() {}
 
@@ -18,7 +18,8 @@ export class ProfileClass {
 		}
 
 		this.profiles = await this.loadDataByCategory<Profile[]>('profiles')
-		this.assets = await this.loadDataByCategory<Asset[]>('assets')
+		this.categories =
+			await this.loadDataByCategory<Category[]>('categories')
 		const recs25 = await this.loadDataByCategory<RECs25[]>('recs25')
 		const socialMedia =
 			await this.loadDataByCategory<SocialMedia[]>('social-media')
@@ -42,10 +43,12 @@ export class ProfileClass {
 			}
 		})
 
-		this.assets.map((asset: Asset) => {
-			asset.show = asset.show === undefined ? false : asset.show
-			asset.selector =
-				asset.selector === undefined ? asset.id : asset.selector
+		this.categories.map((category: Category) => {
+			category.show = category.show === undefined ? false : category.show
+			category.selector =
+				category.selector === undefined
+					? category.id
+					: category.selector
 		})
 	}
 
@@ -113,7 +116,7 @@ export class ProfileClass {
 		return this.profiles.find((profile) => profile.id === id)
 	}
 
-	public static getAssets(): Asset[] {
-		return this.assets
+	public static getCategories(): Category[] {
+		return this.categories
 	}
 }
