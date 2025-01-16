@@ -18,26 +18,38 @@ export class ProfileFilterSection extends LitElement {
 
 	render() {
 		return html`
-			<div class="filter-category">
-				${repeat(
-					this.assets,
-					(asset: Asset) => asset.id,
-					(asset: Asset) => html`
-						<category-filter-button
-							.icon="${mdiArrowLeftBold}"
-							.asset="${asset}"
-						></category-filter-button>
-					`
-				)}
+			<div class="profile-filter">
+				<div class="filter-category">
+					${repeat(
+						this.assets,
+						(asset: Asset) => asset.id,
+						(asset: Asset) => html`
+							<category-filter-button
+								.icon="${mdiArrowLeftBold}"
+								.asset="${asset}"
+							></category-filter-button>
+						`
+					)}
+				</div>
+
+				<nudometro-filter></nudometro-filter>
 			</div>
 		`
 	}
 
 	static styles = css`
+		.profile-filter {
+			display: flex;
+			flex-wrap: wrap;
+			flex-direction: column;
+			justify-content: flex-start;
+			margin-top: var(--espacamento);
+		}
+
 		.filter-category {
 			display: flex;
 			flex-wrap: wrap;
-			justify-content: center;
+			justify-content: flex-start;
 			margin-top: var(--espacamento);
 		}
 

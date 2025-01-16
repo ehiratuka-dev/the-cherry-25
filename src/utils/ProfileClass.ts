@@ -113,8 +113,7 @@ export class ProfileClass {
 		return this.profiles.find((profile) => profile.id === id)
 	}
 
-	public static async getAssets(): Promise<Asset[]> {
-		await this.loadData()
+	public static getAssets(): Asset[] {
 		return this.assets
 	}
 }
