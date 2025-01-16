@@ -5,4 +5,4 @@ RUN npm install
 RUN npm run build
 
 FROM nginx:latest
-COPY --from=builder /share/webapp/dist /share/webapp
+COPY --from=builder /share/webapp /share/webapp

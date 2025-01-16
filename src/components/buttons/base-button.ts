@@ -53,7 +53,7 @@ export class BaseButton extends LitElement {
 		}
 	}
 
-	styles = css`
+	static styles = css`
 		.container-base-button {
 			display: flex;
 			align-items: center;
