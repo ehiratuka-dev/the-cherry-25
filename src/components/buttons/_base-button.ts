@@ -14,6 +14,7 @@ export const enum COLORS {
 	GREEN = 'green',
 	TEAL = 'teal',
 	CYAN = 'cyan',
+	DEFAULT = 'transparent',
 }
 
 @customElement('base-button')

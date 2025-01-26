@@ -24,7 +24,7 @@ export class ProfilesPage extends LitElement {
 
 	handleProfilesListUpdated(event: ProfileListUpdatedEvent) {
 		if (this.profiles) {
-			event.filterProfiles(this.profiles).then((profiles) => {
+			event.filterProfiles().then((profiles) => {
 				this.profiles = profiles
 			})
 		}

@@ -10,12 +10,8 @@ export class SelectButton extends BaseButton {
 
 	restoreColor: COLORS | undefined
 
-	constructor(
-		text: string | undefined,
-		icon: string | undefined,
-		color: COLORS | undefined
-	) {
-		super(text, icon, color)
+	public connectedCallback(): void {
+		super.connectedCallback()
 		this.style.setProperty('--button-spacing', '0.2rem 1rem')
 		this.style.setProperty('--button-text-size', '0.75rem')
 	}
@@ -28,8 +24,11 @@ export class SelectButton extends BaseButton {
 	protected updated(changedProperties: Map<string, string>): void {
 		super.updated(changedProperties)
 		if (changedProperties.has('selected')) {
-			if (this.selected) this.color = COLORS.BLUE
-			else this.color = this.restoreColor ?? COLORS.BLUE
+			if (this.selected) {
+				this.color = COLORS.BLUE
+			} else {
+				this.color = this.restoreColor ?? COLORS.DEFAULT
+			}
 		}
 	}
 }

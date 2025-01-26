@@ -1,5 +1,8 @@
 /* Váriaveis de APARÊNCIA */
 :root {
+	--bs-transparent: transparent;
+	--bs-transparent-subtle: transparent;
+
 	--bs-blue: #0d6efd;
 	--bs-blue-subtle: #cfe2ff;
 
