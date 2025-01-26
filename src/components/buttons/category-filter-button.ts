@@ -6,15 +6,31 @@ import * as mdiIcons from '@mdi/js'
 import { Category } from '../../types/category'
 import { SelectButton } from './select-button'
 import { COLORS } from './_base-button'
+import { CategoryFilterChangedEvent } from '../events/CategoryFilterChangedEvent'
 
 @customElement('category-filter-button')
 export class CategoryFilterButton extends SelectButton {
 	@property()
 	category: Category | undefined
 
-	constructor(category: Category) {
-		super(category)
+	constructor(category: Category | undefined) {
+		super(category?.name, category?.icon, category?.color)
 		this.category = category
+	}
+
+	handleClick() {
+		super.handleClick()
+		if (this.category) {
+			this.dispatchEvent(new CategoryFilterChangedEvent(this.category))
+		}
+
+		// this.dispatchEvent(
+		// 	new CustomEvent('categoryFilterChanged', {
+		// 		detail: { category: this.category }, // Dados do evento
+		// 		bubbles: true, // Para propagar no DOM
+		// 		composed: true, // Para atravessar Shadow DOM
+		// 	})
+		// )
 	}
 
 	getStatusFromString(statusString: string): COLORS {

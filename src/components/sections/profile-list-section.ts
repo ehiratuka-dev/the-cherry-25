@@ -2,7 +2,6 @@ import { LitElement, css, html, nothing } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 import { repeat } from 'lit/directives/repeat.js'
 
-import { ProfileClass } from '../../utils/ProfileClass'
 import { Profile } from '../../types/profile-type'
 
 import './profile-item-section'
@@ -11,15 +10,6 @@ import './profile-item-section'
 export class ProfileListSection extends LitElement {
 	@property()
 	protected profiles: Profile[] | undefined
-
-	constructor() {
-		super()
-	}
-
-	async connectedCallback() {
-		super.connectedCallback()
-		this.profiles = await ProfileClass.getProfiles()
-	}
 
 	render() {
 		return this.profiles

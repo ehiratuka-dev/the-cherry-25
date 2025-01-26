@@ -17,7 +17,7 @@ export const enum COLORS {
 }
 
 @customElement('base-button')
-export class BaseButton extends LitElement {
+export abstract class BaseButton extends LitElement {
 	@property()
 	icon: string | undefined
 
@@ -38,7 +38,7 @@ export class BaseButton extends LitElement {
 		this.color = color
 	}
 
-	protected handleClick() {}
+	protected abstract handleClick(): void
 
 	render() {
 		return html` <div
@@ -50,7 +50,7 @@ export class BaseButton extends LitElement {
 		</div>`
 	}
 
-	updated(changedProperties: Map<string, unknown>) {
+	protected updated(changedProperties: Map<string, unknown>): void {
 		super.updated(changedProperties)
 		if (changedProperties.has('color')) {
 			this.style.setProperty(

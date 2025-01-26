@@ -4,15 +4,32 @@ import { ProfileClass } from '../../utils/ProfileClass'
 import { Category } from '../../types/category'
 import { repeat } from 'lit/directives/repeat.js'
 import '../buttons/category-filter-button'
+import { CategoryFilterChangedEvent } from '../events/CategoryFilterChangedEvent'
+import { ProfileListUpdatedEvent } from '../events/ProfileListUpdatedEvent'
 
 @customElement('profile-filter-section')
 export class ProfileFilterSection extends LitElement {
 	@property()
 	categories: Array<Category> = []
 
+	selectedCategories: Array<Category> = []
+
 	async connectedCallback() {
 		super.connectedCallback()
 		this.categories = await ProfileClass.getCategories()
+	}
+
+	categoryFilterChanged(event: CategoryFilterChangedEvent) {
+		const index = this.selectedCategories.findIndex(
+			(c: Category) => c.id === event.category.id
+		)
+
+		if (index !== -1) {
+			this.selectedCategories.splice(index, 1)
+		} else {
+			this.selectedCategories.push(event.category)
+		}
+		this.dispatchEvent(new ProfileListUpdatedEvent(this.selectedCategories))
 	}
 
 	render() {
@@ -24,7 +41,9 @@ export class ProfileFilterSection extends LitElement {
 						(category: Category) => category.id,
 						(category: Category) => html`
 							<category-filter-button
-								.category.="${category}"
+								@categoryFilterChanged="${this
+									.categoryFilterChanged}"
+								.category="${category}"
 							></category-filter-button>
 						`
 					)}
