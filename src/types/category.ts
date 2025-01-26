@@ -1,4 +1,4 @@
-import { COLORS } from '../components/buttons/base-button'
+import { COLORS } from '../components/buttons/_base-button'
 
 export interface Category {
 	id: string

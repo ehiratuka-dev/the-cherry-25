@@ -1,7 +1,7 @@
 import { customElement, property } from 'lit/decorators.js'
 
 import '@jamescoyle/svg-icon'
-import { BaseButton, COLORS } from './base-button'
+import { BaseButton, COLORS } from './_base-button'
 import { Category } from '../../types/category'
 
 @customElement('select-button')

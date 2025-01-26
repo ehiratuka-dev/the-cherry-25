@@ -4,19 +4,35 @@ import { router } from '../../utils/Router'
 
 import '@jamescoyle/svg-icon'
 import { mdiArrowLeftBold } from '@mdi/js'
-import { BaseButton, COLORS } from './base-button'
+import { BaseButton, COLORS } from './_base-button'
 import { css } from 'lit'
 
 @customElement('back-link-button')
 export class BackLinkButton extends BaseButton {
 	@property()
-	top: string = ''
+	top: string = 'var(--espacamento)'
 
 	@property()
-	left: string = ''
+	left: string = 'var(--espacamento)'
 
 	constructor() {
 		super('Voltar', mdiArrowLeftBold, COLORS.GREEN)
+	}
+
+	updated(changedProperties: Map<string, unknown>) {
+		super.updated(changedProperties)
+		if (changedProperties.has('top')) {
+			this.style.setProperty(
+				'--button-relative-top-position',
+				`${this.top}`
+			)
+		}
+		if (changedProperties.has('left')) {
+			this.style.setProperty(
+				'--button-relative-left-position',
+				`${this.left}`
+			)
+		}
 	}
 
 	handleClick() {
@@ -24,27 +40,12 @@ export class BackLinkButton extends BaseButton {
 	}
 
 	static styles = css`
+		${super.styles}
+
 		.container-base-button {
-			display: flex;
-			align-items: center;
-
-			border-radius: var(--borda-arredondada);
-			transition: var(--box-shadow-transition);
-			box-shadow: var(--box-shadow);
-
-			cursor: pointer;
 			position: absolute;
-			top: var(--espacamento);
-			left: var(--espacamento);
-
-			background-color: var(--button-bg-color);
-			color: var(--button-text-color);
-			padding: var(--button-spacing);
-			font-size: var(--button-text-size);
-		}
-
-		.container-base-button p {
-			margin: 0 0 0 var(--espacamento);
+			top: var(--button-relative-top-position);
+			left: var(--button-relative-left-position);
 		}
 	`
 }

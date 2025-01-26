@@ -5,7 +5,7 @@ import * as mdiIcons from '@mdi/js'
 
 import { Category } from '../../types/category'
 import { SelectButton } from './select-button'
-import { COLORS } from './base-button'
+import { COLORS } from './_base-button'
 
 @customElement('category-filter-button')
 export class CategoryFilterButton extends SelectButton {

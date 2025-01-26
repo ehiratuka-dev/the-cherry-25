@@ -14,7 +14,7 @@ export class NotFoundPage extends LitElement {
 	render() {
 		return html` <div class="flex-container">
 			<p>Página Não Encontrada</p>
-			<back-link-button .left="${'0'}"></back-link-button>
+			<back-link-button left="0"></back-link-button>
 		</div>`
 	}
 

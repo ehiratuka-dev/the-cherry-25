@@ -5,3 +5,9 @@
 	--button-spacing: 0.75rem;
 	--button-text-size: inherit;
 }
+
+/* Váriaveis para componentes tipo BackLink Button */
+:root {
+	--button-relative-top-position: var(--espacamento);
+	--button-relative-left-position: var(--espacamento);
+}
