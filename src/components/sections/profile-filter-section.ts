@@ -4,7 +4,6 @@ import { ProfileClass } from '../../utils/ProfileClass'
 import { Category } from '../../types/category'
 import { repeat } from 'lit/directives/repeat.js'
 import '../buttons/category-filter-button'
-import { mdiArrowLeftBold } from '@mdi/js'
 
 @customElement('profile-filter-section')
 export class ProfileFilterSection extends LitElement {
@@ -18,15 +17,14 @@ export class ProfileFilterSection extends LitElement {
 
 	render() {
 		return html`
-			<div class="profile-filter">
+			<div class="profile-filter-container">
 				<div class="filter-category">
 					${repeat(
 						this.categories,
 						(category: Category) => category.id,
 						(category: Category) => html`
 							<category-filter-button
-								.icon="${mdiArrowLeftBold}"
-								category.="${category}"
+								.category.="${category}"
 							></category-filter-button>
 						`
 					)}
@@ -38,7 +36,7 @@ export class ProfileFilterSection extends LitElement {
 	}
 
 	static styles = css`
-		.profile-filter {
+		.profile-filter-container {
 			display: flex;
 			flex-wrap: wrap;
 			flex-direction: column;

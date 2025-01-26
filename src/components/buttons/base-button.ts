@@ -27,6 +27,17 @@ export class BaseButton extends LitElement {
 	@property()
 	color: COLORS | undefined
 
+	constructor(
+		text: string | undefined,
+		icon: string | undefined,
+		color: COLORS | undefined
+	) {
+		super()
+		this.text = text
+		this.icon = icon
+		this.color = color
+	}
+
 	protected handleClick() {}
 
 	render() {

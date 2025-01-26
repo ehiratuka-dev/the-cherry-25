@@ -5,6 +5,7 @@ import { router } from './utils/Router'
 
 import './pages/profile-page'
 import './pages/profiles-page'
+import './pages/example-page'
 import './pages/not-found-page'
 
 @customElement('the-cherry-25-app')
@@ -24,6 +25,10 @@ export class TheCherry25App extends LitElement {
 				'/profiles',
 				() =>
 					(this.routerOutlet = html`<profiles-page></profiles-page>`)
+			)
+			.on(
+				'/example',
+				() => (this.routerOutlet = html`<example-page></example-page>`)
 			)
 			.on(
 				'/profile/:id',

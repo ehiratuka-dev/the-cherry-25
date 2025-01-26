@@ -2,6 +2,7 @@ import { customElement, property } from 'lit/decorators.js'
 
 import '@jamescoyle/svg-icon'
 import { BaseButton, COLORS } from './base-button'
+import { Category } from '../../types/category'
 
 @customElement('select-button')
 export class SelectButton extends BaseButton {
@@ -10,8 +11,8 @@ export class SelectButton extends BaseButton {
 
 	restoreColor: COLORS | undefined
 
-	constructor() {
-		super()
+	constructor(category: Category | undefined) {
+		super(category?.name, category?.icon, category?.color)
 		this.style.setProperty('--button-spacing', '0.2rem 1rem')
 		this.style.setProperty('--button-text-size', '0.75rem')
 	}

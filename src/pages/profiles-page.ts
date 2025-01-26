@@ -6,8 +6,6 @@ import { Profile } from '../types/profile-type'
 
 import '../components/sections/profile-filter-section'
 import '../components/sections/profile-list-section'
-import '../components/filters/category-filter'
-import '../components/filters/nudometro-filter'
 
 @customElement('profiles-page')
 export class ProfilesPage extends LitElement {

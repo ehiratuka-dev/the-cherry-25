@@ -1,7 +1,6 @@
 import { customElement, property } from 'lit/decorators.js'
 
 import '@jamescoyle/svg-icon'
-
 import * as mdiIcons from '@mdi/js'
 
 import { Category } from '../../types/category'
@@ -14,7 +13,7 @@ export class CategoryFilterButton extends SelectButton {
 	category: Category | undefined
 
 	constructor() {
-		super()
+		super(this.category)
 	}
 
 	getStatusFromString(statusString: string): COLORS {
