@@ -31,7 +31,6 @@ export class SelectButton extends BaseButton {
 				)
 				this.style.setProperty('--button-transform', `scale(0.95)`)
 			} else {
-				this.color = this.restoreColor ?? COLORS.DEFAULT
 				this.style.setProperty(
 					'--button-box-shadow',
 					'4px 4px 6px var(--box-shadow-color)'

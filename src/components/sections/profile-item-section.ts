@@ -16,7 +16,7 @@ export class ProfileItemSection extends LitElement {
 	render() {
 		return html` <div class="bloco" @click=${this._onClick}>
 			<img src="${this.profile?.bannerSrc}" />
-			<p>@${this.profile?.id}</p>
+			<p>${this.profile?.nome}</p>
 		</div>`
 	}
 

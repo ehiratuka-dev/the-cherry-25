@@ -43,9 +43,14 @@ export class CategoryFilterButton extends SelectButton {
 			const iconName = this.category.icon
 			const iconPath = mdiIcons[iconName as keyof typeof mdiIcons]
 
-			this.icon = iconPath
-			this.text = this.category.name
-			this.color = this.category.color as COLORS
+			setTimeout(() => {
+				if (this.category) {
+					this.icon = iconPath
+					this.text = this.category.name
+					this.color = this.category.color as COLORS
+					this.requestUpdate()
+				}
+			}, 0)
 		}
 	}
 }

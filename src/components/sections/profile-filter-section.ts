@@ -6,8 +6,6 @@ import { repeat } from 'lit/directives/repeat.js'
 import '../buttons/category-filter-button'
 import { CategoryFilterChangedEvent } from '../events/CategoryFilterChangedEvent'
 import { ProfileListUpdatedEvent } from '../events/ProfileListUpdatedEvent'
-import { COLORS } from '../buttons/_base-button'
-import { mdiGateAnd } from '@mdi/js'
 
 @customElement('profile-filter-section')
 export class ProfileFilterSection extends LitElement {
@@ -49,11 +47,6 @@ export class ProfileFilterSection extends LitElement {
 							></category-filter-button>
 						`
 					)}
-					<select-button
-						text="AND"
-						.color="${COLORS.RED}"
-						.icon="${mdiGateAnd}"
-					></select-button>
 				</div>
 
 				<nudometro-filter></nudometro-filter>
