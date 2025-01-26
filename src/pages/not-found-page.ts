@@ -14,7 +14,7 @@ export class NotFoundPage extends LitElement {
 	render() {
 		return html` <div class="flex-container">
 			<p>Página Não Encontrada</p>
-			<back-link-button .left="${'0px'}"></back-link-button>
+			<back-link-button .left="${'0'}"></back-link-button>
 		</div>`
 	}
 
@@ -31,7 +31,7 @@ export class NotFoundPage extends LitElement {
 
 		.flex-container p {
 			display: block;
-			margin: 0px;
+			margin: 0;
 			text-align: center;
 			font-size: var(--tamanho-do-titulo);
 		}

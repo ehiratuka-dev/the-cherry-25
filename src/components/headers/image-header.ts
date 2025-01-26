@@ -23,22 +23,6 @@ export class ImageHeader extends LitElement {
 			margin-right: calc(-1 * var(--espacamento));
 		}
 
-		.image-container::after {
-			content: '';
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			pointer-events: none;
-			background: linear-gradient(
-					to bottom,
-					rgba(33, 37, 41, 0%) 0%,
-					rgba(52, 58, 64, 1) 100%
-				)
-				100%;
-		}
-
 		.image-container img {
 			width: 100%;
 			margin: 0 0 0 0;

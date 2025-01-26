@@ -41,13 +41,11 @@ export class NudometroFilter extends LitElement {
 
 		.stars {
 			display: flex;
-			gap: 4px;
 		}
 
 		.stars button {
 			background: none;
 			border: none;
-			font-size: 24px;
 			cursor: pointer;
 			color: #ccc;
 			padding: 0;

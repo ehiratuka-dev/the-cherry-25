@@ -12,8 +12,9 @@ export class CategoryFilterButton extends SelectButton {
 	@property()
 	category: Category | undefined
 
-	constructor() {
-		super(this.category)
+	constructor(category: Category) {
+		super(category)
+		this.category = category
 	}
 
 	getStatusFromString(statusString: string): COLORS {

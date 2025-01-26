@@ -56,11 +56,12 @@ export class ProfileInfoSection extends LitElement {
 
 	static styles = css`
 		.header-info {
+			width: calc(100% + var(--espacamento) + var(--espacamento));
 			display: flex;
 			position: relative;
 			margin-top: min(
-				calc(calc(0 - var(--header-response-width)) / 2),
-				calc(calc(0 - var(--header-min-response-width)) / 2)
+				calc(calc(0% - var(--header-response-width)) / 2),
+				calc(calc(0% - var(--header-min-response-width)) / 2)
 			);
 			margin-bottom: var(--espacamento);
 		}
@@ -74,17 +75,12 @@ export class ProfileInfoSection extends LitElement {
 
 		.header-info .tags {
 			width: calc(var(--largura-do-app) - var(--header-response-width));
-			padding: 0 0 0 var(--espacamento);
 			align-self: flex-end;
 
-			display: grid;
-			grid-template-columns: repeat(
-				auto-fit,
-				minmax(var(--da-bunda0), 1fr)
-			);
-			gap: calc(var(--espacamento) / 2);
-			align-content: stretch;
-			align-items: center;
+			display: flex;
+			align-items: flex-start;
+			flex-direction: column;
+			row-gap: calc(var(--espacamento) / 2);
 		}
 
 		.tags .tag {
@@ -94,6 +90,7 @@ export class ProfileInfoSection extends LitElement {
 
 			display: flex;
 			align-items: center;
+			margin-left: var(--espacamento);
 		}
 
 		.tag p {

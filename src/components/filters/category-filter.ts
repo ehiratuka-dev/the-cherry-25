@@ -66,7 +66,6 @@ export class CategoryFilter extends LitElement {
 		.category-list {
 			display: flex;
 			flex-wrap: wrap;
-			gap: 8px;
 		}
 
 		.category-item {
