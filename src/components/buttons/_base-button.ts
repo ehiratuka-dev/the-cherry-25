@@ -71,11 +71,13 @@ export abstract class BaseButton extends LitElement {
 			align-items: center;
 
 			border-radius: var(--borda-arredondada);
-			transition: var(--box-shadow-transition);
-			box-shadow: var(--box-shadow);
 
 			cursor: pointer;
 			position: relative;
+
+			transition: var(--button-transition);
+			box-shadow: var(--button-box-shadow);
+			transform: var(--button-transform);
 
 			background-color: var(--button-bg-color);
 			color: var(--button-text-color);

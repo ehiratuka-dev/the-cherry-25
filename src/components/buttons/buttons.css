@@ -1,13 +1,17 @@
-/* Váriaveis para componentes tipo Buttons */
 :root {
+	/* Váriaveis para componentes tipo Buttons */
 	--button-bg-color: transparent;
 	--button-text-color: transparent;
 	--button-spacing: 0.75rem;
 	--button-text-size: inherit;
-}
 
-/* Váriaveis para componentes tipo BackLink Button */
-:root {
+	/* Váriaveis para componentes tipo BackLink Button */
 	--button-relative-top-position: var(--espacamento);
 	--button-relative-left-position: var(--espacamento);
+
+	/* Váriaveis para componentes tipo BackLink Button */
+	--button-transition: all 0.2s ease;
+	--button-box-shadow: var(--box-shadow);
+
+	--button-transform: none;
 }
