@@ -1,3 +1,4 @@
+import { RECs } from './recs-type'
 import { RECs25 } from './recs25-type'
 import { SocialMedia } from './social-media-type'
 
@@ -17,4 +18,5 @@ export interface Profile {
 
 	socialMedia: SocialMedia[]
 	recs25: RECs25[]
+	recs: RECs[]
 }

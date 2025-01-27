@@ -61,6 +61,11 @@ export class ProfilePage extends LitElement {
 					.assets="${this.profile?.recs25}"
 					title="RECs25"
 				></asset-list-section>
+
+				<asset-list-section
+					.assets="${this.profile?.recs}"
+					title="RECs"
+				></asset-list-section>
 			</div>
 
 			<gallery-modal

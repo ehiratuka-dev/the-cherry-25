@@ -4,6 +4,7 @@ import { RECs25 } from '../types/recs25-type'
 import { SocialMedia } from '../types/social-media-type'
 import { Profile } from '../types/profile-type'
 import { Category } from '../types/category'
+import { RECs } from '../types/recs-type'
 
 export class ProfileClass {
 	private static profiles: Profile[]
@@ -20,7 +21,9 @@ export class ProfileClass {
 		this.profiles = await this.loadDataByCategory<Profile[]>('profiles')
 		this.categories =
 			await this.loadDataByCategory<Category[]>('categories')
+
 		const recs25 = await this.loadDataByCategory<RECs25[]>('recs25')
+		const recs = await this.loadDataByCategory<RECs[]>('recs')
 		const socialMedia =
 			await this.loadDataByCategory<SocialMedia[]>('social-media')
 
@@ -31,15 +34,16 @@ export class ProfileClass {
 				profile.bannered === undefined ? true : profile.bannered
 
 			profile.recs25 = this.gerarRECs25(profile, recs25)
+			profile.recs = this.gerarRECs(profile, recs)
 			profile.socialMedia = this.gerarSocialMedia(profile, socialMedia)
 			profile.nudometro = this.calcularNudometro(profile)
 
 			if (profile.bannered) {
-				profile.bannerSrc = `/data/Profile/@${profile.id} banner.png`
-				profile.iconSrc = `/data/Profile/@${profile.id} icon.jpg`
+				profile.bannerSrc = `/data/Profile/${profile.id} banner.png`
+				profile.iconSrc = `/data/Profile/${profile.id} icon.png`
 			} else {
 				profile.bannerSrc = `/data/Profile/default banner.png`
-				profile.iconSrc = `/data/Profile/default icon.jpg`
+				profile.iconSrc = `/data/Profile/default icon.png`
 			}
 		})
 
@@ -69,11 +73,27 @@ export class ProfileClass {
 			.flatMap((rc: RECs25) => {
 				return Array.from({ length: 3 }, (_, index) => {
 					const newRc = { ...rc }
-					newRc.assetSrc = `/data/RECs25/Hot/RECs25-${rc.id
+					newRc.assetSrc = `/data/02-recs25/04-hots/recs25${rc.id
 						?.toString()
-						.padStart(2, '0')} Clipe-${rc.clipe
+						.padStart(2, '0')}-clipe${rc.clipe
 						.toString()
-						.padStart(2, '0')} Hot-0${index + 1}.png`
+						.padStart(2, '0')}-hot0${index + 1}.jpg`
+					return newRc
+				})
+			})
+	}
+
+	private static gerarRECs(profile: Profile, recs: RECs[]): RECs[] {
+		return recs
+			.filter((rc: RECs) => rc.profile === profile.id)
+			.flatMap((rc: RECs) => {
+				return Array.from({ length: 3 }, (_, index) => {
+					const newRc = { ...rc }
+					newRc.assetSrc = `/data/01-recs/04-hots/recs${rc.id
+						?.toString()
+						.padStart(2, '0')}-clipe${rc.clipe
+						.toString()
+						.padStart(2, '0')}-hot0${index + 1}.jpg`
 					return newRc
 				})
 			})
